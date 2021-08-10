@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtCorrectAnswer = (TextView) findViewById((R.id.txtCorrectAnswer));
         btnStart.setOnClickListener(view -> {
             QuestionSample sample;
-            sample = questionSamples.get(0);
+            sample = questionSamples.get(1);
             txtType.setText("Type: " + sample.getType());
             txtInstruction.setText("Instruction: " + sample.getInstruction());
             txtQuestion.setText("Question: " + sample.getQuestion());
