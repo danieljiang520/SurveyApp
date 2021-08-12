@@ -9,6 +9,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class FirstPageActivity extends AppCompatActivity {
 
     private static final String TAG = "FirstPageActivity";
@@ -43,6 +48,19 @@ public class FirstPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 partNum = partNumEntry.getText().toString();
                 startTime = startTimeEntry.getText().toString();
+
+                // this creates a new file output stream
+                File myExternalFile = new File(getExternalFilesDir("CsvFileDir"), partNum + ".csv");
+                FileOutputStream fos = null;
+                try{
+                    fos = new FileOutputStream(myExternalFile);
+                    fos.write(startTime.getBytes());
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+                // FOR DEBUG
+                Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
 
                 // FOR DEBUG
                 //showButtonWork(partNum);
