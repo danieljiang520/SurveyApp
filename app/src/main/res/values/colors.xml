@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="umblue">#00274C</color>
     <color name="ummaize">#FFCB05</color>
+    <color name="textgrey">#5c5c5c</color>
 </resources>

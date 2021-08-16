@@ -1,5 +1,6 @@
 package com.example.surveyapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class FirstPageActivity extends AppCompatActivity {
 
     private static final String TAG = "FirstPageActivity";
+    public static final String EXTRA_OUTPUT = "OUTPUT_NAME";
 
     // initializing variables for saving values/using widgets
     String partNum;
@@ -55,9 +57,16 @@ public class FirstPageActivity extends AppCompatActivity {
                 CSVWriting csvWriter = new CSVWriting();
                 csvWriter.CreateCSV(partNum,startTime,FirstPageActivity.this);
 
+                ActivitySwitch();
+
                 // FOR DEBUG
                 Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void ActivitySwitch(){
+        Intent intent = new Intent(this,MapActivity.class);
+        intent.putExtra(EXTRA_OUTPUT, partNum); // this sends the io name to the next activity
+        startActivity(intent);
     }
 }
