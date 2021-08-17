@@ -39,17 +39,28 @@ public class CSVWriting extends AppCompatActivity {
         }
     }
 
-    // DOESNT WORK YET :( USE FILEWRITER? APPEND OPTION FOR FILEOUTPUT STREAM?s
-    public void WriteAnswers(String outputName){
-        File externalStorageDir = Environment.getExternalStorageDirectory();
-        File myFile = new File(externalStorageDir, outputName + ".csv");
+    // writes out answer format
+    public void WriteAnswers(String outputName, Context context, GetTimeStamp timeStamps,
+                             String type, String answer, String correctAnswer){
+        File myExternalFile = new File(context.getExternalFilesDir("CsvFileDir"), outputName + ".csv");
+        FileOutputStream fos;
         try{
-            FileOutputStream fout = new FileOutputStream(myFile);
-            OutputStreamWriter myOutWriter = new OutputStreamWriter(fout);
-            myOutWriter.append("\n");
-            myOutWriter.append("test");
-            myOutWriter.close();
-            fout.close();
+            fos = new FileOutputStream(myExternalFile, true);
+            fos.write("\n".getBytes());
+            fos.write(",".getBytes());
+            fos.write(timeStamps.firstClick.getBytes());
+            fos.write(",".getBytes());
+            fos.write(timeStamps.lastClick.getBytes());
+            fos.write(",".getBytes());
+            fos.write(timeStamps.pageSubmit.getBytes());
+            fos.write(",".getBytes());
+            fos.write(String.valueOf(timeStamps.clickCount).getBytes());
+            fos.write(",".getBytes());
+            fos.write(type.getBytes());
+            fos.write(",".getBytes());
+            fos.write(answer.getBytes());
+            fos.write(",".getBytes());
+            fos.write(correctAnswer.getBytes());
         }
         catch(IOException e){
             e.printStackTrace();
