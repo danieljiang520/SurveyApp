@@ -51,7 +51,6 @@ public class FirstPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';
-                labels = ",first click,last click,page submit,click count,type,answer,correct answer,correctness";
 
                 // this creates a new file output stream
                 CSVWriting csvWriter = new CSVWriting();
