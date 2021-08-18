@@ -1,20 +1,17 @@
 package com.example.surveyapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class MapActivity extends AppCompatActivity {
+public class SpatReasonActivity extends AppCompatActivity {
 
-    private static final String TAG = "MapActivity";
-    public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
+    private static final String TAG = "SpatReasonActivity";
 
     public static class MCButton{
         Button button;
@@ -22,11 +19,12 @@ public class MapActivity extends AppCompatActivity {
     }
 
     String outputName;
-    Button mapNext;
+    Button spatReasonNext;
     MCButton choice1 = new MCButton();
     MCButton choice2 = new MCButton();
     MCButton choice3 = new MCButton();
     MCButton choice4 = new MCButton();
+    MCButton choice5 = new MCButton();
     String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
@@ -34,18 +32,19 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map);
+        setContentView(R.layout.spatreason);
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
-        outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
+        String outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // matches buttons with xml id
-        mapNext = findViewById(R.id.mapNext);
-        choice1.button = findViewById(R.id.mapChoice1);
-        choice2.button = findViewById(R.id.mapChoice2);
-        choice3.button = findViewById(R.id.mapChoice3);
-        choice4.button = findViewById(R.id.mapChoice4);
+        spatReasonNext = findViewById(R.id.spatReasonNext);
+        choice1.button = findViewById(R.id.spatReasonChoice1);
+        choice2.button = findViewById(R.id.spatReasonChoice2);
+        choice3.button = findViewById(R.id.spatReasonChoice3);
+        choice4.button = findViewById(R.id.spatReasonChoice4);
+        choice5.button = findViewById(R.id.spatReasonChoice5);
 
         // sets the names for MCButtons
         choice1.buttonName = "A";
@@ -60,22 +59,21 @@ public class MapActivity extends AppCompatActivity {
         selectButton(choice4);
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.map);
+        ConstraintLayout cLayout = findViewById(R.id.spatReason);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(MapActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpatReasonActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
         // "next" button
-        mapNext.setOnClickListener(new View.OnClickListener() {
+        spatReasonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, MapActivity.this, timeStamps, "map", selected, "A");
-                ActivitySwitch();
+                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, timeStamps, "spatial reason", selected, "A");
             }
         });
     }
@@ -89,14 +87,10 @@ public class MapActivity extends AppCompatActivity {
                 choice2.button.setSelected(false);
                 choice3.button.setSelected(false);
                 choice4.button.setSelected(false);
+                choice5.button.setSelected(false);
                 choice.button.setSelected(true);
                 selected = choice.buttonName;
             }
         });
-    }
-    public void ActivitySwitch(){
-        Intent intent = new Intent(this,SpatReasonActivity.class);
-        intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
-        startActivity(intent);
     }
 }
