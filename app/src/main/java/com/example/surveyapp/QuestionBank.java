@@ -88,13 +88,15 @@ public class QuestionBank {
                         questions.add(question);
                         question.printQuestionAttributes();
                         break;
-
+                    default:
+                        Log.wtf("MyActivity", "Cannot create class on line: " + line);
+                        break;
                 }
 
             }
             is.close();
         }catch (IOException e){
-            Log.wtf("MyActivity", "Error reading data file on  line: " + line, e);
+            Log.wtf("MyActivity", "Error reading data file on line: " + line, e);
             e.printStackTrace();
         }
     }
