@@ -1,10 +1,7 @@
 package com.example.surveyapp;
 
-import java.util.List;
-
-public class MultipleChoice extends Question{
-
-    MultipleChoice(int id, String classification, String answerType, String correctAnswer,
+public class Typing extends Question {
+    Typing(int id, String classification, String answerType, String correctAnswer,
                    String instruction, String question, String imgPath, String[] answerOptions,
                    String questionCode){
         super(id, classification, answerType, correctAnswer,
