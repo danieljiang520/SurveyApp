@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurveyApp" >
+        <activity android:name=".ReadCompActivity"></activity>
         <activity android:name=".SpatReasonActivity"></activity>
         <activity android:name=".MapActivity"></activity>
         <activity
