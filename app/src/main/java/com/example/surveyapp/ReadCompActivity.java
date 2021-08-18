@@ -81,7 +81,7 @@ public class ReadCompActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamps, "spatial reason", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
             }
         });
     }
