@@ -15,15 +15,15 @@ public class SpatReasonActivity extends AppCompatActivity {
 
     String outputName;
     Button spatReasonNext;
-    MultipleChoice.MCButton choice1 = new MultipleChoice.MCButton();
-    MultipleChoice.MCButton choice2 = new MultipleChoice.MCButton();
-    MultipleChoice.MCButton choice3 = new MultipleChoice.MCButton();
-    MultipleChoice.MCButton choice4 = new MultipleChoice.MCButton();
-    MultipleChoice.MCButton choice5 = new MultipleChoice.MCButton();
+    MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
+    MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
+    MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
+    MultipleChoiceFormat.MCButton choice4 = new MultipleChoiceFormat.MCButton();
+    MultipleChoiceFormat.MCButton choice5 = new MultipleChoiceFormat.MCButton();
     String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
-    MultipleChoice multChoice = new MultipleChoice();
+    MultipleChoiceFormat multChoice = new MultipleChoiceFormat();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

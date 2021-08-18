@@ -5,7 +5,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MultipleChoice extends AppCompatActivity {
+public class MultipleChoiceFormat extends AppCompatActivity {
 
     MCButton answer1;
     MCButton answer2;
