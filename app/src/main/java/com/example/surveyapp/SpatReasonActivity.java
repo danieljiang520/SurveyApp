@@ -13,21 +13,17 @@ public class SpatReasonActivity extends AppCompatActivity {
 
     private static final String TAG = "SpatReasonActivity";
 
-    public static class MCButton{
-        Button button;
-        String buttonName;
-    }
-
     String outputName;
     Button spatReasonNext;
-    MCButton choice1 = new MCButton();
-    MCButton choice2 = new MCButton();
-    MCButton choice3 = new MCButton();
-    MCButton choice4 = new MCButton();
-    MCButton choice5 = new MCButton();
+    MultipleChoice.MCButton choice1 = new MultipleChoice.MCButton();
+    MultipleChoice.MCButton choice2 = new MultipleChoice.MCButton();
+    MultipleChoice.MCButton choice3 = new MultipleChoice.MCButton();
+    MultipleChoice.MCButton choice4 = new MultipleChoice.MCButton();
+    MultipleChoice.MCButton choice5 = new MultipleChoice.MCButton();
     String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
+    MultipleChoice multChoice = new MultipleChoice();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +47,24 @@ public class SpatReasonActivity extends AppCompatActivity {
         choice2.buttonName = "B";
         choice3.buttonName = "C";
         choice4.buttonName = "D";
+        choice5.buttonName = "E";
+
+        // importing everything into MultChoice
+        multChoice.answer1 = choice1;
+        multChoice.answer2 = choice2;
+        multChoice.answer3 = choice3;
+        multChoice.answer4 = choice4;
+        multChoice.answer5 = choice5;
+        multChoice.timeStamps = timeStamps;
+        multChoice.fiveAnswers = true;
+        multChoice.selected = selected;
 
         // runs selectButton void
-        selectButton(choice1);
-        selectButton(choice2);
-        selectButton(choice3);
-        selectButton(choice4);
+        multChoice.selectButton(choice1);
+        multChoice.selectButton(choice2);
+        multChoice.selectButton(choice3);
+        multChoice.selectButton(choice4);
+        multChoice.selectButton(choice5);
 
         // detects tap on screen, records timestamp
         ConstraintLayout cLayout = findViewById(R.id.spatReason);
@@ -73,23 +81,7 @@ public class SpatReasonActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, timeStamps, "spatial reason", selected, "A");
-            }
-        });
-    }
-    // sets the tapped button to "selected"
-    public void selectButton(MCButton choice){
-        choice.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timeStamps.updateTimeStamp();
-                choice1.button.setSelected(false);
-                choice2.button.setSelected(false);
-                choice3.button.setSelected(false);
-                choice4.button.setSelected(false);
-                choice5.button.setSelected(false);
-                choice.button.setSelected(true);
-                selected = choice.buttonName;
+                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, timeStamps, "spatial reason", multChoice.selected, "A");
             }
         });
     }
