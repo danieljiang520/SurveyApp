@@ -9,13 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class SpatReasonActivity extends AppCompatActivity {
+public class ReadCompActivity extends AppCompatActivity {
 
-    private static final String TAG = "SpatReasonActivity";
-    public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
+    private static final String TAG = "ReadCompActivity";
 
     String outputName;
-    Button spatReasonNext;
+    Button readCompNext;
     MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
@@ -29,19 +28,19 @@ public class SpatReasonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spatreason);
+        setContentView(R.layout.readcomp);
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // matches buttons with xml id
-        spatReasonNext = findViewById(R.id.spatReasonNext);
-        choice1.button = findViewById(R.id.spatReasonChoice1);
-        choice2.button = findViewById(R.id.spatReasonChoice2);
-        choice3.button = findViewById(R.id.spatReasonChoice3);
-        choice4.button = findViewById(R.id.spatReasonChoice4);
-        choice5.button = findViewById(R.id.spatReasonChoice5);
+        readCompNext = findViewById(R.id.readCompNext);
+        choice1.button = findViewById(R.id.readCompChoice1);
+        choice2.button = findViewById(R.id.readCompChoice2);
+        choice3.button = findViewById(R.id.readCompChoice3);
+        choice4.button = findViewById(R.id.readCompChoice4);
+        choice5.button = findViewById(R.id.readCompChoice5);
 
         // sets the names for MCButtons
         choice1.buttonName = "A";
@@ -57,7 +56,7 @@ public class SpatReasonActivity extends AppCompatActivity {
         multChoice.answer4 = choice4;
         multChoice.answer5 = choice5;
         multChoice.timeStamps = timeStamps;
-        multChoice.fiveAnswers = false;
+        multChoice.fiveAnswers = true;
         multChoice.selected = selected;
 
         // runs selectButton void
@@ -68,28 +67,22 @@ public class SpatReasonActivity extends AppCompatActivity {
         multChoice.selectButton(choice5);
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.spatReason);
+        ConstraintLayout cLayout = findViewById(R.id.readComp);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(SpatReasonActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReadCompActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
         // "next" button
-        spatReasonNext.setOnClickListener(new View.OnClickListener() {
+        readCompNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, timeStamps, "spatial reason", multChoice.selected, "A");
-                ActivitySwitch();
+                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamps, "spatial reason", multChoice.selected, "A");
             }
         });
-    }
-    public void ActivitySwitch(){
-        Intent intent = new Intent(this,ReadCompActivity.class);
-        intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
-        startActivity(intent);
     }
 }
