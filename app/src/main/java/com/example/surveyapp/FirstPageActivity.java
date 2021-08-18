@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class FirstPageActivity extends AppCompatActivity {
 
@@ -34,6 +35,9 @@ public class FirstPageActivity extends AppCompatActivity {
         setContentView(R.layout.first_page);
         Log.d(TAG, "onCreate: started");
 
+        InputStream is = getResources().openRawResource(R.raw.test);
+        QuestionBank questionBank = new QuestionBank(is);
+
         // attaches UM logo to imageview background
         ImageView imageView = (ImageView) findViewById(R.id.UMLogo);
         int imageResource = getResources().getIdentifier("@drawable/umlogo", null, this.getPackageName());
@@ -45,22 +49,19 @@ public class FirstPageActivity extends AppCompatActivity {
         start = (Button) findViewById(R.id.startButton);
 
         // actions when button is clicked
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            // assigns text responses to variable
-            public void onClick(View view) {
-                partNum = partNumEntry.getText().toString();
-                startTime = '"'+startTimeEntry.getText().toString()+'"';
+        // assigns text responses to variable
+        start.setOnClickListener(view -> {
+            partNum = partNumEntry.getText().toString();
+            startTime = '"'+startTimeEntry.getText().toString()+'"';
 
-                // this creates a new file output stream
-                CSVWriting csvWriter = new CSVWriting();
-                csvWriter.CreateCSV(partNum,startTime,FirstPageActivity.this);
+            // this creates a new file output stream
+            CSVWriting csvWriter = new CSVWriting();
+            csvWriter.CreateCSV(partNum,startTime,FirstPageActivity.this);
 
-                ActivitySwitch();
+            ActivitySwitch();
 
-                // FOR DEBUG
-                Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
-            }
+            // FOR DEBUG
+            Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
         });
     }
     public void ActivitySwitch(){

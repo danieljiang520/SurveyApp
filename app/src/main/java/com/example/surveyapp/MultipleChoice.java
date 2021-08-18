@@ -3,10 +3,12 @@ package com.example.surveyapp;
 import java.util.List;
 
 class MultipleChoice extends Question{
-    private List<String> answers;
 
-    MultipleChoice(int id, String instruction, String question, String imgPath, List<String> answers){
-        super(id, instruction, question, imgPath);
-        this.answers = answers;
+    MultipleChoice(int id, String classification, String answerType, String correctAnswer,
+                   String instruction, String question, String imgPath, String[] answerOptions,
+                   String questionCode){
+        super(id, classification, answerType, correctAnswer,
+                instruction, question, imgPath, answerOptions,
+                questionCode);
     }
 }
