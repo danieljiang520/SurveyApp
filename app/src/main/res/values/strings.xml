@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SurveyApp</string>
+    <string name="type">Type:</string>
+    <string name="instruction">Instruction:</string>
+    <string name="question">Question:</string>
+    <string name="answer1">Answer1:</string>
+    <string name="answer2">Answer2:</string>
+    <string name="correct_answer">Correct Answer:</string>
+    <string name="start">Start</string>
 </resources>
