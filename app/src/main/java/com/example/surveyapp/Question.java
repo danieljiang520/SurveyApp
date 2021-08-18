@@ -32,6 +32,7 @@ abstract class Question {
 
     public void printQuestionAttributes(){
         Log.d("Question", "id: " + id );
+        Log.d("Question", "class: " + getClass().getSimpleName() );
         Log.d("Question", "classification: " + classification );
         Log.d("Question", "answerType: " + answerType );
         Log.d("Question", "correctAnswer: " + correctAnswer );
