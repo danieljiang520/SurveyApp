@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/typing">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/typingPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -18,19 +19,18 @@
         app:layout_constraintVertical_bias="0.36" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/typingEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/typingNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"

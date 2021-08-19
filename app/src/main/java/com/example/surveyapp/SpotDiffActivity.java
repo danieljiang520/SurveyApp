@@ -9,12 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class VisSearchV1Activity extends AppCompatActivity {
+public class SpotDiffActivity extends AppCompatActivity {
 
     private static final String TAG = "VisSearchV1Activity";
 
     String outputName;
-    Button visSearchV1Next;
+    Button spotDiffNext;
     MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
@@ -28,19 +28,19 @@ public class VisSearchV1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vissearchv1);
+        setContentView(R.layout.spotdiff);
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // matches buttons with xml id
-        visSearchV1Next = findViewById(R.id.visSearchV1Next);
-        choice1.button = findViewById(R.id.visSearchV1Choice1);
-        choice2.button = findViewById(R.id.visSearchV1Choice2);
-        choice3.button = findViewById(R.id.visSearchV1Choice3);
-        choice4.button = findViewById(R.id.visSearchV1Choice4);
-        choice5.button = findViewById(R.id.visSearchV1Choice5);
+        spotDiffNext = findViewById(R.id.spotDiffNext);
+        choice1.button = findViewById(R.id.spotDiffChoice1);
+        choice2.button = findViewById(R.id.spotDiffChoice2);
+        choice3.button = findViewById(R.id.spotDiffChoice3);
+        choice4.button = findViewById(R.id.spotDiffChoice4);
+        choice5.button = findViewById(R.id.spotDiffChoice5);
 
         // sets the names for MCButtons
         choice1.buttonName = "A";
@@ -67,21 +67,21 @@ public class VisSearchV1Activity extends AppCompatActivity {
         multChoice.selectButton(choice5);
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.visSearchV1);
+        ConstraintLayout cLayout = findViewById(R.id.spotDiff);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(VisSearchV1Activity.this, "tap detected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpotDiffActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
         // "next" button
-        visSearchV1Next.setOnClickListener(new View.OnClickListener() {
+        spotDiffNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, VisSearchV1Activity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, SpotDiffActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
             }
         });
     }
