@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class TypingActivity extends AppCompatActivity {
     String outputName;
     Button typingNext;
     EditText typedEntry;
+    TextView prompt;
     String typed;
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
@@ -36,15 +38,19 @@ public class TypingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // attaching variables to views
+        prompt = findViewById(R.id.typingPrompt);
         typedEntry = findViewById(R.id.typingEntry);
         typingNext = findViewById(R.id.typingNext);
+
+        // attaching question input
+        prompt.setText(question.getInstruction());
 
         ConstraintLayout cLayout = findViewById(R.id.typing);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(TypingActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -53,7 +59,7 @@ public class TypingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 typed = typedEntry.getText().toString();
-                csvWriter.WriteAnswers(outputName, TypingActivity.this, timeStamps, "typed", typed, "three unique responses");
+                csvWriter.WriteAnswers(outputName, TypingActivity.this, timeStamps, question.getTypeActivity(), typed, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
