@@ -62,7 +62,7 @@ public class FirstPageActivity extends AppCompatActivity {
         });
     }
     public void ActivitySwitch(){
-        Intent intent = new Intent(this,ShortMemActivity.class);
+        Intent intent = new Intent(this,SubjectiveActivity.class);
         intent.putExtra(EXTRA_OUTPUT, partNum); // this sends the io name to the next activity
         startActivity(intent);
     }
