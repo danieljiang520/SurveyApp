@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,8 @@ public class SpotDiffActivity extends AppCompatActivity {
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
     MultipleChoiceFormat multChoice = new MultipleChoiceFormat();
+    TextView prePrompt;
+    TextView prompt;
 
     QuestionBank questionBank;
     Question question;
@@ -41,20 +45,31 @@ public class SpotDiffActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
-        // matches buttons with xml id
+        // matches buttons with xml id and prompts
         spotDiffNext = findViewById(R.id.spotDiffNext);
         choice1.button = findViewById(R.id.spotDiffChoice1);
         choice2.button = findViewById(R.id.spotDiffChoice2);
         choice3.button = findViewById(R.id.spotDiffChoice3);
         choice4.button = findViewById(R.id.spotDiffChoice4);
         choice5.button = findViewById(R.id.spotDiffChoice5);
+        prePrompt = findViewById(R.id.spotDiffPrePrompt);
+        prompt = findViewById(R.id.spotDiffPrompt);
+
+        // assign textviews based on library
+        prePrompt.setText(question.getInstruction());
+        prompt.setText(question.getQuestion());
+
+        // sets up image
+        ImageView imageView = (ImageView) findViewById(R.id.spotDiffImg);
+        int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+        imageView.setImageResource(imageResource);
 
         // sets the names for MCButtons
-        choice1.buttonName = "A";
-        choice2.buttonName = "B";
-        choice3.buttonName = "C";
-        choice4.buttonName = "D";
-        choice5.buttonName = "E";
+        choice1.buttonName = question.getAnswerOptions()[0];
+        choice2.buttonName = question.getAnswerOptions()[1];
+        choice3.buttonName = question.getAnswerOptions()[2];
+        choice4.buttonName = question.getAnswerOptions()[3];
+        choice5.buttonName = question.getAnswerOptions()[4];
 
         // importing everything into MultChoice
         multChoice.answer1 = choice1;
@@ -79,7 +94,6 @@ public class SpotDiffActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(SpotDiffActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -88,7 +102,7 @@ public class SpotDiffActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, SpotDiffActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, SpotDiffActivity.this, timeStamps, question.getTypeActivity(), multChoice.selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

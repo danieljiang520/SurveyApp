@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class SubjectiveActivity extends AppCompatActivity{
     Button next;
     CSVWriting csvWriter = new CSVWriting();
     String outputName;
+    TextView prompt;
 
     QuestionBank questionBank;
     Question question;
@@ -67,12 +69,18 @@ public class SubjectiveActivity extends AppCompatActivity{
         choices.add(choice7); choices.add(choice8); choices.add(choice9);
         choices.add(choice10); choices.add(choice11); choices.add(choice12);
 
+        // other views that need to be assigned
         next = findViewById(R.id.subNext);
+        prompt = findViewById(R.id.subjectivePrompt);
 
-        // setting the correct number of buttons to be visible
+        // assigning prompt according to the library
+        prompt.setText(question.getInstruction());
+
+        // setting the correct number of buttons to be visible + setting their names
         for(int i = 0; i<12; ++i){
             if(i<choiceAmt){
                 choices.get(i).button.setVisibility(View.VISIBLE);
+                choices.get(i).buttonName = question.getAnswerOptions()[i];
             }
             else{
                 choices.get(i).button.setVisibility(View.GONE);
@@ -98,7 +106,7 @@ public class SubjectiveActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, SubjectiveActivity.this, timeStamps, "subjective", selectedAnswers(choices), "one or more choices");
+                csvWriter.WriteAnswers(outputName, SubjectiveActivity.this, timeStamps, question.getTypeActivity(), selectedAnswers(choices), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

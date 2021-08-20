@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,12 +52,21 @@ public class PatternActivity extends AppCompatActivity {
         choice4.button = findViewById(R.id.patternChoice4);
         choice5.button = findViewById(R.id.patternChoice5);
 
+        // sets up image
+        ImageView imageView = (ImageView) findViewById(R.id.patternImage);
+        int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+        imageView.setImageResource(imageResource);
+
+        // sets up prompt
+        TextView prompt = findViewById(R.id.patternPrompt);
+        prompt.setText(question.getQuestion());
+
         // sets the names for MCButtons
-        choice1.buttonName = "A";
-        choice2.buttonName = "B";
-        choice3.buttonName = "C";
-        choice4.buttonName = "D";
-        choice5.buttonName = "E";
+        choice1.buttonName = question.getAnswerOptions()[0];
+        choice2.buttonName = question.getAnswerOptions()[1];
+        choice3.buttonName = question.getAnswerOptions()[2];
+        choice4.buttonName = question.getAnswerOptions()[3];
+        choice5.buttonName = question.getAnswerOptions()[4];
 
         // importing everything into MultChoice
         multChoice.answer1 = choice1;
@@ -88,7 +99,7 @@ public class PatternActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, PatternActivity.this, timeStamps, "pattern", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, PatternActivity.this, timeStamps, question.getTypeActivity(), multChoice.selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

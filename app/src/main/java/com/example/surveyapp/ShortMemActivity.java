@@ -23,7 +23,7 @@ public class ShortMemActivity extends AppCompatActivity {
     private static final String TAG = "ShortMemActivity";
     public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
 
-    Boolean imgPath = false;
+    Boolean imgPath = true;
     int ms;
     Button next1;
     Button next2;
@@ -48,6 +48,19 @@ public class ShortMemActivity extends AppCompatActivity {
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
 
+        // choosing what type of shortmemactivity we're running
+        if(question.getImgPath().isEmpty()){
+            imgPath = false;
+            // we need to figure this out once we go against larger testbase
+        }
+        else{
+            imgPath = true;
+            // sets up image
+            imgTask = (ImageView) findViewById(R.id.shortMemIMG);
+            int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+            imgTask.setImageResource(imageResource);
+        }
+
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
@@ -56,7 +69,6 @@ public class ShortMemActivity extends AppCompatActivity {
         next1 = findViewById(R.id.shortMemNext1);
         next2 = findViewById(R.id.shortMemNext2);
         prePrompt = findViewById(R.id.shortMemPrePrompt);
-        imgTask = findViewById(R.id.shortMemIMG);
         prompt = findViewById(R.id.shortMemPrompt);
         responseEntry = findViewById(R.id.shortMemResponse);
         stringTask = findViewById(R.id.shortMemString);
@@ -66,6 +78,10 @@ public class ShortMemActivity extends AppCompatActivity {
         else{
             ms = 3000;
         }
+
+        // setting values for Views
+        prePrompt.setText(question.getInstruction());
+        prompt.setText(question.getQuestion());
 
         // setting visibility for the first page
         next1.setVisibility(View.VISIBLE);
@@ -82,7 +98,6 @@ public class ShortMemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(ShortMemActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -118,8 +133,7 @@ public class ShortMemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 response = responseEntry.getText().toString();
-                Toast.makeText(ShortMemActivity.this, response, Toast.LENGTH_SHORT).show();
-                csvWriter.WriteAnswers(outputName, ShortMemActivity.this, timeStamps, "Short Term Memory", response, "string");
+                csvWriter.WriteAnswers(outputName, ShortMemActivity.this, timeStamps, question.getTypeActivity(), response, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
