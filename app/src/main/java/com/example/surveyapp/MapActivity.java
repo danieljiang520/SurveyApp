@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,6 +50,15 @@ public class MapActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // sets up image
+        ImageView imageView = (ImageView) findViewById(R.id.mapImage);
+        int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+        imageView.setImageResource(imageResource);
+
+        // sets up prompt
+        TextView prompt = findViewById(R.id.mapPrompt);
+        prompt.setText(question.getQuestion());
+
         // matches buttons with xml id
         mapNext = findViewById(R.id.mapNext);
         choice1.button = findViewById(R.id.mapChoice1);
@@ -56,10 +67,10 @@ public class MapActivity extends AppCompatActivity {
         choice4.button = findViewById(R.id.mapChoice4);
 
         // sets the names for MCButtons
-        choice1.buttonName = "A";
-        choice2.buttonName = "B";
-        choice3.buttonName = "C";
-        choice4.buttonName = "D";
+        choice1.buttonName = question.getAnswerOptions()[0];
+        choice2.buttonName = question.getAnswerOptions()[1];
+        choice3.buttonName = question.getAnswerOptions()[2];
+        choice4.buttonName = question.getAnswerOptions()[3];
 
         // runs selectButton void
         selectButton(choice1);
@@ -73,7 +84,6 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(MapActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -82,7 +92,7 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, MapActivity.this, timeStamps, "map", selected, "A");
+                csvWriter.WriteAnswers(outputName, MapActivity.this, timeStamps, question.getAnswerType(), selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
