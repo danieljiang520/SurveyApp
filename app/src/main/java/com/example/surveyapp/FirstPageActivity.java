@@ -69,16 +69,5 @@ public class FirstPageActivity extends AppCompatActivity {
         });
     }
 
-    public void ActivitySwitch() {
-        try {
-            Question nextQuestion = questionBank.pop();
-            String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
-            Intent intent = new Intent(this, Class.forName(nextClassName));
-            intent.putExtra(EXTRA_OUTPUT, partNum); // this sends the io name to the next activity
-            intent.putExtra("question", nextQuestion);
-            startActivity(intent);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }
