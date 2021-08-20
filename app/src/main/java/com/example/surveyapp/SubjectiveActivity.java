@@ -2,6 +2,7 @@ package com.example.surveyapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,10 +34,16 @@ public class SubjectiveActivity extends AppCompatActivity{
     CSVWriting csvWriter = new CSVWriting();
     String outputName;
 
+    QuestionBank questionBank;
+    Question question;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.subjective);
+
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -92,6 +99,7 @@ public class SubjectiveActivity extends AppCompatActivity{
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 csvWriter.WriteAnswers(outputName, SubjectiveActivity.this, timeStamps, "subjective", selectedAnswers(choices), "one or more choices");
+                ActivitySwitch();
             }
         });
 
@@ -118,6 +126,25 @@ public class SubjectiveActivity extends AppCompatActivity{
             }
         }
         return answerReturn;
+    }
+
+    public void ActivitySwitch() {
+        Question nextQuestion = questionBank.pop();
+        if(nextQuestion==null){
+            Intent intent = new Intent(this, FinalPageActivity.class);
+            Log.d("Activity", "Activity: FINAL" );
+            startActivity(intent);
+        }else{
+            try {
+                String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
+                Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra("questionBank", questionBank);
+                Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
+                startActivity(intent);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

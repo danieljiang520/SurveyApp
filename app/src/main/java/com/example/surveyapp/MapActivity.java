@@ -34,6 +34,7 @@ public class MapActivity extends AppCompatActivity {
     GetTimeStamp timeStamps = new GetTimeStamp();
 
     QuestionBank questionBank;
+    Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.map);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -101,15 +103,21 @@ public class MapActivity extends AppCompatActivity {
         });
     }
     public void ActivitySwitch() {
-        try {
-            Question nextQuestion = questionBank.pop();
-            String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
-            Intent intent = new Intent(this, Class.forName(nextClassName));
-            intent.putExtra("question", questionBank);
-            Log.d("MapActivity", "Activity: " + nextQuestion.getTypeActivity() );
+        Question nextQuestion = questionBank.pop();
+        if(nextQuestion==null){
+            Intent intent = new Intent(this, FinalPageActivity.class);
+            Log.d("Activity", "Activity: FINAL" );
             startActivity(intent);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        }else{
+            try {
+                String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
+                Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra("questionBank", questionBank);
+                Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
+                startActivity(intent);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.surveyapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -9,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class VisSearchV1Activity extends AppCompatActivity {
+public class VisSearchActivity extends AppCompatActivity {
 
     private static final String TAG = "VisSearchV1Activity";
 
@@ -25,10 +26,16 @@ public class VisSearchV1Activity extends AppCompatActivity {
     GetTimeStamp timeStamps = new GetTimeStamp();
     MultipleChoiceFormat multChoice = new MultipleChoiceFormat();
 
+    QuestionBank questionBank;
+    Question question;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vissearchv1);
+
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -72,7 +79,7 @@ public class VisSearchV1Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(VisSearchV1Activity.this, "tap detected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VisSearchActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,8 +88,27 @@ public class VisSearchV1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, VisSearchV1Activity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                ActivitySwitch();
             }
         });
+    }
+    public void ActivitySwitch() {
+        Question nextQuestion = questionBank.pop();
+        if(nextQuestion==null){
+            Intent intent = new Intent(this, FinalPageActivity.class);
+            Log.d("Activity", "Activity: FINAL" );
+            startActivity(intent);
+        }else{
+            try {
+                String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
+                Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra("questionBank", questionBank);
+                Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
+                startActivity(intent);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

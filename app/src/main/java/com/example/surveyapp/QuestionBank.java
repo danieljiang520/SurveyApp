@@ -22,8 +22,12 @@ public class QuestionBank implements Serializable {
         readData(is);
     }
 
-    public List<Question> getQuestions() {
-        return questions;
+    public Question getCurrentQuestion() {
+        int ind = indexQuestion;
+        if (ind > 0){
+            ind--;
+        }
+        return questions.get(ind);
     }
 
     public Question pop(){
@@ -70,7 +74,7 @@ public class QuestionBank implements Serializable {
                         typeActivity = "MapActivity";
                         break;
                     case "Short Term Memory":
-                        typeActivity = "ShortMemV1Activity";
+                        typeActivity = "ShortMemActivity";
                         break;
                     case "Spatial Reasoning":
                         typeActivity = "SpatReasonActivity";
@@ -78,10 +82,11 @@ public class QuestionBank implements Serializable {
                     case "Reading Comprehension":
                         typeActivity = "ReadCompActivity";
                         break;
-                    //case "Pattern":
-                        //typeActivity = "PatternActivity";
+                    case "Pattern":
+                        typeActivity = "PatternActivity";
+                        break;
                     case "Visual Search - TEXT":
-                        typeActivity = "VisSearchV1Activity";
+                        typeActivity = "VisSearchActivity";
                         break;
                     case "Typing":
                         typeActivity = "TypingActivity";
