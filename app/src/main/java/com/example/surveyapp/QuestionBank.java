@@ -6,11 +6,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionBank {
+public class QuestionBank implements Serializable {
 
     private List<Question> questions;
     private int indexQuestion;
@@ -77,14 +78,16 @@ public class QuestionBank {
                     case "Reading Comprehension":
                         typeActivity = "ReadCompActivity";
                         break;
-                    case "Pattern":
-                        typeActivity = "PatternActivity";
-                        break;
+                    //case "Pattern":
+                        //typeActivity = "PatternActivity";
                     case "Visual Search - TEXT":
                         typeActivity = "VisSearchV1Activity";
                         break;
                     case "Typing":
                         typeActivity = "TypingActivity";
+                        break;
+                    case "Subjective":
+                        typeActivity = "SubjectiveActivity";
                         break;
                     case "Spot the Difference":
                         typeActivity = "SpotDiffActivity";

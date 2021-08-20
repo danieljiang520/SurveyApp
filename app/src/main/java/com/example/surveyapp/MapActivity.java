@@ -1,8 +1,10 @@
 package com.example.surveyapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -31,10 +33,14 @@ public class MapActivity extends AppCompatActivity {
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
 
+    QuestionBank questionBank;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
+
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -94,9 +100,16 @@ public class MapActivity extends AppCompatActivity {
             }
         });
     }
-    public void ActivitySwitch(){
-        Intent intent = new Intent(this,SpatReasonActivity.class);
-        intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
-        startActivity(intent);
+    public void ActivitySwitch() {
+        try {
+            Question nextQuestion = questionBank.pop();
+            String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
+            Intent intent = new Intent(this, Class.forName(nextClassName));
+            intent.putExtra("question", questionBank);
+            Log.d("MapActivity", "Activity: " + nextQuestion.getTypeActivity() );
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

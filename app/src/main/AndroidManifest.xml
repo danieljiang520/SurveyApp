@@ -12,11 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurveyApp" >
+        <activity android:name="MapActivity"></activity>
+        <activity android:name="ShortMemV1Activity"></activity>
+        <activity android:name="SpatReasonActivity"></activity>
+        <activity android:name="ReadCompActivity"></activity>
+        <activity android:name="VisSearchV1Activity"></activity>
+        <activity android:name="TypingActivity"></activity>
         <activity android:name="SubjectiveActivity"></activity>
-        <activity android:name="ShortMemActivity"></activity>
-        <activity android:name=".ReadCompActivity"></activity>
-        <activity android:name=".SpatReasonActivity"></activity>
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name="SpotDiffActivity"></activity>
         <activity
             android:name=".FirstPageActivity"
             android:exported="true" >

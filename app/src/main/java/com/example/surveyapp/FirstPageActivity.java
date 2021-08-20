@@ -22,12 +22,11 @@ public class FirstPageActivity extends AppCompatActivity {
     // initializing variables for saving values/using widgets
     String partNum;
     String startTime;
-    String labels;
     Button start;
     EditText partNumEntry;
     EditText startTimeEntry;
 
-    public QuestionBank questionBank;
+    QuestionBank questionBank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,5 +68,17 @@ public class FirstPageActivity extends AppCompatActivity {
         });
     }
 
+    public void ActivitySwitch() {
+        try {
+            Question nextQuestion = questionBank.pop();
+            String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
+            Intent intent = new Intent(this, Class.forName(nextClassName));
+            intent.putExtra(EXTRA_OUTPUT, partNum); // this sends the io name to the next activity
+            intent.putExtra("questionBank", questionBank);
+            Log.d("FirstPageActivity", "Activity: " + nextQuestion.getTypeActivity() );
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
