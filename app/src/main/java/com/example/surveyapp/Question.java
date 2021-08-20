@@ -2,10 +2,12 @@ package com.example.surveyapp;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-abstract class Question {
+public class Question implements Serializable {
     private int id;
+    private String typeActivity;
     private String classification;
     private String answerType;
     private String correctAnswer;
@@ -16,10 +18,11 @@ abstract class Question {
     private String questionCode;
 
 
-    Question(int id, String classification, String answerType, String correctAnswer,
+    Question(int id, String typeActivity, String classification, String answerType, String correctAnswer,
              String instruction,String imgPath, String question, String[] answerOptions,
              String questionCode){
         this.id = id;
+        this.typeActivity = typeActivity;
         this.classification = classification;
         this.answerType = answerType;
         this.correctAnswer = correctAnswer;
@@ -32,7 +35,7 @@ abstract class Question {
 
     public void printQuestionAttributes(){
         Log.d("Question", "id: " + id );
-        Log.d("Question", "class: " + getClass().getSimpleName() );
+        Log.d("Question", "typeActivity: " + typeActivity);
         Log.d("Question", "classification: " + classification );
         Log.d("Question", "answerType: " + answerType );
         Log.d("Question", "correctAnswer: " + correctAnswer );
@@ -46,6 +49,8 @@ abstract class Question {
     public int getId() {
         return id;
     }
+
+    public String getTypeActivity() { return typeActivity; }
 
     public String getClassification() {
         return classification;

@@ -13,10 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class ShortMemV1Action extends AppCompatActivity {
+public class ShortMemV1Activity extends AppCompatActivity {
 
     private static final String TAG = "ShortMemV1Action";
     public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
@@ -63,7 +60,7 @@ public class ShortMemV1Action extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(ShortMemV1Action.this, "tap detected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShortMemV1Activity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -93,7 +90,7 @@ public class ShortMemV1Action extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 response = responseEntry.getText().toString();
-                csvWriter.WriteAnswers(outputName, ShortMemV1Action.this, timeStamps, "Short Term Memory", response, "string");
+                csvWriter.WriteAnswers(outputName, ShortMemV1Activity.this, timeStamps, "Short Term Memory", response, "string");
                 ActivitySwitch();
             }
         });

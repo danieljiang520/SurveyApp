@@ -25,8 +25,13 @@ public class QuestionBank {
         return questions;
     }
 
-    public Question getNextQuestion(){
-        return questions.get(indexQuestion);
+    public Question pop(){
+        if (indexQuestion < questions.size()){
+            Question q = questions.get(indexQuestion);
+            indexQuestion++;
+            return q;
+        }
+        return null;
     }
 
     private void readData(InputStream is){
@@ -47,52 +52,52 @@ public class QuestionBank {
                 //Question sample = new Question(tokens);
                 int id = Integer.parseInt(tokens[0]);
                 String type = tokens[1];
+
+
                 String[] answerOptions;
                 if(tokens[8].length() > 0) {
+                    tokens[8] = tokens[8].substring(1, tokens[8].length() - 1);
                     answerOptions = tokens[8].split(",");
                 }else{
                     answerOptions = new String[0];
                 }
-                Question question;
+
+
+                String typeActivity = null;
                 switch(type) { // in Java 7
-                    case "Spatial Reasoning":
-                    case "Reading Comprehension":
-                    case "Pattern":
-                    case "Visual Search - TEXT":
-                    case "Subjective":
-                    case "Spot the Difference":
                     case "Map":
-                        question = new MultipleChoice(id,tokens[2],tokens[3],tokens[4],tokens[5],
-                                tokens[6],tokens[7],answerOptions,tokens[9]);
-                        questions.add(question);
-                        question.printQuestionAttributes();
+                        typeActivity = "MapActivity";
                         break;
                     case "Short Term Memory":
+                        typeActivity = "ShortMemV1Activity";
+                        break;
+                    case "Spatial Reasoning":
+                        typeActivity = "SpatReasonActivity";
+                        break;
+                    case "Reading Comprehension":
+                        typeActivity = "ReadCompActivity";
+                        break;
+                    case "Pattern":
+                        typeActivity = "PatternActivity";
+                        break;
+                    case "Visual Search - TEXT":
+                        typeActivity = "VisSearchV1Activity";
+                        break;
                     case "Typing":
-                        question = new Typing(id,tokens[2],tokens[3],tokens[4],tokens[5],
-                                tokens[6],tokens[7],answerOptions,tokens[9]);
-                        questions.add(question);
-                        question.printQuestionAttributes();
+                        typeActivity = "TypingActivity";
                         break;
-                    case "Word Search":
-                    case "Surrogate Reference Task":
-                    case "Visual Search - IMAGE":
-                        question = new WordSearch(id,tokens[2],tokens[3],tokens[4],tokens[5],
-                                tokens[6],tokens[7],answerOptions,tokens[9]);
-                        questions.add(question);
-                        question.printQuestionAttributes();
-                        break;
-                    case "Reaction Time":
-                        question = new ReactionTime(id,tokens[2],tokens[3],tokens[4],tokens[5],
-                                tokens[6],tokens[7],answerOptions,tokens[9]);
-                        questions.add(question);
-                        question.printQuestionAttributes();
-                        break;
-                    default:
-                        Log.wtf("MyActivity", "Cannot create class on line: " + line);
+                    case "Spot the Difference":
+                        typeActivity = "SpotDiffActivity";
                         break;
                 }
-
+                if(typeActivity != null) {
+                    Question question = new Question(id,typeActivity,tokens[2],tokens[3],tokens[4],tokens[5],
+                            tokens[6],tokens[7],answerOptions,tokens[9]);
+                    question.printQuestionAttributes();
+                    questions.add(question);
+                } else{
+                    Log.wtf("MyActivity", "Cannot create class on line: " + line);
+                }
             }
             is.close();
         }catch (IOException e){
