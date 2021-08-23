@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/visSearchV1">
+    android:id="@+id/visSearch">
 
     <Button
-        android:id="@+id/visSearchV1Choice1"
+        android:id="@+id/visSearchChoice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.605" />
 
     <Button
-        android:id="@+id/visSearchV1Choice2"
+        android:id="@+id/visSearchChoice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.675" />
 
     <Button
-        android:id="@+id/visSearchV1Choice5"
+        android:id="@+id/visSearchChoice5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_background_color"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.895" />
 
     <Button
-        android:id="@+id/visSearchV1Choice3"
+        android:id="@+id/visSearchChoice3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/visSearchV1Choice4"
+        android:id="@+id/visSearchChoice4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.821" />
 
     <Button
-        android:id="@+id/visSearchV1Next"
+        android:id="@+id/visSearchNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -107,7 +107,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/visSearchV1PrePrompt"
+        android:id="@+id/visSearchPrePrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -119,7 +119,7 @@
         app:layout_constraintVertical_bias="0.075" />
 
     <TextView
-        android:id="@+id/visSearchV1Excerpt"
+        android:id="@+id/visSearchExcerpt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <TextView
-        android:id="@+id/visSearchV1Prompt"
+        android:id="@+id/visSearchPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

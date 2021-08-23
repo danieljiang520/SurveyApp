@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.io.BufferedReader;
 
 public class ReadCompActivity extends AppCompatActivity {
 
@@ -16,6 +19,7 @@ public class ReadCompActivity extends AppCompatActivity {
 
     String outputName;
     Button readCompNext;
+    String prePrompts[];
     MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
@@ -49,12 +53,25 @@ public class ReadCompActivity extends AppCompatActivity {
         choice4.button = findViewById(R.id.readCompChoice4);
         choice5.button = findViewById(R.id.readCompChoice5);
 
+        // splitting instruction string
+        prePrompts = question.getInstruction().split("\\r?\\n");
+
+        // matches textviews with id
+        TextView prePrompt = findViewById(R.id.readCompPrePrompt);
+        TextView excerpt = findViewById(R.id.readCompExcerpt);
+        TextView prompt = findViewById(R.id.readCompPrompt);
+
+        // setting text from library
+        prePrompt.setText(prePrompts[0]);
+        excerpt.setText(prePrompts[1]);
+        prompt.setText(question.getQuestion());
+
         // sets the names for MCButtons
-        choice1.buttonName = "A";
-        choice2.buttonName = "B";
-        choice3.buttonName = "C";
-        choice4.buttonName = "D";
-        choice5.buttonName = "E";
+        choice1.buttonName = question.getAnswerOptions()[0];
+        choice2.buttonName = question.getAnswerOptions()[1];
+        choice3.buttonName = question.getAnswerOptions()[2];
+        choice4.buttonName = question.getAnswerOptions()[3];
+        choice5.buttonName = question.getAnswerOptions()[4];
 
         // importing everything into MultChoice
         multChoice.answer1 = choice1;
@@ -79,7 +96,6 @@ public class ReadCompActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(ReadCompActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -88,7 +104,7 @@ public class ReadCompActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamps, question.getTypeActivity(), multChoice.selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

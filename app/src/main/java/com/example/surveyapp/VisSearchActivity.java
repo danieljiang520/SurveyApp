@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class VisSearchActivity extends AppCompatActivity {
 
-    private static final String TAG = "VisSearchV1Activity";
+    private static final String TAG = "VisSearchActivity";
 
     String outputName;
-    Button visSearchV1Next;
+    Button visSearchNext;
     MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
     MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
@@ -25,6 +26,10 @@ public class VisSearchActivity extends AppCompatActivity {
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
     MultipleChoiceFormat multChoice = new MultipleChoiceFormat();
+    String[] prePrompts;
+    TextView prePrompt;
+    TextView prompt;
+    TextView passage;
 
     QuestionBank questionBank;
     Question question;
@@ -41,20 +46,33 @@ public class VisSearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // splitting instruction string
+        prePrompts = question.getInstruction().split("\\r?\\n");
+
         // matches buttons with xml id
-        visSearchV1Next = findViewById(R.id.visSearchV1Next);
-        choice1.button = findViewById(R.id.visSearchV1Choice1);
-        choice2.button = findViewById(R.id.visSearchV1Choice2);
-        choice3.button = findViewById(R.id.visSearchV1Choice3);
-        choice4.button = findViewById(R.id.visSearchV1Choice4);
-        choice5.button = findViewById(R.id.visSearchV1Choice5);
+        visSearchNext = findViewById(R.id.visSearchNext);
+        choice1.button = findViewById(R.id.visSearchChoice1);
+        choice2.button = findViewById(R.id.visSearchChoice2);
+        choice3.button = findViewById(R.id.visSearchChoice3);
+        choice4.button = findViewById(R.id.visSearchChoice4);
+        choice5.button = findViewById(R.id.visSearchChoice5);
+
+        // textviews match
+        prePrompt = findViewById(R.id.visSearchPrePrompt);
+        prompt = findViewById(R.id.visSearchPrompt);
+        passage = findViewById(R.id.visSearchExcerpt);
+
+        // assigning text based on the library
+        prePrompt.setText(prePrompts[0]);
+        passage.setText(prePrompts[1]);
+        prompt.setText(question.getQuestion());
 
         // sets the names for MCButtons
-        choice1.buttonName = "A";
-        choice2.buttonName = "B";
-        choice3.buttonName = "C";
-        choice4.buttonName = "D";
-        choice5.buttonName = "E";
+        choice1.buttonName = question.getAnswerOptions()[0];
+        choice2.buttonName = question.getAnswerOptions()[1];
+        choice3.buttonName = question.getAnswerOptions()[2];
+        choice4.buttonName = question.getAnswerOptions()[3];
+        choice5.buttonName = question.getAnswerOptions()[4];
 
         // importing everything into MultChoice
         multChoice.answer1 = choice1;
@@ -74,21 +92,20 @@ public class VisSearchActivity extends AppCompatActivity {
         multChoice.selectButton(choice5);
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.visSearchV1);
+        ConstraintLayout cLayout = findViewById(R.id.visSearch);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
-                Toast.makeText(VisSearchActivity.this, "tap detected", Toast.LENGTH_SHORT).show();
             }
         });
 
         // "next" button
-        visSearchV1Next.setOnClickListener(new View.OnClickListener() {
+        visSearchNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, "reading comprehension", multChoice.selected, "A");
+                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, question.getTypeActivity(), multChoice.selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

@@ -36,6 +36,7 @@ public class ShortMemActivity extends AppCompatActivity {
     String outputName;
     GetTimeStamp timeStamps = new GetTimeStamp();
     CSVWriting csvWriter = new CSVWriting();
+    String prePrompts[];
 
     QuestionBank questionBank;
     Question question;
@@ -47,23 +48,6 @@ public class ShortMemActivity extends AppCompatActivity {
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
-
-        // choosing what type of shortmemactivity we're running
-        if(question.getImgPath().isEmpty()){
-            imgPath = false;
-            // we need to figure this out once we go against larger testbase
-        }
-        else{
-            imgPath = true;
-            // sets up image
-            imgTask = (ImageView) findViewById(R.id.shortMemIMG);
-            int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
-            imgTask.setImageResource(imageResource);
-        }
-
-        // Grabs output name from FirstPageActivity for CSVWriting
-        Intent intent = getIntent();
-        outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // inits
         next1 = findViewById(R.id.shortMemNext1);
@@ -79,8 +63,28 @@ public class ShortMemActivity extends AppCompatActivity {
             ms = 3000;
         }
 
+        // splitting instruction
+        prePrompts = question.getInstruction().split("\\r?\\n");
+
+        // choosing what type of shortmemactivity we're running
+        if(question.getImgPath().isEmpty()){
+            imgPath = false;
+            stringTask.setText(prePrompts[1]);
+        }
+        else{
+            imgPath = true;
+            // sets up image
+            imgTask = (ImageView) findViewById(R.id.shortMemIMG);
+            int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+            imgTask.setImageResource(imageResource);
+        }
+
+        // Grabs output name from FirstPageActivity for CSVWriting
+        Intent intent = getIntent();
+        outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
+
         // setting values for Views
-        prePrompt.setText(question.getInstruction());
+        prePrompt.setText(prePrompts[0]);
         prompt.setText(question.getQuestion());
 
         // setting visibility for the first page
