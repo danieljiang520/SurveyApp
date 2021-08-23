@@ -84,13 +84,13 @@ public class ShortMemActivity extends AppCompatActivity {
         prompt.setText(question.getQuestion());
 
         // setting visibility for the first page
-        next1.setVisibility(View.VISIBLE);
-        prePrompt.setVisibility(View.VISIBLE);
-        next2.setVisibility(View.GONE);
-        imgTask.setVisibility(View.GONE);
-        prompt.setVisibility(View.GONE);
-        responseEntry.setVisibility(View.GONE);
-        stringTask.setVisibility(View.GONE);
+        //next1.setVisibility(View.VISIBLE);
+        //prePrompt.setVisibility(View.VISIBLE);
+        //next2.setVisibility(View.GONE);
+        //imgTask.setVisibility(View.GONE);
+        //prompt.setVisibility(View.GONE);
+        //responseEntry.setVisibility(View.GONE);
+        //stringTask.setVisibility(View.GONE);
 
         // registering non button clicks
         ConstraintLayout cLayout = findViewById(R.id.shortMem);

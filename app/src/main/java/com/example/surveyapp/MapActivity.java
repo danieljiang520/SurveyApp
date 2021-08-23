@@ -3,6 +3,7 @@ package com.example.surveyapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,6 +46,7 @@ public class MapActivity extends AppCompatActivity {
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
+        question.printQuestionAttributes();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -67,10 +69,10 @@ public class MapActivity extends AppCompatActivity {
         choice4.button = findViewById(R.id.mapChoice4);
 
         // sets the names for MCButtons
-        choice1.buttonName = question.getAnswerOptions()[0];
-        choice2.buttonName = question.getAnswerOptions()[1];
-        choice3.buttonName = question.getAnswerOptions()[2];
-        choice4.buttonName = question.getAnswerOptions()[3];
+        choice1.button.setText(question.getAnswerOptions()[0]);
+        choice2.button.setText(question.getAnswerOptions()[1]);
+        choice3.button.setText(question.getAnswerOptions()[2]);
+        choice4.button.setText(question.getAnswerOptions()[3]);
 
         // runs selectButton void
         selectButton(choice1);
