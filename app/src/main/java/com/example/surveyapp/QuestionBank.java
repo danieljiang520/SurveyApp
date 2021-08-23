@@ -101,7 +101,7 @@ public class QuestionBank implements Serializable {
                 if(typeActivity != null) {
                     Question question = new Question(id,typeActivity,tokens[2],tokens[3],tokens[4],tokens[5],
                             tokens[6],tokens[7],answerOptions,tokens[9]);
-                    question.printQuestionAttributes();
+                    //question.printQuestionAttributes();
                     questions.add(question);
                 } else{
                     Log.wtf("MyActivity", "Cannot create class on line: " + line);

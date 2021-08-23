@@ -94,6 +94,7 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
+                Log.d("MapActivity", "selected: " + selected );
                 csvWriter.WriteAnswers(outputName, MapActivity.this, timeStamps, question.getAnswerType(), selected, question.getCorrectAnswer());
                 ActivitySwitch();
             }
@@ -110,7 +111,7 @@ public class MapActivity extends AppCompatActivity {
                 choice3.button.setSelected(false);
                 choice4.button.setSelected(false);
                 choice.button.setSelected(true);
-                selected = choice.buttonName;
+                selected = choice.button.getText().toString();
             }
         });
     }
