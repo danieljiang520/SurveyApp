@@ -27,6 +27,7 @@ public class QuestionBank implements Serializable {
         if (ind > 0){
             ind--;
         }
+        questions.get(ind).printQuestionAttributes();
         return questions.get(ind);
     }
 

@@ -46,7 +46,6 @@ public class MapActivity extends AppCompatActivity {
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
-        question.printQuestionAttributes();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
@@ -68,7 +67,7 @@ public class MapActivity extends AppCompatActivity {
         choice3.button = findViewById(R.id.mapChoice3);
         choice4.button = findViewById(R.id.mapChoice4);
 
-        // sets the names for MCButtons
+        // sets the texts for MCButtons
         choice1.button.setText(question.getAnswerOptions()[0]);
         choice2.button.setText(question.getAnswerOptions()[1]);
         choice3.button.setText(question.getAnswerOptions()[2]);
