@@ -8,39 +8,47 @@
 
     <ImageView
         android:id="@+id/wordSearchImg"
-        android:layout_width="234dp"
-        android:layout_height="234dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="250px"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/wordSearchNext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
+        app:layout_constraintTop_toBottomOf="@+id/wordSearchPrompt"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/wordSearchPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="12dp"
+        android:padding="5dp"
+        android:text="Sample Map Question?"
+        android:textColor="@color/textgrey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintWidth_max="wrap"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/wordSearchNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/button_background_color"
         android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintTop_toBottomOf="@+id/wordSearchImg" />
 
     <Button
         android:id="@+id/wordSearchWord1"

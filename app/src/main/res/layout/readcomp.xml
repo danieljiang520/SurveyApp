@@ -6,140 +6,131 @@
     android:layout_height="match_parent"
     android:id="@+id/readComp">
 
-    <Button
-        android:id="@+id/readCompChoice1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="A"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/readCompNext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintTop_toBottomOf="@+id/readCompPrompt">
 
-    <Button
-        android:id="@+id/readCompChoice2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="B"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
+        <Button
+            android:id="@+id/readCompChoice1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="A"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/readCompChoice5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:text="E"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        <Button
+            android:id="@+id/readCompChoice2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="B"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"  />
 
-    <Button
-        android:id="@+id/readCompChoice3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="C"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        <Button
+            android:id="@+id/readCompChoice3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="C"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/readCompChoice4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="D"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.821" />
+        <Button
+            android:id="@+id/readCompChoice4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="D"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"  />
+
+        <Button
+            android:id="@+id/readCompChoice5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="E"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"  />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/readCompNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="@color/button_background_color"
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/readCompPrePrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="12dp"
+        android:padding="5dp"
+        android:text="PrePrompt"
+        android:textColor="@color/textgrey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/readCompExcerpt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintWidth_max="wrap"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/readCompExcerpt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="12dp"
+        android:padding="5dp"
+        android:text="Question"
+        android:textColor="@color/textgrey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/readCompPrompt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintTop_toBottomOf="@id/readCompPrePrompt"
+        app:layout_constraintWidth_max="wrap" />
 
     <TextView
         android:id="@+id/readCompPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="12dp"
+        android:padding="5dp"
+        android:text="Prompt"
+        android:textColor="@color/textgrey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintTop_toBottomOf="@id/readCompExcerpt"
+        app:layout_constraintWidth_max="wrap"
+        android:gravity="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

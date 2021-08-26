@@ -30,7 +30,8 @@
         app:layout_constraintBottom_toTopOf="@+id/partNumEntry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UMLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/UMLogo"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/partNumEntry"
@@ -52,7 +53,8 @@
         app:layout_constraintBottom_toTopOf="@+id/startTimeEntry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/partNumEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/partNumEntry"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/startTimeEntry"
@@ -76,6 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startTimeEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/startTimeEntry"
+        android:textAllCaps="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
