@@ -21,17 +21,12 @@ public class MapActivity extends AppCompatActivity {
     private static final String TAG = "MapActivity";
     public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
 
-    public static class MCButton{
-        Button button;
-        String buttonName;
-    }
-
     String outputName;
     Button mapNext;
-    MCButton choice1 = new MCButton();
-    MCButton choice2 = new MCButton();
-    MCButton choice3 = new MCButton();
-    MCButton choice4 = new MCButton();
+    Button choice1;
+    Button choice2;
+    Button choice3;
+    Button choice4;
     String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
@@ -62,16 +57,16 @@ public class MapActivity extends AppCompatActivity {
 
         // matches buttons with xml id
         mapNext = findViewById(R.id.mapNext);
-        choice1.button = findViewById(R.id.mapChoice1);
-        choice2.button = findViewById(R.id.mapChoice2);
-        choice3.button = findViewById(R.id.mapChoice3);
-        choice4.button = findViewById(R.id.mapChoice4);
+        choice1 = findViewById(R.id.mapChoice1);
+        choice2 = findViewById(R.id.mapChoice2);
+        choice3 = findViewById(R.id.mapChoice3);
+        choice4 = findViewById(R.id.mapChoice4);
 
         // sets the texts for MCButtons
-        choice1.button.setText(question.getAnswerOptions()[0]);
-        choice2.button.setText(question.getAnswerOptions()[1]);
-        choice3.button.setText(question.getAnswerOptions()[2]);
-        choice4.button.setText(question.getAnswerOptions()[3]);
+        choice1.setText(question.getAnswerOptions()[0]);
+        choice2.setText(question.getAnswerOptions()[1]);
+        choice3.setText(question.getAnswerOptions()[2]);
+        choice4.setText(question.getAnswerOptions()[3]);
 
         // runs selectButton void
         selectButton(choice1);
@@ -100,17 +95,17 @@ public class MapActivity extends AppCompatActivity {
         });
     }
     // sets the tapped button to "selected"
-    public void selectButton(MCButton choice){
-        choice.button.setOnClickListener(new View.OnClickListener() {
+    public void selectButton(Button choice){
+        choice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                choice1.button.setSelected(false);
-                choice2.button.setSelected(false);
-                choice3.button.setSelected(false);
-                choice4.button.setSelected(false);
-                choice.button.setSelected(true);
-                selected = choice.button.getText().toString();
+                choice1.setSelected(false);
+                choice2.setSelected(false);
+                choice3.setSelected(false);
+                choice4.setSelected(false);
+                choice.setSelected(true);
+                selected = choice.getText().toString();
             }
         });
     }

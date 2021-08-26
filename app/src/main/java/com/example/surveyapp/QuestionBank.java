@@ -1,6 +1,10 @@
 package com.example.surveyapp;
 
+import android.content.Context;
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +12,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +22,7 @@ public class QuestionBank implements Serializable {
     private List<Question> questions;
     private int indexQuestion;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public QuestionBank(InputStream is) {
         this.indexQuestion = 0;
         this.questions = new ArrayList<>();
@@ -40,6 +47,7 @@ public class QuestionBank implements Serializable {
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void readData(InputStream is){
 
         BufferedReader reader = new BufferedReader(
@@ -58,7 +66,13 @@ public class QuestionBank implements Serializable {
                 //Question sample = new Question(tokens);
                 int id = Integer.parseInt(tokens[0]);
                 String type = tokens[1];
-
+                String classification = tokens[2];
+                String answerType = tokens[3];
+                String correctAnswer = tokens[4];
+                String instruction = tokens[5];
+                String imgPath = tokens[6];
+                String surveyQuestion = tokens[7];
+                String questionCode = tokens[9];
 
                 String[] answerOptions;
                 if(tokens[8].length() > 0) {
@@ -67,7 +81,6 @@ public class QuestionBank implements Serializable {
                 }else{
                     answerOptions = new String[0];
                 }
-
 
                 String typeActivity = null;
                 switch(type) { // in Java 7
@@ -86,22 +99,22 @@ public class QuestionBank implements Serializable {
                     case "Pattern":
                         typeActivity = "PatternActivity";
                         break;
-                    case "Visual Search - TEXT":
-                        typeActivity = "VisSearchActivity";
-                        break;
+                    //case "Visual Search - TEXT":
+                        //typeActivity = "VisSearchActivity";
+                        //break;
                     case "Typing":
                         typeActivity = "TypingActivity";
                         break;
-                    case "Subjective":
-                        typeActivity = "SubjectiveActivity";
-                        break;
+                    //case "Subjective":
+                        //typeActivity = "SubjectiveActivity";
+                        //break;
                     case "Spot the Difference":
                         typeActivity = "SpotDiffActivity";
                         break;
                 }
                 if(typeActivity != null) {
-                    Question question = new Question(id,typeActivity,tokens[2],tokens[3],tokens[4],tokens[5],
-                            tokens[6],tokens[7],answerOptions,tokens[9]);
+                    Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,instruction,
+                            imgPath,surveyQuestion,answerOptions,questionCode);
                     //question.printQuestionAttributes();
                     questions.add(question);
                 } else{

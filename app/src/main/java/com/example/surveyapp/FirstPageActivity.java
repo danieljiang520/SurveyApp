@@ -1,6 +1,8 @@
 package com.example.surveyapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -10,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.InputStream;
@@ -28,6 +32,7 @@ public class FirstPageActivity extends AppCompatActivity {
 
     QuestionBank questionBank;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
