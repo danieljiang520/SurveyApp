@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurveyApp" >
+        <activity android:name=".WordSearchActivity"></activity>
+        <activity android:name=".VisSearchImgActivity"></activity>
         <activity android:name=".SurRefActivity"></activity>
         <activity android:name=".MapActivity"></activity>
         <activity android:name=".PatternActivity"></activity>

@@ -37,7 +37,7 @@ public class WordSearchActivity extends AppCompatActivity {
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
         word3 = findViewById(R.id.wordSearchWord3);
-        next = findViewById(R.id.surRefNext);
+        next = findViewById(R.id.wordSearchNext);
         word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
         word3.setBackgroundColor(Color.TRANSPARENT);
