@@ -8,128 +8,121 @@
 
     <ImageView
         android:id="@+id/patternImage"
-        android:layout_width="258dp"
-        android:layout_height="222dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="250px"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/patternPrompt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/patternPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sample \nPattern \nQuestion\n?"
+        android:layout_margin="12dp"
+        android:padding="5dp"
+        android:text="Sample Pattern Question?"
         android:textColor="@color/textgrey"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintTop_toBottomOf="@+id/patternImage"
+        app:layout_constraintWidth_max="wrap"
+        android:gravity="center"/>
 
-    <Button
-        android:id="@+id/patternChoice1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="A"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/patternNext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintTop_toBottomOf="@+id/patternPrompt">
 
-    <Button
-        android:id="@+id/patternChoice2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="B"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607" />
+        <Button
+            android:id="@+id/patternChoice1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="A"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/patternChoice2"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/patternChoice3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="C"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        <Button
+            android:id="@+id/patternChoice2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="B"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/patternChoice3"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/patternChoice4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:backgroundTint="@color/button_background_color"
-        android:text="D"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        <Button
+            android:id="@+id/patternChoice3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="C"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/patternChoice4"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/patternChoice4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="D"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/patternChoice5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/patternChoice5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_background_color"
+            android:text="E"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/patternNext"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/patternNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="@color/button_background_color"
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/patternChoice5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:text="E"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.822" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
