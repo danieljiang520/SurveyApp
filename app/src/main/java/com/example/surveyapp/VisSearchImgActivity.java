@@ -22,6 +22,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
     String outputName;
     String answer;
     Button next;
+    String[] posSize = new String[12];
 
     QuestionBank questionBank;
     Question question;
@@ -34,6 +35,9 @@ public class VisSearchImgActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // read values for pos and size
+        String[] posSize = question.getQuestionCode().split(",");
+
         word1 = findViewById(R.id.visSearchImgWord1);
         word2 = findViewById(R.id.visSearchImgWord2);
         word3 = findViewById(R.id.visSearchImgWord3);
@@ -43,7 +47,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
         word3.setBackgroundColor(Color.TRANSPARENT);
 
         ImageView imageView = (ImageView) findViewById(R.id.visSearchImgImg);
-        int imageResource = getResources().getIdentifier("@drawable/surrtest", null, this.getPackageName());
+        int imageResource = getResources().getIdentifier("@drawable/" + question.getImgPath(), null, this.getPackageName());
         imageView.setImageResource(imageResource);
 
         ConstraintLayout constraintLayout = (ConstraintLayout)findViewById(R.id.visSearchImg);
@@ -51,29 +55,28 @@ public class VisSearchImgActivity extends AppCompatActivity {
         constraint.clone(constraintLayout);
 
         //button1
-        constraint.constrainPercentHeight(R.id.visSearchImgWord1,10);
-        constraint.constrainPercentWidth(R.id.visSearchImgWord1,10);
-        constraint.setVerticalBias(R.id.visSearchImgWord1,0);
-        constraint.setHorizontalBias(R.id.visSearchImgWord1,0);
+        constraint.constrainPercentHeight(R.id.visSearchImgWord1,Integer.parseInt(posSize[0]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord1,Integer.parseInt(posSize[1]));
+        constraint.setVerticalBias(R.id.visSearchImgWord1,Integer.parseInt(posSize[3]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord1,Integer.parseInt(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.visSearchImgWord2,10);
-        constraint.constrainPercentWidth(R.id.visSearchImgWord2,10);
-        constraint.setVerticalBias(R.id.visSearchImgWord2,0);
-        constraint.setHorizontalBias(R.id.visSearchImgWord2,0);
+        constraint.constrainPercentHeight(R.id.visSearchImgWord2,Integer.parseInt(posSize[4]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord2,Integer.parseInt(posSize[5]));
+        constraint.setVerticalBias(R.id.visSearchImgWord2,Integer.parseInt(posSize[7]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord2,Integer.parseInt(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.visSearchImgWord3,10);
-        constraint.constrainPercentWidth(R.id.visSearchImgWord3,10);
-        constraint.setVerticalBias(R.id.visSearchImgWord3,0);
-        constraint.setHorizontalBias(R.id.visSearchImgWord3,0);
+        constraint.constrainPercentHeight(R.id.visSearchImgWord3,Integer.parseInt(posSize[8]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord3,Integer.parseInt(posSize[9]));
+        constraint.setVerticalBias(R.id.visSearchImgWord3,Integer.parseInt(posSize[11]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord3,Integer.parseInt(posSize[12]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.visSearchImg);
-        cLayout.setOnClickListener(new View.OnClickListener() {
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
@@ -112,15 +115,15 @@ public class VisSearchImgActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 if(word1.isSelected()){
-                    answer += "word1name";
+                    answer += question.getAnswerOptions()[0];
                 }
                 if(word2.isSelected()){
-                    answer += "word2name";
+                    answer += question.getAnswerOptions()[1];
                 }
                 if(word3.isSelected()){
-                    answer += "word3name";
+                    answer += question.getAnswerOptions()[2];
                 }
-                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, "NA"/*question.getTypeActivity()*/, answer, "found");
+                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, question.getTypeActivity(), answer, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
