@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,6 +22,8 @@ public class SurRefActivity extends AppCompatActivity {
     String outputName;
     String answer;
     Button next;
+    String[] posSize = new String[4];
+    TextView prompt;
 
     QuestionBank questionBank;
     Question question;
@@ -32,27 +36,31 @@ public class SurRefActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // read values for pos and size
+        String[] posSize = question.getQuestionCode().split(",");
+
         item = findViewById(R.id.surRefCircle);
         next = findViewById(R.id.surRefNext);
+        prompt = findViewById(R.id.surRefPrompt);
+        prompt.setText(question.getInstruction());
         item.setBackgroundColor(Color.TRANSPARENT);
 
         ImageView imageView = (ImageView) findViewById(R.id.surRefImg);
-        int imageResource = getResources().getIdentifier("@drawable/surrtest", null, this.getPackageName());
+        int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
         imageView.setImageResource(imageResource);
 
         ConstraintLayout constraintLayout = (ConstraintLayout)findViewById(R.id.surRefTask);
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
-        constraint.constrainPercentHeight(R.id.surRefCircle,10);
-        constraint.constrainPercentWidth(R.id.surRefCircle,10);
-        constraint.setVerticalBias(R.id.surRefCircle,0);
-        constraint.setHorizontalBias(R.id.surRefCircle,0);
+        constraint.constrainPercentHeight(R.id.surRefCircle,Integer.parseInt(posSize[0]));
+        constraint.constrainPercentWidth(R.id.surRefCircle,Integer.parseInt(posSize[1]));
+        constraint.setVerticalBias(R.id.surRefCircle,Integer.parseInt(posSize[3]));
+        constraint.setHorizontalBias(R.id.surRefCircle,Integer.parseInt(posSize[2]));
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.surRefTask);
-        cLayout.setOnClickListener(new View.OnClickListener() {
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
@@ -80,7 +88,7 @@ public class SurRefActivity extends AppCompatActivity {
                 else{
                     answer = "not found";
                 }
-                csvWriter.WriteAnswers(outputName, SurRefActivity.this, timeStamps, "NA"/*question.getTypeActivity()*/, answer, "found");
+                csvWriter.WriteAnswers(outputName, SurRefActivity.this, timeStamps, question.getTypeActivity(), answer, "found");
                 ActivitySwitch();
             }
         });

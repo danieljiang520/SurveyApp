@@ -46,38 +46,38 @@
         android:id="@+id/wordSearchWord1"
         android:layout_width="88dp"
         android:layout_height="48dp"
+        android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.715"
-        android:stateListAnimator="@null"/>
+        app:layout_constraintVertical_bias="0.112" />
 
     <Button
         android:id="@+id/wordSearchWord2"
         android:layout_width="88dp"
         android:layout_height="48dp"
+        android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.172"
-        android:stateListAnimator="@null"/>
+        app:layout_constraintVertical_bias="0.747" />
 
     <Button
         android:id="@+id/wordSearchWord3"
         android:layout_width="88dp"
         android:layout_height="48dp"
+        android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.381"
-        android:stateListAnimator="@null"/>
+        app:layout_constraintVertical_bias="0.908" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,20 +39,19 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236"
+        app:layout_constraintVertical_bias="0.498"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/surRefCircle"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/surRefImg"
         app:layout_constraintEnd_toEndOf="@+id/surRefImg"
-        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="@+id/surRefImg"
         app:layout_constraintTop_toTopOf="@+id/surRefImg"
-        app:layout_constraintVertical_bias="0.61"
-        android:stateListAnimator="@null"/>
+        app:layout_constraintVertical_bias="0.055" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

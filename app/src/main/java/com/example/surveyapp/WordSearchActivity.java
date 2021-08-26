@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,6 +23,8 @@ public class WordSearchActivity extends AppCompatActivity {
     String outputName;
     String answer;
     Button next;
+    String[] posSize = new String[12];
+    TextView prompt;
 
     QuestionBank questionBank;
     Question question;
@@ -34,16 +37,21 @@ public class WordSearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // read values for pos and size
+        String[] posSize = question.getQuestionCode().split(",");
+
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
         word3 = findViewById(R.id.wordSearchWord3);
+        prompt = findViewById(R.id.wordSearchPrompt);
         next = findViewById(R.id.wordSearchNext);
         word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
         word3.setBackgroundColor(Color.TRANSPARENT);
+        prompt.setText(question.getInstruction());
 
         ImageView imageView = (ImageView) findViewById(R.id.wordSearchImg);
-        int imageResource = getResources().getIdentifier("@drawable/surrtest", null, this.getPackageName());
+        int imageResource = getResources().getIdentifier("@drawable/" + question.getImgPath(), null, this.getPackageName());
         imageView.setImageResource(imageResource);
 
         ConstraintLayout constraintLayout = (ConstraintLayout)findViewById(R.id.wordSearch);
@@ -51,29 +59,28 @@ public class WordSearchActivity extends AppCompatActivity {
         constraint.clone(constraintLayout);
 
         //button1
-        constraint.constrainPercentHeight(R.id.wordSearchWord1,10);
-        constraint.constrainPercentWidth(R.id.wordSearchWord1,10);
-        constraint.setVerticalBias(R.id.wordSearchWord1,0);
-        constraint.setHorizontalBias(R.id.wordSearchWord1,0);
+        constraint.constrainPercentHeight(R.id.wordSearchWord1,Integer.parseInt(posSize[0]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord1,Integer.parseInt(posSize[1]));
+        constraint.setVerticalBias(R.id.wordSearchWord1,Integer.parseInt(posSize[3]));
+        constraint.setHorizontalBias(R.id.wordSearchWord1,Integer.parseInt(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.wordSearchWord2,10);
-        constraint.constrainPercentWidth(R.id.wordSearchWord2,10);
-        constraint.setVerticalBias(R.id.wordSearchWord2,0);
-        constraint.setHorizontalBias(R.id.wordSearchWord2,0);
+        constraint.constrainPercentHeight(R.id.wordSearchWord2,Integer.parseInt(posSize[4]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord2,Integer.parseInt(posSize[5]));
+        constraint.setVerticalBias(R.id.wordSearchWord2,Integer.parseInt(posSize[7]));
+        constraint.setHorizontalBias(R.id.wordSearchWord2,Integer.parseInt(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.wordSearchWord3,10);
-        constraint.constrainPercentWidth(R.id.wordSearchWord3,10);
-        constraint.setVerticalBias(R.id.wordSearchWord3,0);
-        constraint.setHorizontalBias(R.id.wordSearchWord3,0);
+        constraint.constrainPercentHeight(R.id.wordSearchWord3,Integer.parseInt(posSize[8]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord3,Integer.parseInt(posSize[9]));
+        constraint.setVerticalBias(R.id.wordSearchWord3,Integer.parseInt(posSize[11]));
+        constraint.setHorizontalBias(R.id.wordSearchWord3,Integer.parseInt(posSize[10]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
 
         // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.wordSearch);
-        cLayout.setOnClickListener(new View.OnClickListener() {
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
@@ -112,15 +119,15 @@ public class WordSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 if(word1.isSelected()){
-                    answer += "word1name";
+                    answer += question.getAnswerOptions()[0];
                 }
                 if(word2.isSelected()){
-                    answer += "word2name";
+                    answer += question.getAnswerOptions()[1];
                 }
                 if(word3.isSelected()){
-                    answer += "word3name";
+                    answer += question.getAnswerOptions()[2];
                 }
-                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, "NA"/*question.getTypeActivity()*/, answer, "found");
+                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, question.getTypeActivity(), answer, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
