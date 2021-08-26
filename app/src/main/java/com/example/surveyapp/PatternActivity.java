@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -19,15 +18,14 @@ public class PatternActivity extends AppCompatActivity {
 
     String outputName;
     Button patternNext;
-    MultipleChoiceFormat.MCButton choice1 = new MultipleChoiceFormat.MCButton();
-    MultipleChoiceFormat.MCButton choice2 = new MultipleChoiceFormat.MCButton();
-    MultipleChoiceFormat.MCButton choice3 = new MultipleChoiceFormat.MCButton();
-    MultipleChoiceFormat.MCButton choice4 = new MultipleChoiceFormat.MCButton();
-    MultipleChoiceFormat.MCButton choice5 = new MultipleChoiceFormat.MCButton();
+    Button choice1;
+    Button choice2;
+    Button choice3;
+    Button choice4;
+    Button choice5;
     String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
     GetTimeStamp timeStamps = new GetTimeStamp();
-    MultipleChoiceFormat multChoice = new MultipleChoiceFormat();
 
     QuestionBank questionBank;
     Question question;
@@ -46,11 +44,6 @@ public class PatternActivity extends AppCompatActivity {
 
         // matches buttons with xml id
         patternNext = findViewById(R.id.patternNext);
-        choice1.button = findViewById(R.id.patternChoice1);
-        choice2.button = findViewById(R.id.patternChoice2);
-        choice3.button = findViewById(R.id.patternChoice3);
-        choice4.button = findViewById(R.id.patternChoice4);
-        choice5.button = findViewById(R.id.patternChoice5);
 
         // sets up image
         ImageView imageView = (ImageView) findViewById(R.id.patternImage);
@@ -61,29 +54,31 @@ public class PatternActivity extends AppCompatActivity {
         TextView prompt = findViewById(R.id.patternPrompt);
         prompt.setText(question.getQuestion());
 
-        // sets the names for MCButtons
-        choice1.buttonName = question.getAnswerOptions()[0];
-        choice2.buttonName = question.getAnswerOptions()[1];
-        choice3.buttonName = question.getAnswerOptions()[2];
-        choice4.buttonName = question.getAnswerOptions()[3];
-        choice5.buttonName = question.getAnswerOptions()[4];
+        // matches buttons with xml id
+        choice1 = findViewById(R.id.patternChoice1);
+        choice2 = findViewById(R.id.patternChoice2);
+        choice3 = findViewById(R.id.patternChoice3);
+        choice4 = findViewById(R.id.patternChoice4);
+        choice5 = findViewById(R.id.patternChoice5);
 
-        // importing everything into MultChoice
-        multChoice.answer1 = choice1;
-        multChoice.answer2 = choice2;
-        multChoice.answer3 = choice3;
-        multChoice.answer4 = choice4;
-        multChoice.answer5 = choice5;
-        multChoice.timeStamps = timeStamps;
-        multChoice.fiveAnswers = false;
-        multChoice.selected = selected;
+        // sets the names for MCButtons
+        choice1.setText(question.getAnswerOptions()[0]);
+        choice2.setText(question.getAnswerOptions()[1]);
+        choice3.setText(question.getAnswerOptions()[2]);
+        choice4.setText(question.getAnswerOptions()[3]);
+        if(question.getAnswerOptions().length==5){
+            choice5.setText(question.getAnswerOptions()[4]);
+            choice5.setVisibility(View.VISIBLE);
+        }else{
+            choice5.setVisibility(View.GONE);
+        }
 
         // runs selectButton void
-        multChoice.selectButton(choice1);
-        multChoice.selectButton(choice2);
-        multChoice.selectButton(choice3);
-        multChoice.selectButton(choice4);
-        multChoice.selectButton(choice5);
+        selectButton(choice1);
+        selectButton(choice2);
+        selectButton(choice3);
+        selectButton(choice4);
+        selectButton(choice5);
 
         // detects tap on screen, records timestamp
         ConstraintLayout cLayout = findViewById(R.id.pattern);
@@ -99,8 +94,23 @@ public class PatternActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, PatternActivity.this, timeStamps, question.getTypeActivity(), multChoice.selected, question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, PatternActivity.this, timeStamps, question.getTypeActivity(), selected, question.getCorrectAnswer());
                 ActivitySwitch();
+            }
+        });
+    }
+    public void selectButton(Button choice){
+        choice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timeStamps.updateTimeStamp();
+                choice1.setSelected(false);
+                choice2.setSelected(false);
+                choice3.setSelected(false);
+                choice4.setSelected(false);
+                choice5.setSelected(false);
+                choice.setSelected(true);
+                selected = choice.getText().toString();
             }
         });
     }

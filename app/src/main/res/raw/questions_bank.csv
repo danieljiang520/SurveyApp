@@ -1,13 +1,13 @@
-Question Index,Question Type,Classification,Answer Type,Answer,Survey Question,Image,Survey Question,Answer Options,Question code
+Question Index,Question Type,Classification,Answer Type,Answer,Instruction,Image,Question,Answer Options,Question code
 1,Map,Visual Search,Accuracy/Timing,North,,image1,Officer Wilkinson is at the Town Plaza.  She needs to get to the Church of Revelation.  Which direction does she go from the Town Plaza?,"North,South,East,West",
 2,Short Term Memory,Visual Cognitive,Accuracy/Timing,"Chicken,Bear,Flower,Frog,Fox,Horse",Look at the picture and try to remember as many items as you can. (picture will disappear in 20 seconds),image6,Type as many items as you can remember,,
 3,Spatial Reasoning,Visual Cognitive,Accuracy,A,Which of the four shapes will be the result of folding this 'paper' together?,image7,,"A,B,C,D",
-4,Reading Comprehension,Visual Cognitive,Accuracy/Timing,Warm chocolate cake,,,Which item did the person who wrote the review try?,"California roll,Warm chocolate cake,Beef Teriyaki,Lychee ice cream",
+4,Reading Comprehension,Visual Cognitive,Accuracy/Timing,Warm chocolate cake,test instruction,test prompt,Which item did the person who wrote the review try?,"California roll,Warm chocolate cake,Beef Teriyaki,Lychee ice cream",
 5,Pattern,Visual Cognitive,Accuracy/Timing,A,,image8,What comes next?,"A,B,C,D",
 6,Visual Search - TEXT,Visual Search,Accuracy/Timing,1,"Read the following passage and answer the question. For many locals, Top of the Park is synonymous with summer in Ann Arbor. The month-long festival features free nightly musical performances, kids activities, outdoor movie screenings and wellness classes on the U of M campus. Its ticketed Main Stage performance series also draws big artists each year and takes place at Hill Auditorium.",,How many times did the word 'festival' appear in the passage above?,"1,2,3,4,5",
 7,Typing,Motor Cognitive,Timing,,"Suppose you were looking for local movie theatre in your area. Please enter 3 search terms you would use. Example: movies, popcorn, candy",,,,
 8,Visual Search - IMAGE,Visual Search,Accuracy/Timing,,"Find and tap on the following objects: fork, skateboard, and a whistle",image3,,,
-9,Word Search,Visual Search,Accuracy/Timing,,"Tap on the words: TRIANGLE, CLARINET, GUITAR",imae4,,,
+9,Word Search,Visual Search,Accuracy/Timing,,"Tap on the words: TRIANGLE, CLARINET, GUITAR",image4,,,
 10,Subjective,Motor Cognitive,Timing,,Which vacation location would you enjoy the most?,,,"Resort on a tropical beach,Ski lodge in the mountains,Hotel in exciting large city,Cabin in the woods,Spa in the desert",
 11,Surrogate Reference Task,Visual Cognitive,Timing,,Click on the smallest circle in the image below,image5,,,
 12,Spot the Difference,Visual Cognitive,Accuracy/Timing,10,Look for differences between the two images below,image2,How many differences can you spot?,"7,8,9,10,11",

@@ -29,8 +29,14 @@
         <entry key="app/src/main/res/layout/final_page.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/layout/first_page.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/map.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/pattern.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/reacttime.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/readcomp.xml" value="0.375" />
         <entry key="app/src/main/res/layout/shortmem.xml" value="0.2869791666666667" />
         <entry key="app/src/main/res/layout/spatreason.xml" value="0.28177083333333336" />
+        <entry key="app/src/main/res/layout/spotdiff.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/subjective.xml" value="0.19202898550724637" />
+        <entry key="app/src/main/res/layout/vissearchimg.xml" value="0.5" />
       </map>
     </option>
   </component>
