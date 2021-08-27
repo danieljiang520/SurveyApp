@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wordSearchPrompt"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/image4" />
 
     <TextView
         android:id="@+id/wordSearchPrompt"
@@ -52,40 +52,40 @@
 
     <Button
         android:id="@+id/wordSearchWord1"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
+        android:layout_width="358dp"
+        android:layout_height="46dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.22" />
 
     <Button
         android:id="@+id/wordSearchWord2"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
+        android:layout_width="41dp"
+        android:layout_height="400dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintHorizontal_bias="0.969"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="0.496" />
 
     <Button
         android:id="@+id/wordSearchWord3"
-        android:layout_width="88dp"
+        android:layout_width="274dp"
         android:layout_height="48dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.302"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.908" />
+        app:layout_constraintVertical_bias="0.838" />
 </androidx.constraintlayout.widget.ConstraintLayout>
