@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/visSearchImgPrompt"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/image3" />
 
     <TextView
         android:id="@+id/visSearchImgPrompt"
@@ -27,7 +27,7 @@
         android:padding="5dp"
         android:text="Sample Map Question?"
         android:textColor="@color/textgrey"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/visSearchImgImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,40 +52,40 @@
 
     <Button
         android:id="@+id/visSearchImgWord1"
-        android:layout_width="94dp"
-        android:layout_height="48dp"
+        android:layout_width="72dp"
+        android:layout_height="90dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/visSearchImgImg"
         app:layout_constraintEnd_toEndOf="@+id/visSearchImgImg"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.984"
         app:layout_constraintStart_toStartOf="@+id/visSearchImgImg"
         app:layout_constraintTop_toTopOf="@+id/visSearchImgImg"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintVertical_bias="0.776" />
 
     <Button
         android:id="@+id/visSearchImgWord2"
-        android:layout_width="94dp"
-        android:layout_height="48dp"
+        android:layout_width="116dp"
+        android:layout_height="60dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/visSearchImgImg"
         app:layout_constraintEnd_toEndOf="@+id/visSearchImgImg"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="@+id/visSearchImgImg"
         app:layout_constraintTop_toTopOf="@+id/visSearchImgImg"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.362" />
 
     <Button
         android:id="@+id/visSearchImgWord3"
-        android:layout_width="94dp"
-        android:layout_height="48dp"
+        android:layout_width="183dp"
+        android:layout_height="104dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/visSearchImgImg"
         app:layout_constraintEnd_toEndOf="@+id/visSearchImgImg"
-        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="@+id/visSearchImgImg"
         app:layout_constraintTop_toTopOf="@+id/visSearchImgImg"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintVertical_bias="0.388" />
 </androidx.constraintlayout.widget.ConstraintLayout>

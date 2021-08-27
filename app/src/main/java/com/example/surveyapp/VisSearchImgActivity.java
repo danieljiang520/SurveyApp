@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,6 +24,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
     String answer;
     Button next;
     String[] posSize = new String[12];
+    TextView prompt;
 
     QuestionBank questionBank;
     Question question;
@@ -44,9 +46,11 @@ public class VisSearchImgActivity extends AppCompatActivity {
         word2 = findViewById(R.id.visSearchImgWord2);
         word3 = findViewById(R.id.visSearchImgWord3);
         next = findViewById(R.id.visSearchImgNext);
+        prompt = findViewById(R.id.visSearchImgPrompt);
         word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
         word3.setBackgroundColor(Color.TRANSPARENT);
+        prompt.setText(question.getInstruction());
 
         ImageView imageView = (ImageView) findViewById(R.id.visSearchImgImg);
         int imageResource = getResources().getIdentifier("@drawable/" + question.getImgPath(), null, this.getPackageName());
@@ -57,20 +61,20 @@ public class VisSearchImgActivity extends AppCompatActivity {
         constraint.clone(constraintLayout);
 
         //button1
-        constraint.constrainPercentHeight(R.id.visSearchImgWord1,Float.parseFloat(posSize[0]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord1,Float.parseFloat(posSize[1]));
+        constraint.constrainHeight(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[1]));
+        constraint.constrainWidth(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[0]));
         constraint.setVerticalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[3]));
         constraint.setHorizontalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.visSearchImgWord2,Float.parseFloat(posSize[4]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord2,Float.parseFloat(posSize[5]));
+        constraint.constrainHeight(R.id.visSearchImgWord2, (int) Float.parseFloat(posSize[5]));
+        constraint.constrainWidth(R.id.visSearchImgWord2, (int) Float.parseFloat(posSize[4]));
         constraint.setVerticalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[7]));
         constraint.setHorizontalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.visSearchImgWord3,Float.parseFloat(posSize[8]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord3,Float.parseFloat(posSize[9]));
+        constraint.constrainHeight(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[9]));
+        constraint.constrainWidth(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[8]));
         constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
         constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
 
