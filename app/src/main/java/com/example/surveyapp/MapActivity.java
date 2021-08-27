@@ -23,13 +23,7 @@ public class MapActivity extends AppCompatActivity {
 
     String outputName;
     Button mapNext;
-    Button choice1;
-    Button choice2;
-    Button choice3;
-    Button choice4;
-    String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
-    GetTimeStamp timeStamps = new GetTimeStamp();
 
     QuestionBank questionBank;
     Question question;
@@ -57,29 +51,15 @@ public class MapActivity extends AppCompatActivity {
 
         // matches buttons with xml id
         mapNext = findViewById(R.id.mapNext);
-        choice1 = findViewById(R.id.mapChoice1);
-        choice2 = findViewById(R.id.mapChoice2);
-        choice3 = findViewById(R.id.mapChoice3);
-        choice4 = findViewById(R.id.mapChoice4);
 
-        // sets the texts for MCButtons
-        choice1.setText(question.getAnswerOptions()[0]);
-        choice2.setText(question.getAnswerOptions()[1]);
-        choice3.setText(question.getAnswerOptions()[2]);
-        choice4.setText(question.getAnswerOptions()[3]);
-
-        // runs selectButton void
-        selectButton(choice1);
-        selectButton(choice2);
-        selectButton(choice3);
-        selectButton(choice4);
+        InitChoiceButtons buttons = new InitChoiceButtons(this,"mapChoice",question.getAnswerOptions());
 
         // detects tap on screen, records timestamp
         ConstraintLayout cLayout = findViewById(R.id.map);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                timeStamps.updateTimeStamp();
+                buttons.getTimeStamps().updateTimeStamp();
             }
         });
 
@@ -87,25 +67,10 @@ public class MapActivity extends AppCompatActivity {
         mapNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timeStamps.updateTimeStamp();
-                Log.d("MapActivity", "selected: " + selected );
-                csvWriter.WriteAnswers(outputName, MapActivity.this, timeStamps, question.getAnswerType(), selected, question.getCorrectAnswer());
+                buttons.getTimeStamps().updateTimeStamp();
+                Log.d("MapActivity", "selected: " + buttons.getSelected() );
+                csvWriter.WriteAnswers(outputName, MapActivity.this, buttons.getTimeStamps(), question.getAnswerType(), buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
-            }
-        });
-    }
-    // sets the tapped button to "selected"
-    public void selectButton(Button choice){
-        choice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timeStamps.updateTimeStamp();
-                choice1.setSelected(false);
-                choice2.setSelected(false);
-                choice3.setSelected(false);
-                choice4.setSelected(false);
-                choice.setSelected(true);
-                selected = choice.getText().toString();
             }
         });
     }

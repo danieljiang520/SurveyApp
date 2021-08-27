@@ -37,7 +37,7 @@ public class SurRefActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size
-        String[] posSize = question.getQuestionCode().split(",");
+//        String[] posSize = question.getQuestionCode().split(",");
 
         item = findViewById(R.id.surRefCircle);
         next = findViewById(R.id.surRefNext);

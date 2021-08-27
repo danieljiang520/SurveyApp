@@ -99,18 +99,30 @@ public class QuestionBank implements Serializable {
                     case "Pattern":
                         typeActivity = "PatternActivity";
                         break;
-                    //case "Visual Search - TEXT":
-                        //typeActivity = "VisSearchActivity";
-                        //break;
+                    case "Visual Search - TEXT":
+                        typeActivity = "VisSearchActivity";
+                        break;
                     case "Typing":
                         typeActivity = "TypingActivity";
                         break;
-                    //case "Subjective":
-                        //typeActivity = "SubjectiveActivity";
-                        //break;
+                    case "Visual Search - IMAGE":
+                        typeActivity = "VisSearchImgActivity";
+                        break;
+                    case "Word Search":
+                        typeActivity = "WordSearchActivity";
+                        break;
+//                    case "Subjective":
+//                        typeActivity = "SubjectiveActivity";
+//                        break;
+//                    case "Surrogate Reference Task":
+//                        typeActivity = "SurRefActivity";
+//                        break;
                     case "Spot the Difference":
                         typeActivity = "SpotDiffActivity";
                         break;
+//                    case "Reaction Time":
+//                        typeActivity = "";
+//                        break;
                 }
                 if(typeActivity != null) {
                     Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,instruction,

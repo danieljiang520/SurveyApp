@@ -30,18 +30,20 @@ public class VisSearchImgActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vissearchimg);
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
-        // read values for pos and size
-        String[] posSize = question.getQuestionCode().split(",");
+        // read values for pos and size\
+        String[] posSize = question.getQuestionCode().substring(1, question.getQuestionCode().length() - 1).split(",");
 
         word1 = findViewById(R.id.visSearchImgWord1);
         word2 = findViewById(R.id.visSearchImgWord2);
         word3 = findViewById(R.id.visSearchImgWord3);
-        next = findViewById(R.id.surRefNext);
+        next = findViewById(R.id.visSearchImgNext);
         word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
         word3.setBackgroundColor(Color.TRANSPARENT);
@@ -55,22 +57,22 @@ public class VisSearchImgActivity extends AppCompatActivity {
         constraint.clone(constraintLayout);
 
         //button1
-        constraint.constrainPercentHeight(R.id.visSearchImgWord1,Integer.parseInt(posSize[0]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord1,Integer.parseInt(posSize[1]));
-        constraint.setVerticalBias(R.id.visSearchImgWord1,Integer.parseInt(posSize[3]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord1,Integer.parseInt(posSize[2]));
+        constraint.constrainPercentHeight(R.id.visSearchImgWord1,Float.parseFloat(posSize[0]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord1,Float.parseFloat(posSize[1]));
+        constraint.setVerticalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[3]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.visSearchImgWord2,Integer.parseInt(posSize[4]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord2,Integer.parseInt(posSize[5]));
-        constraint.setVerticalBias(R.id.visSearchImgWord2,Integer.parseInt(posSize[7]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord2,Integer.parseInt(posSize[6]));
+        constraint.constrainPercentHeight(R.id.visSearchImgWord2,Float.parseFloat(posSize[4]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord2,Float.parseFloat(posSize[5]));
+        constraint.setVerticalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[7]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.visSearchImgWord3,Integer.parseInt(posSize[8]));
-        constraint.constrainPercentWidth(R.id.visSearchImgWord3,Integer.parseInt(posSize[9]));
-        constraint.setVerticalBias(R.id.visSearchImgWord3,Integer.parseInt(posSize[11]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord3,Integer.parseInt(posSize[12]));
+        constraint.constrainPercentHeight(R.id.visSearchImgWord3,Float.parseFloat(posSize[8]));
+        constraint.constrainPercentWidth(R.id.visSearchImgWord3,Float.parseFloat(posSize[9]));
+        constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
@@ -114,16 +116,16 @@ public class VisSearchImgActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                if(word1.isSelected()){
-                    answer += question.getAnswerOptions()[0];
-                }
-                if(word2.isSelected()){
-                    answer += question.getAnswerOptions()[1];
-                }
-                if(word3.isSelected()){
-                    answer += question.getAnswerOptions()[2];
-                }
-                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, question.getTypeActivity(), answer, question.getCorrectAnswer());
+//                if(word1.isSelected()){
+//                    answer += question.getAnswerOptions()[0];
+//                }
+//                if(word2.isSelected()){
+//                    answer += question.getAnswerOptions()[1];
+//                }
+//                if(word3.isSelected()){
+//                    answer += question.getAnswerOptions()[2];
+//                }
+                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, question.getTypeActivity(), "visSearchImg answer", "visSearchImg correct answer");
                 ActivitySwitch();
             }
         });

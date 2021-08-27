@@ -33,12 +33,15 @@ public class WordSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wordsearch);
 
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
+
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size
-        String[] posSize = question.getQuestionCode().split(",");
+        String[] posSize = question.getQuestionCode().substring(1, question.getQuestionCode().length() - 1).split(",");
 
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
@@ -59,22 +62,22 @@ public class WordSearchActivity extends AppCompatActivity {
         constraint.clone(constraintLayout);
 
         //button1
-        constraint.constrainPercentHeight(R.id.wordSearchWord1,Integer.parseInt(posSize[0]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord1,Integer.parseInt(posSize[1]));
-        constraint.setVerticalBias(R.id.wordSearchWord1,Integer.parseInt(posSize[3]));
-        constraint.setHorizontalBias(R.id.wordSearchWord1,Integer.parseInt(posSize[2]));
+        constraint.constrainPercentHeight(R.id.wordSearchWord1,Float.parseFloat(posSize[0]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord1,Float.parseFloat(posSize[1]));
+        constraint.setVerticalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[3]));
+        constraint.setHorizontalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.wordSearchWord2,Integer.parseInt(posSize[4]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord2,Integer.parseInt(posSize[5]));
-        constraint.setVerticalBias(R.id.wordSearchWord2,Integer.parseInt(posSize[7]));
-        constraint.setHorizontalBias(R.id.wordSearchWord2,Integer.parseInt(posSize[6]));
+        constraint.constrainPercentHeight(R.id.wordSearchWord2,Float.parseFloat(posSize[4]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord2,Float.parseFloat(posSize[5]));
+        constraint.setVerticalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[7]));
+        constraint.setHorizontalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.wordSearchWord3,Integer.parseInt(posSize[8]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord3,Integer.parseInt(posSize[9]));
-        constraint.setVerticalBias(R.id.wordSearchWord3,Integer.parseInt(posSize[11]));
-        constraint.setHorizontalBias(R.id.wordSearchWord3,Integer.parseInt(posSize[10]));
+        constraint.constrainPercentHeight(R.id.wordSearchWord3,Float.parseFloat(posSize[8]));
+        constraint.constrainPercentWidth(R.id.wordSearchWord3,Float.parseFloat(posSize[9]));
+        constraint.setVerticalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[11]));
+        constraint.setHorizontalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[10]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
@@ -118,16 +121,16 @@ public class WordSearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                if(word1.isSelected()){
-                    answer += question.getAnswerOptions()[0];
-                }
-                if(word2.isSelected()){
-                    answer += question.getAnswerOptions()[1];
-                }
-                if(word3.isSelected()){
-                    answer += question.getAnswerOptions()[2];
-                }
-                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, question.getTypeActivity(), answer, question.getCorrectAnswer());
+//                if(word1.isSelected()){
+//                    answer += question.getAnswerOptions()[0];
+//                }
+//                if(word2.isSelected()){
+//                    answer += question.getAnswerOptions()[1];
+//                }
+//                if(word3.isSelected()){
+//                    answer += question.getAnswerOptions()[2];
+//                }
+                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, question.getTypeActivity(), "wordSearch answer", "wordSearch correct answer");
                 ActivitySwitch();
             }
         });

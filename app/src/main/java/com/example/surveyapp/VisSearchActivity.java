@@ -16,15 +16,7 @@ public class VisSearchActivity extends AppCompatActivity {
 
     String outputName;
     Button visSearchNext;
-    Button choice1;
-    Button choice2;
-    Button choice3;
-    Button choice4;
-    Button choice5;
-    String selected = "N/A";
     CSVWriting csvWriter = new CSVWriting();
-    GetTimeStamp timeStamps = new GetTimeStamp();
-    String[] prePrompts;
     TextView prePrompt;
     TextView prompt;
     TextView passage;
@@ -35,7 +27,7 @@ public class VisSearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vissearchv1);
+        setContentView(R.layout.vissearch);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
@@ -52,43 +44,20 @@ public class VisSearchActivity extends AppCompatActivity {
         passage = findViewById(R.id.visSearchExcerpt);
 
         // assigning text based on the library
-//        prePrompt.setText(prePrompts[0]);
-//        passage.setText(prePrompts[1]);
+        prePrompt.setText(question.getInstruction());
+        passage.setText(question.getImgPath());
         prompt.setText(question.getQuestion());
 
         // matches buttons with xml id
-//        visSearchNext = findViewById(R.id.spatReasonNext);
-//        choice1 = findViewById(R.id.spatReasonChoice1);
-//        choice2 = findViewById(R.id.spatReasonChoice2);
-//        choice3 = findViewById(R.id.spatReasonChoice3);
-//        choice4 = findViewById(R.id.spatReasonChoice4);
-//        choice5 = findViewById(R.id.spatReasonChoice5);
-
-        // sets the names for MCButtons
-        choice1.setText(question.getAnswerOptions()[0]);
-        choice2.setText(question.getAnswerOptions()[1]);
-        choice3.setText(question.getAnswerOptions()[2]);
-        choice4.setText(question.getAnswerOptions()[3]);
-        if(question.getAnswerOptions().length==5){
-            choice5.setText(question.getAnswerOptions()[4]);
-            choice5.setVisibility(View.VISIBLE);
-        }else{
-            choice5.setVisibility(View.GONE);
-        }
-
-        // runs selectButton void
-        selectButton(choice1);
-        selectButton(choice2);
-        selectButton(choice3);
-        selectButton(choice4);
-        selectButton(choice5);
+        visSearchNext = findViewById(R.id.visSearchNext);
+        InitChoiceButtons buttons = new InitChoiceButtons(this,"visSearchChoice",question.getAnswerOptions());
 
         // detects tap on screen, records timestamp
         ConstraintLayout cLayout = findViewById(R.id.visSearch);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                timeStamps.updateTimeStamp();
+                buttons.getTimeStamps().updateTimeStamp();
             }
         });
 
@@ -96,27 +65,13 @@ public class VisSearchActivity extends AppCompatActivity {
         visSearchNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, question.getTypeActivity(), selected, question.getCorrectAnswer());
+                buttons.getTimeStamps().updateTimeStamp();
+                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });
     }
-    public void selectButton(Button choice){
-        choice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timeStamps.updateTimeStamp();
-                choice1.setSelected(false);
-                choice2.setSelected(false);
-                choice3.setSelected(false);
-                choice4.setSelected(false);
-                choice5.setSelected(false);
-                choice.setSelected(true);
-                selected = choice.getText().toString();
-            }
-        });
-    }
+
     public void ActivitySwitch() {
         Question nextQuestion = questionBank.pop();
         if(nextQuestion==null){
