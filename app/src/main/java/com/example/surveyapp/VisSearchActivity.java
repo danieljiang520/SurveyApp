@@ -2,13 +2,20 @@ package com.example.surveyapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,8 +84,6 @@ public class VisSearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
-        // splitting instruction string
-
         // textviews match
         prePrompt = findViewById(R.id.visSearchPrePrompt);
         prompt = findViewById(R.id.visSearchPrompt);
@@ -86,31 +91,62 @@ public class VisSearchActivity extends AppCompatActivity {
 
         // assigning text based on the library
         prePrompt.setText(question.getInstruction());
-        passage.setText(question.getImgPath());
-        prompt.setText(question.getQuestion());
+        prompt.setVisibility(View.GONE);
 
-        // matches buttons with xml id
-        visSearchNext = findViewById(R.id.visSearchNext);
-        InitChoiceButtons buttons = new InitChoiceButtons(this,"visSearchChoice",question.getAnswerOptions());
+        if (question.getQuestion().isEmpty()) {
+            String text = question.getImgPath();
+            SpannableString ss = new SpannableString(text);
+            ClickableSpan clickableSpan1 = new ClickableSpan() {
+                @Override
+                public void onClick(View widget) {
+                    Toast.makeText(VisSearchActivity.this, "test1", Toast.LENGTH_SHORT).show();
+                }
+                @Override
+                public void updateDrawState(TextPaint ds) {
+                    super.updateDrawState(ds);
+                    ds.setColor(getResources().getColor(R.color.ummaize));
+                    ds.setUnderlineText(false);
+                }
+            };
+            ClickableSpan clickableSpan2 = new ClickableSpan() {
+                @Override
+                public void onClick(View widget) {
+                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                }
+            };
+            ss.setSpan(clickableSpan1, 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(clickableSpan2, 16, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            passage.setText(ss);
+            passage.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
 
-        // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.visSearch);
-        cLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttons.getTimeStamps().updateTimeStamp();
-            }
-        });
+            prompt.setText(question.getQuestion());
+            prompt.setVisibility(View.VISIBLE);
+            passage.setText(question.getImgPath());
 
-        // "next" button
-        visSearchNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttons.getTimeStamps().updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, VisSearchActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
-                ActivitySwitch();
-            }
-        });
+            // matches buttons with xml id
+            visSearchNext = findViewById(R.id.visSearchNext);
+            InitChoiceButtons buttons = new InitChoiceButtons(this, "visSearchChoice", question.getAnswerOptions());
+
+            // detects tap on screen, records timestamp
+            ConstraintLayout cLayout = findViewById(R.id.visSearch);
+            cLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+
+            // "next" button
+            visSearchNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                    ActivitySwitch();
+                }
+            });
+        }
     }
 
     public void ActivitySwitch() {
