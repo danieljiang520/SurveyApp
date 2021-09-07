@@ -11,9 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -106,9 +108,23 @@ public class FirstPageActivity extends AppCompatActivity {
         start = (Button) findViewById(R.id.startButton);
         // actions when button is clicked
         // assigns text responses to variable
+
+        //get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.spinner);
+        //create a list of items for the spinner.
+        String[] items = new String[]{"set1", "set2", "set3"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                // SAMPLE SET CHOICE MECHANISM
+                String setChoice = dropdown.getSelectedItem().toString();
+
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';
                 // this creates a new file output stream
