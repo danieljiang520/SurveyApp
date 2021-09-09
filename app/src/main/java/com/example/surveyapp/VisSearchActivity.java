@@ -24,6 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class VisSearchActivity extends AppCompatActivity {
 
     private static final String TAG = "VisSearchActivity";
+    public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
 
     String outputName;
     Button visSearchNext;
@@ -159,6 +160,7 @@ public class VisSearchActivity extends AppCompatActivity {
             try {
                 String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
                 Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
                 intent.putExtra("questionBank", questionBank);
                 Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
                 startActivity(intent);

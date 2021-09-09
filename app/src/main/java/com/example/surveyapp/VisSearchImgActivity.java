@@ -19,6 +19,9 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 public class VisSearchImgActivity extends AppCompatActivity {
 
+    private static final String TAG = "VisSearchImgActivity";
+    public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
+
     Button word1;
     Button word2;
     Button word3;
@@ -185,6 +188,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
             try {
                 String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
                 Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
                 intent.putExtra("questionBank", questionBank);
                 Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
                 startActivity(intent);
