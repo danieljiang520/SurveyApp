@@ -32,6 +32,8 @@ public class VisSearchActivity extends AppCompatActivity {
     TextView prePrompt;
     TextView prompt;
     TextView passage;
+    GetTimeStamp timeStamps = new GetTimeStamp();
+    Integer count = 0;
 
     QuestionBank questionBank;
     Question question;
@@ -100,6 +102,7 @@ public class VisSearchActivity extends AppCompatActivity {
             ClickableSpan clickableSpan1 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
+                    count += 1;
                     Toast.makeText(VisSearchActivity.this, "test1", Toast.LENGTH_SHORT).show();
                 }
                 @Override
@@ -119,6 +122,25 @@ public class VisSearchActivity extends AppCompatActivity {
             ss.setSpan(clickableSpan2, 16, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             passage.setText(ss);
             passage.setMovementMethod(LinkMovementMethod.getInstance());
+
+            // detects tap on screen, records timestamp
+            ConstraintLayout cLayout = findViewById(R.id.visSearch);
+            cLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamps.updateTimeStamp();
+                }
+            });
+
+            // "next" button
+            visSearchNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    timeStamps.updateTimeStamp();
+                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, question.getTypeActivity(), "Found: "+Integer.toString(count), question.getCorrectAnswer());
+                    ActivitySwitch();
+                }
+            });
         } else {
 
             prompt.setText(question.getQuestion());
