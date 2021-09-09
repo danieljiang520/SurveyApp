@@ -32,6 +32,9 @@ public class SurRefActivity extends AppCompatActivity {
     QuestionBank questionBank;
     Question question;
 
+    private static final String TAG = "SurRefActivity";
+    public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
+
     // THIS IS MENU STUFF
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -144,6 +147,7 @@ public class SurRefActivity extends AppCompatActivity {
             try {
                 String nextClassName = "com.example.surveyapp." + nextQuestion.getTypeActivity();
                 Intent intent = new Intent(this, Class.forName(nextClassName));
+                intent.putExtra(EXTRA_OUTPUT, outputName); // this sends the io name to the next activity
                 intent.putExtra("questionBank", questionBank);
                 Log.d("Activity", "Activity: " + nextQuestion.getTypeActivity() );
                 startActivity(intent);

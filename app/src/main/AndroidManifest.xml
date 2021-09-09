@@ -25,6 +25,7 @@
         <activity android:name=".SubjectiveActivity"></activity>
         <activity android:name=".SpotDiffActivity"></activity>
         <activity android:name=".FinalPageActivity"></activity>
+        <activity android:name=".ReactTimeActivity"></activity>
         <activity
             android:name=".FirstPageActivity"
             android:exported="true" >
