@@ -62,79 +62,72 @@ public class QuestionBank implements Serializable {
                 //split string
                 String[] tokens = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
-                //read data
-                //Question sample = new Question(tokens);
+                if(line.length() <= tokens.length - 1){
+                    continue;
+                }
+                    //read data
                 int id = Integer.parseInt(tokens[0]);
                 String type = tokens[1];
                 String classification = tokens[2];
                 String answerType = tokens[3];
                 String correctAnswer = tokens[4];
-                String instruction = tokens[5];
-                String imgPath = tokens[6];
-                String surveyQuestion = tokens[7];
-                String questionCode = tokens[9];
+                String questionNumber = tokens[5];
+                String instruction = tokens[6];
+                String imgPath = tokens[7];
+                String surveyQuestion = tokens[8];
+                String questionCode = tokens[10];
 
                 String[] answerOptions;
-                if(tokens[8].length() > 0) {
-                    tokens[8] = tokens[8].substring(1, tokens[8].length() - 1);
-                    answerOptions = tokens[8].split(",");
+                if(tokens[9].length() > 0) {
+                    tokens[9] = tokens[9].substring(1, tokens[9].length() - 1);
+                    answerOptions = tokens[9].split(",");
                 }else{
                     answerOptions = new String[0];
                 }
 
+
                 String typeActivity = null;
-                switch(type) { // in Java 7
-                    case "Map":
-                        typeActivity = "MapActivity";
-                        break;
-                    case "Short Term Memory":
-                        typeActivity = "ShortMemActivity";
-                        break;
-                    case "Spatial Reasoning":
-                        typeActivity = "SpatReasonActivity";
-                        break;
-                    case "Reading Comprehension":
-                        typeActivity = "ReadCompActivity";
-                        break;
-                    case "Pattern":
-                        typeActivity = "PatternActivity";
-                        break;
-                    case "Visual Search - TEXT":
-                        typeActivity = "VisSearchActivity";
-                        break;
-                    case "Typing":
-                        typeActivity = "TypingActivity";
-                        break;
-                    case "Visual Search - IMAGE":
-                        typeActivity = "VisSearchImgActivity";
-                        break;
-                    case "Word Search":
-                        typeActivity = "WordSearchActivity";
-                        break;
-//                    case "Subjective":
-//                        typeActivity = "SubjectiveActivity";
-//                        break;
-//                    case "Surrogate Reference Task":
-//                        typeActivity = "SurRefActivity";
-//                        break;
-                    case "Spot the Difference":
-                        typeActivity = "SpotDiffActivity";
-                        break;
-//                    case "Reaction Time":
-//                        typeActivity = "";
-//                        break;
+                if (type.contains("Map")) {
+                    typeActivity = "MapActivity";
+                }else if(type.contains("Short Term Memory")) {
+                    typeActivity = "ShortMemActivity";
+                }else if(type.contains("Spatial Reasoning")) {
+                    typeActivity = "SpatReasonActivity";
+                }else if(type.contains("Reading Comprehension")) {
+                    typeActivity = "ReadCompActivity";
+                }else if(type.contains("Pattern")) {
+                    typeActivity = "PatternActivity";
+                }else if(type.contains("Visual Search - TEXT")) {
+                    typeActivity = "VisSearchActivity";
+                }else if(type.contains("Typing")) {
+                    typeActivity = "TypingActivity";
+                }else if(type.contains("Visual Search - IMAGE")) {
+                    typeActivity = "VisSearchImgActivity";
+                }else if(type.contains("Word Search")) {
+                    typeActivity = "WordSearchActivity";
                 }
+//                else if(type.contains("Subjective")) {
+//                    typeActivity = "SubjectiveActivity";
+//                }else if(type.contains("Surrogate Reference Task")) {
+//                    typeActivity = "SurRefActivity";
+//                }else if(type.contains("Spot the Difference")) {
+//                    typeActivity = "SpotDiffActivity";
+//                }else if(type.contains("Reaction Time")) {
+//                    typeActivity = "";
+//                }
+
+
                 if(typeActivity != null) {
-                    Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,instruction,
+                    Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,questionNumber, instruction,
                             imgPath,surveyQuestion,answerOptions,questionCode);
-                    //question.printQuestionAttributes();
+                    question.printQuestionAttributes();
                     questions.add(question);
                 } else{
-                    Log.wtf("MyActivity", "Cannot create class on line: " + line);
+                    Log.wtf("MyActivity", "No corresponding question type on line: " + line);
                 }
             }
             is.close();
-        }catch (IOException e){
+        }catch (Exception e){
             Log.wtf("MyActivity", "Error reading data file on line: " + line, e);
             e.printStackTrace();
         }

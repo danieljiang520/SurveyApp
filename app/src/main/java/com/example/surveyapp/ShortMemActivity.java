@@ -98,7 +98,7 @@ public class ShortMemActivity extends AppCompatActivity {
         responseEntry = findViewById(R.id.shortMemResponse);
         stringTask = findViewById(R.id.shortMemString);
         if(imgPath){
-            ms = 20000;
+            ms = 2000;
         }
         else{
             ms = 3000;

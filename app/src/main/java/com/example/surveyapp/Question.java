@@ -11,6 +11,7 @@ public class Question implements Serializable {
     private String classification;
     private String answerType;
     private String correctAnswer;
+    private String questionNumber;
     private String instruction;
     private String imgPath;
     private String question;
@@ -18,7 +19,7 @@ public class Question implements Serializable {
     private String questionCode;
 
 
-    Question(int id, String typeActivity, String classification, String answerType, String correctAnswer,
+    Question(int id, String typeActivity, String classification, String answerType, String correctAnswer, String questionNumber,
              String instruction,String imgPath, String question, String[] answerOptions,
              String questionCode){
         this.id = id;
@@ -26,6 +27,7 @@ public class Question implements Serializable {
         this.classification = classification;
         this.answerType = answerType;
         this.correctAnswer = correctAnswer;
+        this.questionNumber = questionNumber;
         this.instruction = instruction;
         this.question = question;
         this.imgPath = imgPath;
@@ -39,6 +41,7 @@ public class Question implements Serializable {
         Log.d("Question", "classification: " + classification );
         Log.d("Question", "answerType: " + answerType );
         Log.d("Question", "correctAnswer: " + correctAnswer );
+        Log.d("Question", "questionNumber: " + questionNumber );
         Log.d("Question", "instruction: " + instruction );
         Log.d("Question", "imgPath: " + imgPath );
         Log.d("Question", "question: " + question );
