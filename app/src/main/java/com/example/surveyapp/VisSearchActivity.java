@@ -122,6 +122,7 @@ public class VisSearchActivity extends AppCompatActivity {
             ss.setSpan(clickableSpan2, 16, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             passage.setText(ss);
             passage.setMovementMethod(LinkMovementMethod.getInstance());
+            passage.setHighlightColor(Color.TRANSPARENT);
 
             // detects tap on screen, records timestamp
             ConstraintLayout cLayout = findViewById(R.id.visSearch);
