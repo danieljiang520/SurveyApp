@@ -97,6 +97,7 @@ public class ShortMemActivity extends AppCompatActivity {
         prompt = findViewById(R.id.shortMemPrompt);
         responseEntry = findViewById(R.id.shortMemResponse);
         stringTask = findViewById(R.id.shortMemString);
+        imgTask = (ImageView) findViewById(R.id.shortMemIMG);
         if(imgPath){
             ms = 2000;
         }
@@ -108,16 +109,17 @@ public class ShortMemActivity extends AppCompatActivity {
         prePrompts = question.getInstruction().split("\\r?\\n");
 
         // choosing what type of shortmemactivity we're running
-        if(question.getImgPath().isEmpty()){
+        if(question.getQuestionCode().equals("string")){
             imgPath = false;
-            stringTask.setText(prePrompts[1]);
+            stringTask.setText(question.getImgPath());
+            Toast.makeText(ShortMemActivity.this, "string", Toast.LENGTH_SHORT).show();
         }
         else{
             imgPath = true;
             // sets up image
-            imgTask = (ImageView) findViewById(R.id.shortMemIMG);
             int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
             imgTask.setImageResource(imageResource);
+            Toast.makeText(ShortMemActivity.this, "image", Toast.LENGTH_SHORT).show();
         }
 
         // Grabs output name from FirstPageActivity for CSVWriting
