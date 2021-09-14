@@ -85,7 +85,7 @@ public class WordSearchActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size
-        String[] posSize = question.getQuestionCode().substring(1, question.getQuestionCode().length() - 1).split(",");
+        //String[] posSize = question.getQuestionCode().substring(1, question.getQuestionCode().length() - 1).split(",");
 
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
@@ -105,6 +105,7 @@ public class WordSearchActivity extends AppCompatActivity {
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
 
+        /*
         //button1
         constraint.constrainPercentHeight(R.id.wordSearchWord1,Float.parseFloat(posSize[0]));
         constraint.constrainPercentWidth(R.id.wordSearchWord1,Float.parseFloat(posSize[1]));
@@ -125,6 +126,7 @@ public class WordSearchActivity extends AppCompatActivity {
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
+         */
 
         // detects tap on screen, records timestamp
         constraintLayout.setOnClickListener(new View.OnClickListener() {
