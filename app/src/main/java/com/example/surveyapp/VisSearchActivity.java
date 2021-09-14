@@ -91,26 +91,39 @@ public class VisSearchActivity extends AppCompatActivity {
         prePrompt = findViewById(R.id.visSearchPrePrompt);
         prompt = findViewById(R.id.visSearchPrompt);
         passage = findViewById(R.id.visSearchExcerpt);
+        visSearchNext = findViewById(R.id.visSearchNext);
+        Button choice1 = findViewById(R.id.visSearchChoice1);
+        Button choice2 = findViewById(R.id.visSearchChoice2);
+        Button choice3 = findViewById(R.id.visSearchChoice3);
+        Button choice4 = findViewById(R.id.visSearchChoice4);
+        Button choice5 = findViewById(R.id.visSearchChoice5);
 
         // assigning text based on the library
         prePrompt.setText(question.getInstruction());
         prompt.setVisibility(View.GONE);
 
         if (question.getQuestion().isEmpty()) {
+
+            choice1.setVisibility(View.GONE);
+            choice2.setVisibility(View.GONE);
+            choice3.setVisibility(View.GONE);
+            choice4.setVisibility(View.GONE);
+            choice5.setVisibility(View.GONE);
+
             String text = question.getImgPath();
             SpannableString ss = new SpannableString(text);
             ClickableSpan clickableSpan1 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    count += 1;
+                    //count += 1;
                     Toast.makeText(VisSearchActivity.this, "test1", Toast.LENGTH_SHORT).show();
                 }
-                @Override
+                /*@Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
                     ds.setColor(getResources().getColor(R.color.ummaize));
                     ds.setUnderlineText(false);
-                }
+                }*/
             };
             ClickableSpan clickableSpan2 = new ClickableSpan() {
                 @Override
@@ -144,12 +157,17 @@ public class VisSearchActivity extends AppCompatActivity {
             });
         } else {
 
+            choice1.setVisibility(View.VISIBLE);
+            choice2.setVisibility(View.VISIBLE);
+            choice3.setVisibility(View.VISIBLE);
+            choice4.setVisibility(View.VISIBLE);
+            choice5.setVisibility(View.VISIBLE);
+
             prompt.setText(question.getQuestion());
             prompt.setVisibility(View.VISIBLE);
             passage.setText(question.getImgPath());
 
             // matches buttons with xml id
-            visSearchNext = findViewById(R.id.visSearchNext);
             InitChoiceButtons buttons = new InitChoiceButtons(this, "visSearchChoice", question.getAnswerOptions());
 
             // detects tap on screen, records timestamp
