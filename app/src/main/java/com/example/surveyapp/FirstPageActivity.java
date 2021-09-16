@@ -90,7 +90,7 @@ public class FirstPageActivity extends AppCompatActivity {
         setContentView(R.layout.first_page);
         Log.d(TAG, "onCreate: started");
 
-        InputStream is = getResources().openRawResource(R.raw.questions_bank_full);
+        InputStream is = getResources().openRawResource(R.raw.questions_bank);
         questionBank = new QuestionBank(is);
 
         // attaches UM logo to imageview background
@@ -112,7 +112,7 @@ public class FirstPageActivity extends AppCompatActivity {
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner);
         //create a list of items for the spinner.
-        String[] items = new String[]{"set1", "set2", "set3"};
+        String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -123,7 +123,8 @@ public class FirstPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 // SAMPLE SET CHOICE MECHANISM
-                String setChoice = dropdown.getSelectedItem().toString();
+                int setChoice = Integer.parseInt(dropdown.getSelectedItem().toString());
+                questionBank.setSetChoice(setChoice);
 
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';

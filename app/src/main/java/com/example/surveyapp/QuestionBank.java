@@ -21,6 +21,12 @@ public class QuestionBank implements Serializable {
 
     private List<Question> questions;
     private int indexQuestion;
+    private List<List<Question>> questionSets = new ArrayList<>();
+    private int setChoice;
+
+    public void setSetChoice(int setChoice) {
+        this.setChoice = setChoice - 1;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public QuestionBank(InputStream is) {
@@ -39,6 +45,7 @@ public class QuestionBank implements Serializable {
     }
 
     public Question pop(){
+        questions = questionSets.get(setChoice);
         if (indexQuestion < questions.size()){
             Question q = questions.get(indexQuestion);
             indexQuestion++;
@@ -58,11 +65,14 @@ public class QuestionBank implements Serializable {
         try {
             // step over header
             reader.readLine();
+            int numQuestionSet = 0;
+            int indQuestionSet = -1;
+            String prevType = "";
             while ((line = reader.readLine()) != null) {
                 //split string
                 String[] tokens = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
-                if(line.length() <= tokens.length - 1){
+                if(tokens.length != 11 || line.length() <= tokens.length - 1){
                     continue;
                 }
                     //read data
@@ -89,6 +99,9 @@ public class QuestionBank implements Serializable {
                 String typeActivity = null;
                 if (type.contains("Map")) {
                     typeActivity = "MapActivity";
+                    List<Question> e = new ArrayList<>();
+                    questionSets.add(e);
+                    numQuestionSet++;
                 }else if(type.contains("Short Term Memory")) {
                     typeActivity = "ShortMemActivity";
                 }else if(type.contains("Spatial Reasoning")) {
@@ -101,12 +114,11 @@ public class QuestionBank implements Serializable {
                     typeActivity = "VisSearchActivity";
                 }else if(type.contains("Typing")) {
                     typeActivity = "TypingActivity";
-                }else if(type.contains("Visual Search - IMAGE")) {
-                    typeActivity = "VisSearchImgActivity";
-                }else if(type.contains("Word Search")) {
-                    typeActivity = "WordSearchActivity";
-                }
-//                else if(type.contains("Subjective")) {
+//                }else if(type.contains("Visual Search - IMAGE")) {
+//                    typeActivity = "VisSearchImgActivity";
+//                }else if(type.contains("Word Search")) {
+//                    typeActivity = "WordSearchActivity";
+//                }else if(type.contains("Subjective")) {
 //                    typeActivity = "SubjectiveActivity";
 //                }else if(type.contains("Surrogate Reference Task")) {
 //                    typeActivity = "SurRefActivity";
@@ -114,14 +126,24 @@ public class QuestionBank implements Serializable {
 //                    typeActivity = "SpotDiffActivity";
 //                }else if(type.contains("Reaction Time")) {
 //                    typeActivity = "";
-//                }
+                }
 
 
                 if(typeActivity != null) {
                     Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,questionNumber, instruction,
                             imgPath,surveyQuestion,answerOptions,questionCode);
                     question.printQuestionAttributes();
-                    questions.add(question);
+//                    questions.add(question);
+
+                    if(prevType.equals(typeActivity)){
+                        indQuestionSet++;
+                    }else{
+                        indQuestionSet=0;
+                    }
+                    questionSets.get(indQuestionSet).add(question);
+                    prevType = typeActivity;
+
+
                 } else{
                     Log.wtf("MyActivity", "No corresponding question type on line: " + line);
                 }
