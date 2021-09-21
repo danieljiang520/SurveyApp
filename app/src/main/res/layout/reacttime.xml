@@ -30,7 +30,6 @@
         android:gravity="center"
         android:padding="5dp"
         android:text="PrePrompt"
-        android:textColor="@color/textgrey"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

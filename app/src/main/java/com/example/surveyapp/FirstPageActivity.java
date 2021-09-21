@@ -90,7 +90,7 @@ public class FirstPageActivity extends AppCompatActivity {
         setContentView(R.layout.first_page);
         Log.d(TAG, "onCreate: started");
 
-        InputStream is = getResources().openRawResource(R.raw.questions_bank);
+        InputStream is = getResources().openRawResource(R.raw.questions_bank_full);
         questionBank = new QuestionBank(is);
 
         // attaches UM logo to imageview background
