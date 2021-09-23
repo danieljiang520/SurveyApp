@@ -48,18 +48,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surRefPrompt"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/questions_bank_31262_image097" />
 
     <Button
         android:id="@+id/surRefCircle"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="84dp"
+        android:layout_height="75dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/surRefImg"
         app:layout_constraintEnd_toEndOf="@+id/surRefImg"
+        app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="@+id/surRefImg"
         app:layout_constraintTop_toTopOf="@+id/surRefImg"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.477" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
