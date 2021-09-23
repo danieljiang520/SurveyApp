@@ -84,7 +84,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size\
-        //String[] posSize = question.getQuestionCode().substring(1, question.getQuestionCode().length() - 1).split(",");
+        //String[] posSize = question.getQuestionCode().split("-");
 
         word1 = findViewById(R.id.visSearchImgWord1);
         word2 = findViewById(R.id.visSearchImgWord2);
