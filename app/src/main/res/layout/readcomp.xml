@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/readCompNext"
@@ -96,40 +96,56 @@
         android:padding="5dp"
         android:text="PrePrompt"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/readCompExcerpt"
+        app:layout_constraintBottom_toTopOf="@+id/readCompScroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_max="wrap"
         android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/readCompExcerpt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:padding="5dp"
-        android:text="Question"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/readCompPrompt"
+    <ScrollView
+        android:id="@+id/readCompScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/readCompPrompt"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/readCompPrePrompt"
-        app:layout_constraintWidth_max="wrap" />
+        app:layout_constraintTop_toBottomOf="@id/readCompPrePrompt">
+
+        <TextView
+            android:id="@+id/readCompExcerpt"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="12dp"
+            android:padding="5dp"
+            android:text="Question"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/readCompPrompt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/readCompPrePrompt"
+            app:layout_constraintWidth_max="wrap" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/readCompPrompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:gravity="center"
         android:padding="5dp"
         android:text="Prompt"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/readCompExcerpt"
-        app:layout_constraintWidth_max="wrap"
-        android:gravity="center"/>
+        app:layout_constraintTop_toBottomOf="@id/readCompScroll"
+        app:layout_constraintWidth_max="wrap" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

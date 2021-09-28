@@ -84,7 +84,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size\
-        //String[] posSize = question.getQuestionCode().split("-");
+        String[] posSize = question.getQuestionCode().split("-");
 
         word1 = findViewById(R.id.visSearchImgWord1);
         word2 = findViewById(R.id.visSearchImgWord2);
@@ -104,7 +104,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
 
-        /*
+
         //button1
         constraint.constrainHeight(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[1]));
         constraint.constrainWidth(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[0]));
@@ -120,13 +120,13 @@ public class VisSearchImgActivity extends AppCompatActivity {
         //button 3
         constraint.constrainHeight(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[9]));
         constraint.constrainWidth(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[8]));
-        constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
+        constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
+        constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
 
-         */
+
         // detects tap on screen, records timestamp
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override

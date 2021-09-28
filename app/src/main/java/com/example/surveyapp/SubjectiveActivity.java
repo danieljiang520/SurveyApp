@@ -122,6 +122,7 @@ public class SubjectiveActivity extends AppCompatActivity{
             if(i<choiceAmt){
                 choices.get(i).button.setVisibility(View.VISIBLE);
                 choices.get(i).buttonName = question.getAnswerOptions()[i];
+                choices.get(i).button.setText(question.getAnswerOptions()[i]);
             }
             else{
                 choices.get(i).button.setVisibility(View.GONE);

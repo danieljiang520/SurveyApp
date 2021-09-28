@@ -17,7 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class SpotDiffActivity extends AppCompatActivity {
 
-    private static final String TAG = "VisSearchV1Activity";
+    private static final String TAG = "SpotDiffActivity";
     public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
 
     String outputName;

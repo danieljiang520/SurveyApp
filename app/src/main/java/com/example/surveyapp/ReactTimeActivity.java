@@ -24,13 +24,10 @@ public class ReactTimeActivity extends AppCompatActivity {
 
     QuestionBank questionBank;
     Question question;
-    String imgPaths[];
+    String[] imgPaths;
     Button next;
     GetTimeStamp timeStamps = new GetTimeStamp();
     TextView prePrompt;
-    ImageView image1;
-    ImageView image2;
-    ImageView image3;
     String outputName;
     CSVWriting csvWriter = new CSVWriting();
 
@@ -82,21 +79,23 @@ public class ReactTimeActivity extends AppCompatActivity {
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
 
-        imgPaths = question.getImgPath().split("\\r?\\n");
+        //imgPaths = question.getImgPath().split("-");
 
         next = findViewById(R.id.reactTimeNext);
         prePrompt = findViewById(R.id.reactTimePrePrompt);
-        image1 = findViewById(R.id.reactTimeImg1);
-        image2 = findViewById(R.id.reactTimeImg2);
-        image3 = findViewById(R.id.reactTimeImg3);
+
+        prePrompt.setText(question.getInstruction());
 
         // assigning images their paths
-        int imageResource1 = getResources().getIdentifier("@drawable/"+imgPaths[0], null, this.getPackageName());
+        ImageView image1 = (ImageView) findViewById(R.id.reactTimeImg1);
+        int imageResource1 = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
         image1.setImageResource(imageResource1);
-        int imageResource2 = getResources().getIdentifier("@drawable/"+imgPaths[1], null, this.getPackageName());
-        image2.setImageResource(imageResource2);
-        int imageResource3 = getResources().getIdentifier("@drawable/"+imgPaths[2], null, this.getPackageName());
-        image3.setImageResource(imageResource3);
+        ImageView image2 = (ImageView) findViewById(R.id.reactTimeImg2);
+        int imageResource2 = getResources().getIdentifier("@drawable/"+question.getQuestion(), null, this.getPackageName());
+        image1.setImageResource(imageResource2);
+        ImageView image3 = (ImageView) findViewById(R.id.reactTimeImg3);
+        int imageResource3 = getResources().getIdentifier("@drawable/"+question.getQuestionCode(), null, this.getPackageName());
+        image1.setImageResource(imageResource3);
 
         // setting initial visibility
         next.setVisibility(View.VISIBLE);
@@ -106,7 +105,7 @@ public class ReactTimeActivity extends AppCompatActivity {
         image3.setVisibility(View.GONE);
 
         // general clicks
-        ConstraintLayout cLayout = findViewById(R.id.shortMem);
+        ConstraintLayout cLayout = findViewById(R.id.reactTime);
         cLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,15 +152,15 @@ public class ReactTimeActivity extends AppCompatActivity {
                     public void run() {
                         // setting visibility for second img
                         image1.setVisibility(View.GONE);
-                        image2.setVisibility(View.VISIBLE);
+                        image2.setVisibility(View.VISIBLE); //2
 
                         final Handler handler = new Handler(Looper.getMainLooper());
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 // setting visibility for third img
-                                image2.setVisibility(View.GONE);
-                                image3.setVisibility(View.VISIBLE);
+                                image2.setVisibility(View.GONE); //2
+                                image3.setVisibility(View.VISIBLE); //3
 
                                 final Handler handler = new Handler(Looper.getMainLooper());
                                 handler.postDelayed(new Runnable() {
