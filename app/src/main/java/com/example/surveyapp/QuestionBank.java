@@ -114,18 +114,18 @@ public class QuestionBank implements Serializable {
                     typeActivity = "VisSearchActivity";
                 }else if(type.contains("Typing")) {
                     typeActivity = "TypingActivity";
-//                }else if(type.contains("Visual Search - IMAGE")) {
-//                    typeActivity = "VisSearchImgActivity";
-//                }else if(type.contains("Word Search")) {
-//                    typeActivity = "WordSearchActivity";
-//                }else if(type.contains("Subjective")) {
-//                    typeActivity = "SubjectiveActivity";
-//                }else if(type.contains("Surrogate Reference Task")) {
-//                    typeActivity = "SurRefActivity";
-//                }else if(type.contains("Spot the Difference")) {
-//                    typeActivity = "SpotDiffActivity";
-//                }else if(type.contains("Reaction Time")) {
-//                    typeActivity = "";
+                }else if(type.contains("Visual Search - IMAGE")) {
+                    typeActivity = "VisSearchImgActivity";
+                }else if(type.contains("Word Search")) {
+                    typeActivity = "WordSearchActivity";
+                }else if(type.contains("Subjective")) {
+                    typeActivity = "SubjectiveActivity";
+                }else if(type.contains("Surrogate Reference Task")) {
+                    typeActivity = "SurRefActivity";
+                }else if(type.contains("Spot the Difference")) {
+                    typeActivity = "SpotDiffActivity";
+                }else if(type.contains("Reaction Time")) {
+                    typeActivity = "ReactTimeActivity";
                 }
 
 

@@ -76,12 +76,15 @@ public class SurRefActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.surreftask);
 
+        questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
+        question = questionBank.getCurrentQuestion();
+
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size
-//        String[] posSize = question.getQuestionCode().split("-");
+        String[] posSize = question.getQuestionCode().split("-");
 
         item = findViewById(R.id.surRefCircle);
         next = findViewById(R.id.surRefNext);
@@ -96,10 +99,10 @@ public class SurRefActivity extends AppCompatActivity {
         ConstraintLayout constraintLayout = (ConstraintLayout)findViewById(R.id.surRefTask);
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
-        constraint.constrainPercentHeight(R.id.surRefCircle,Integer.parseInt(posSize[0]));
-        constraint.constrainPercentWidth(R.id.surRefCircle,Integer.parseInt(posSize[1]));
-        constraint.setVerticalBias(R.id.surRefCircle,Integer.parseInt(posSize[3]));
-        constraint.setHorizontalBias(R.id.surRefCircle,Integer.parseInt(posSize[2]));
+        constraint.constrainHeight(R.id.surRefCircle, (int) Float.parseFloat(posSize[1]));
+        constraint.constrainWidth(R.id.surRefCircle, (int) Float.parseFloat(posSize[0]));
+        constraint.setVerticalBias(R.id.surRefCircle,Float.parseFloat(posSize[3]));
+        constraint.setHorizontalBias(R.id.surRefCircle,Float.parseFloat(posSize[2]));
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
 

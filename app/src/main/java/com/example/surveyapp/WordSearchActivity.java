@@ -85,7 +85,7 @@ public class WordSearchActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // read values for pos and size
-        //String[] posSize = question.getQuestionCode().split("-");
+        String[] posSize = question.getQuestionCode().split("-");
 
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
@@ -105,28 +105,27 @@ public class WordSearchActivity extends AppCompatActivity {
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
 
-        /*
         //button1
-        constraint.constrainPercentHeight(R.id.wordSearchWord1,Float.parseFloat(posSize[0]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord1,Float.parseFloat(posSize[1]));
+        constraint.constrainHeight(R.id.wordSearchWord1, (int) Float.parseFloat(posSize[1]));
+        constraint.constrainWidth(R.id.wordSearchWord1, (int) Float.parseFloat(posSize[0]));
         constraint.setVerticalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[3]));
         constraint.setHorizontalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[2]));
 
         //button 2
-        constraint.constrainPercentHeight(R.id.wordSearchWord2,Float.parseFloat(posSize[4]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord2,Float.parseFloat(posSize[5]));
+        constraint.constrainHeight(R.id.wordSearchWord2, (int) Float.parseFloat(posSize[5]));
+        constraint.constrainWidth(R.id.wordSearchWord2, (int) Float.parseFloat(posSize[4]));
         constraint.setVerticalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[7]));
         constraint.setHorizontalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[6]));
 
         //button 3
-        constraint.constrainPercentHeight(R.id.wordSearchWord3,Float.parseFloat(posSize[8]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord3,Float.parseFloat(posSize[9]));
+        constraint.constrainHeight(R.id.wordSearchWord3, (int) Float.parseFloat(posSize[9]));
+        constraint.constrainWidth(R.id.wordSearchWord3, (int) Float.parseFloat(posSize[8]));
         constraint.setVerticalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[11]));
         constraint.setHorizontalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[10]));
 
         constraint.applyTo(constraintLayout);
         // figure out how to show when selected
-         */
+
 
         // detects tap on screen, records timestamp
         constraintLayout.setOnClickListener(new View.OnClickListener() {
