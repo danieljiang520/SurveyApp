@@ -79,7 +79,7 @@ public class ReactTimeActivity extends AppCompatActivity {
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
 
-        //imgPaths = question.getImgPath().split("-");
+        imgPaths = question.getImgPath().split("-");
 
         next = findViewById(R.id.reactTimeNext);
         prePrompt = findViewById(R.id.reactTimePrePrompt);
@@ -88,14 +88,14 @@ public class ReactTimeActivity extends AppCompatActivity {
 
         // assigning images their paths
         ImageView image1 = (ImageView) findViewById(R.id.reactTimeImg1);
-        int imageResource1 = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
+        int imageResource1 = getResources().getIdentifier("@drawable/"+imgPaths[0], null, this.getPackageName());
         image1.setImageResource(imageResource1);
         ImageView image2 = (ImageView) findViewById(R.id.reactTimeImg2);
-        int imageResource2 = getResources().getIdentifier("@drawable/"+question.getQuestion(), null, this.getPackageName());
-        image1.setImageResource(imageResource2);
+        int imageResource2 = getResources().getIdentifier("@drawable/"+imgPaths[1], null, this.getPackageName());
+        image2.setImageResource(imageResource2);
         ImageView image3 = (ImageView) findViewById(R.id.reactTimeImg3);
-        int imageResource3 = getResources().getIdentifier("@drawable/"+question.getQuestionCode(), null, this.getPackageName());
-        image1.setImageResource(imageResource3);
+        int imageResource3 = getResources().getIdentifier("@drawable/"+imgPaths[2], null, this.getPackageName());
+        image3.setImageResource(imageResource3);
 
         // setting initial visibility
         next.setVisibility(View.VISIBLE);
