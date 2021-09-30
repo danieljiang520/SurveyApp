@@ -133,7 +133,7 @@ public class FirstPageActivity extends AppCompatActivity {
                 csvWriter.CreateCSV(partNum,startTime,FirstPageActivity.this);
 
                 // FOR DEBUG
-                Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FirstPageActivity.this, "File Created and Saved", Toast.LENGTH_SHORT).show();
                 ActivitySwitch();
             }
         });

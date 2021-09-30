@@ -33,7 +33,6 @@ public class SubjectiveActivity extends AppCompatActivity{
     public static final String EXTRA_OUTPUT = "OUTPUT_NAME"; //reading into next activity
 
     Vector<selectionButton> choices = new Vector<selectionButton>();
-    int choiceAmt = 7;
     GetTimeStamp timeStamps = new GetTimeStamp();
     Button next;
     CSVWriting csvWriter = new CSVWriting();
@@ -87,6 +86,8 @@ public class SubjectiveActivity extends AppCompatActivity{
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
         question = questionBank.getCurrentQuestion();
+
+        int choiceAmt = Integer.parseInt(question.getQuestionCode());
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();

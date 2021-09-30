@@ -95,15 +95,15 @@ Question Type Index,Question Type,Classification,Answer Type,Answer,Question Num
 10,Typing,Motor Cognitive,Timing,type 3 terms,Q820,"Suppose you were looking at a local soft-serve frozen yogurt shop. Please enter 3 toppings you would choose: Example: strawberries, chocolate chips, coconut",,,,
 11,Typing,Motor Cognitive,Timing,one two three four five six seven eight nine ten,Q954,"Type, in words, the numbers from 1 - 10 separated by spaces. Example: one two three …",,,,
 ,,,,,,,,,,
-1,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Snake,Q50,"In the available space below, please type what is hidden in the following photo?",questions_bank_31262_image054,What is hidden? (type your answer below),,72-90-.984-.776-0-0-0-0-0-0-0-0
-2,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Owl,Q136,"In the available space below, please type what is hidden in the following photo",questions_bank_31262_image055,What is hidden? (type your answer below),,227-475-.453-.498-0-0-0-0-0-0-0-0
-3,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q237,Please tap on the hidden animal in the image below.,questions_bank_31262_image056,,,88-395-.785-.498-0-0-0-0-0-0-0-0
-4,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q274,Find the hidden animal in the image below and tap on it.,questions_bank_31262_image057,,,160-93-.295-.357-0-0-0-0-0-0-0-0
-5,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q386,Find Waldo in the image below and tap on him.,questions_bank_31262_image058,,,78-106-.706-.537-0-0-0-0-0-0-0-0
-6,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q464,Find Waldo in the image below and tap on him.,questions_bank_31262_image059,,,70-92-.454-.658-0-0-0-0-0-0-0-0
+1,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Snake,Q50,"In the available space below, please type what is hidden in the following photo?",questions_bank_31262_image054,What is hidden? (type your answer below),,138-86-.385-.497-1-1-0-0-1-1-0-0
+2,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Owl,Q136,"In the available space below, please type what is hidden in the following photo",questions_bank_31262_image055,What is hidden? (type your answer below),,227-475-.453-.498-1-1-0-0-1-1-0-0
+3,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q237,Please tap on the hidden animal in the image below.,questions_bank_31262_image056,,,88-395-.785-.498-1-1-0-0-1-1-0-0
+4,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q274,Find the hidden animal in the image below and tap on it.,questions_bank_31262_image057,,,160-93-.295-.357-1-1-0-0-1-1-0-0
+5,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q386,Find Waldo in the image below and tap on him.,questions_bank_31262_image058,,,78-106-.706-.537-1-1-0-0-1-1-0-0
+6,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q464,Find Waldo in the image below and tap on him.,questions_bank_31262_image059,,,70-92-.454-.658-1-1-0-0-1-1-0-0
 7,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q553,"Find and tap on the following objects: umbrella, squirrel, horse",questions_bank_31262_image060,,,72-90-.653-.239-97-120-.036-.146-98-171-.253-.313
 8,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q597,"Find and tap on the following objects: Ronald McDonald, Mr Potato Head, and a pink car",questions_bank_31262_image061,,,72-162-1-.563-90-97-0-.718-200-93-.658-.725
-9,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q692,Find the bird in the image below and tap on it.,questions_bank_31262_image062,,,157-192-.573-.458-0-0-0-0-0-0-0-0
+9,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q692,Find the bird in the image below and tap on it.,questions_bank_31262_image062,,,157-192-.573-.458-1-1-0-0-1-1-0-0
 10,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q797,"Find and tap on the following objects: tomato, onion, and a cabbage",questions_bank_31262_image063,,,84-73-.874-.258-90-97-.104-.451-95-105-.658-.569
 11,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q897,"Find and tap on the following objects: tiger, robot, and an alligator",questions_bank_31262_image064,,,56-81-.787-.613-93-79-.125-.464-109-51-.748-.676
 ,,,,,,,,,,
@@ -119,29 +119,29 @@ Question Type Index,Question Type,Classification,Answer Type,Answer,Question Num
 10,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q854,"Tap on the words: BASK, POND, TURTLE",questions_bank_31262_image074,,,302-43-.975-.666-212-42-.448-.667-40-218-.016-.607
 11,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q958,"Tap on the words: WHALE, DOLPHIN, SHRIMP",questions_bank_31262_image075,,,378-56-.791-.703-430-54-.589-.591-318-61-.033-.295
 ,,,,,,,,,,
-1,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q09,Look for differences between the two images below,questions_bank_31262_image076,How many differences can you spot?,"2, 3, 4, 5, 6",
-2,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q126,Look for differences between the two images below,questions_bank_31262_image077,How many differences can you spot?,"2, 3, 4, 5, 6",
-3,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q247,Look for differences between the two images below,questions_bank_31262_image078,How many differences can you spot?,"1, 2, 3, 4, 5",
-4,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q284,Look for differences between the two images below,questions_bank_31262_image079,How many differences can you spot?,"1, 2, 3, 4, 5",
-5,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q364,Look for differences between the two images below,questions_bank_31262_image080,How many differences can you spot?,"2, 3, 4, 5, 6",
-6,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q439,Look for differences between the two images below,questions_bank_31262_image081,How many differences can you spot?,"2, 3, 4, 5, 6",
-7,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q484,Look for differences between the two images below,questions_bank_31262_image082,How many differences can you spot?,"2, 3, 4, 5, 6",
-8,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q625,Look for differences between the two images below,questions_bank_31262_image083,How many differences can you spot?,"2, 3, 4, 5, 6",
-9,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q652,Look for differences between the two images below,questions_bank_31262_image084,How many differences can you spot?,"2, 3, 4, 5, 6",
-10,Spot the Differnece,Visual Cognitive,Accuracy/Timing,6,Q876,Look for differences between the two images below,questions_bank_31262_image085,How many differences can you spot?,"6, 7, 8, 9, 10",
-11,Spot the Differnece,Visual Cognitive,Accuracy/Timing,5,Q943,Look for differences between the two images below,questions_bank_31262_image086,How many differences can you spot?,"2, 3, 4, 5, 6",
+1,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q09,Look for differences between the two images below,questions_bank_31262_image076,How many differences can you spot?,"2, 3, 4, 5, 6",
+2,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q126,Look for differences between the two images below,questions_bank_31262_image077,How many differences can you spot?,"2, 3, 4, 5, 6",
+3,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q247,Look for differences between the two images below,questions_bank_31262_image078,How many differences can you spot?,"1, 2, 3, 4, 5",
+4,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q284,Look for differences between the two images below,questions_bank_31262_image079,How many differences can you spot?,"1, 2, 3, 4, 5",
+5,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q364,Look for differences between the two images below,questions_bank_31262_image080,How many differences can you spot?,"2, 3, 4, 5, 6",
+6,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q439,Look for differences between the two images below,questions_bank_31262_image081,How many differences can you spot?,"2, 3, 4, 5, 6",
+7,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q484,Look for differences between the two images below,questions_bank_31262_image082,How many differences can you spot?,"2, 3, 4, 5, 6",
+8,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q625,Look for differences between the two images below,questions_bank_31262_image083,How many differences can you spot?,"2, 3, 4, 5, 6",
+9,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q652,Look for differences between the two images below,questions_bank_31262_image084,How many differences can you spot?,"2, 3, 4, 5, 6",
+10,Spot the Difference,Visual Cognitive,Accuracy/Timing,6,Q876,Look for differences between the two images below,questions_bank_31262_image085,How many differences can you spot?,"6, 7, 8, 9, 10",
+11,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q943,Look for differences between the two images below,questions_bank_31262_image086,How many differences can you spot?,"2, 3, 4, 5, 6",
 ,,,,,,,,,,
-1,Subjective,Motor Cognitive,Timing,Select at least one answer,Q34,Which toppings do you prefer on your pizza (choose all that apply):,,,"Pepperoni,Sausage,Pineapple,Mushroom,Bacon,Olives,Onion,Bell Peppers,Spinach,Chicken,Ham,Tomato",
-2,Subjective,Motor Cognitive,Timing,Select one answer,Q164,What is your favorite movie genre (pick one):,,,"Comedy,Horror/Thriller,Romance,Action/Adventure,Drama,Romantic Comedy",
-3,Subjective,Motor Cognitive,Timing,Select one answer,Q177,What is your favorite sport from this list (choose one)?,,,"Baseball,Football,Hockey,Basketball,Soccer,Volleyball",
-4,Subjective,Motor Cognitive,Timing,Select one answer,Q308,What is your favorite season (choose one)?,,,"Summer,Fall,Winter,Spring",
-5,Subjective,Motor Cognitive,Timing,Select one answer,Q358,What is your favorite day of the week?,,,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
-6,Subjective,Motor Cognitive,Timing,Select at least one answer,Q468,Which toppings do you prefer on your burger (choose all that apply):,,,"Bacon,Tomato,Cheese,Fried egg,Mushrooms,Ketchup,Mayonnaise,Onion,Pickles,Mustard",
-7,Subjective,Motor Cognitive,Timing,Select one answer,Q504,Which is your favorite color (from the list below)?,,,"Blue,Green,Red,Purple,Pink,Orange,Yellow,White,Black",
-8,Subjective,Motor Cognitive,Timing,Select one answer,Q585,What is your favorite fruit (from the list below)?,,,"Apple,Blueberry,Raspberry,Strawberry,Banana, Grapes,Pineapple,Blackberry,Orange",
-9,Subjective,Motor Cognitive,Timing,Select one answer,Q700,What is your favorite kind of vacation (choose 1),,,"Stay at home,Sightseeing,Time with nature,Rest and relaxation,Adventure,Time with family",
-10,Subjective,Motor Cognitive,Timing,Select one answer,Q824,What was your favorite subject in school? (choose 1),,,"Math,Geography,Science,English,Gym,History",
-11,Subjective,Motor Cognitive,Timing,Select one answer,Q912,What is your favorite summer activity?,,,"Reading a book by the pool,Waterskiing on a lake,Cooking out with some friends,Going to a summer fair and eating cotton candy",
+1,Subjective,Motor Cognitive,Timing,Select at least one answer,Q34,Which toppings do you prefer on your pizza (choose all that apply):,,,"Pepperoni,Sausage,Pineapple,Mushroom,Bacon,Olives,Onion,Bell Peppers,Spinach,Chicken,Ham,Tomato",12
+2,Subjective,Motor Cognitive,Timing,Select one answer,Q164,What is your favorite movie genre (pick one):,,,"Comedy,Horror/Thriller,Romance,Action/Adventure,Drama,Romantic Comedy",6
+3,Subjective,Motor Cognitive,Timing,Select one answer,Q177,What is your favorite sport from this list (choose one)?,,,"Baseball,Football,Hockey,Basketball,Soccer,Volleyball",6
+4,Subjective,Motor Cognitive,Timing,Select one answer,Q308,What is your favorite season (choose one)?,,,"Summer,Fall,Winter,Spring",4
+5,Subjective,Motor Cognitive,Timing,Select one answer,Q358,What is your favorite day of the week?,,,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",7
+6,Subjective,Motor Cognitive,Timing,Select at least one answer,Q468,Which toppings do you prefer on your burger (choose all that apply):,,,"Bacon,Tomato,Cheese,Fried egg,Mushrooms,Ketchup,Mayonnaise,Onion,Pickles,Mustard",10
+7,Subjective,Motor Cognitive,Timing,Select one answer,Q504,Which is your favorite color (from the list below)?,,,"Blue,Green,Red,Purple,Pink,Orange,Yellow,White,Black",9
+8,Subjective,Motor Cognitive,Timing,Select one answer,Q585,What is your favorite fruit (from the list below)?,,,"Apple,Blueberry,Raspberry,Strawberry,Banana, Grapes,Pineapple,Blackberry,Orange",9
+9,Subjective,Motor Cognitive,Timing,Select one answer,Q700,What is your favorite kind of vacation (choose 1),,,"Stay at home,Sightseeing,Time with nature,Rest and relaxation,Adventure,Time with family",6
+10,Subjective,Motor Cognitive,Timing,Select one answer,Q824,What was your favorite subject in school? (choose 1),,,"Math,Geography,Science,English,Gym,History",6
+11,Subjective,Motor Cognitive,Timing,Select one answer,Q912,What is your favorite summer activity?,,,"Reading a book by the pool,Waterskiing on a lake,Cooking out with some friends,Going to a summer fair and eating cotton candy",4
 ,,,,,,,,,,
 1,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q79,Click on the largest circle in the image below,questions_bank_31262_image087,,,84-70-.532-.342
 2,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q130,Click on the largest circle in the image below,questions_bank_31262_image088,,,86-87-.302-.323
