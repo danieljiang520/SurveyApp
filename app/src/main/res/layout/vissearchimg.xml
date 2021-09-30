@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/visSearchImgPrompt"
-        app:srcCompat="@drawable/questions_bank_31262_image064" />
+        app:srcCompat="@drawable/questions_bank_31262_image054" />
 
     <TextView
         android:id="@+id/visSearchImgPrompt"
@@ -64,16 +64,16 @@
 
     <Button
         android:id="@+id/visSearchImgWord2"
-        android:layout_width="93dp"
-        android:layout_height="79dp"
+        android:layout_width="138dp"
+        android:layout_height="86dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/visSearchImgImg"
         app:layout_constraintEnd_toEndOf="@+id/visSearchImgImg"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toStartOf="@+id/visSearchImgImg"
         app:layout_constraintTop_toTopOf="@+id/visSearchImgImg"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintVertical_bias="0.497" />
 
     <Button
         android:id="@+id/visSearchImgWord3"

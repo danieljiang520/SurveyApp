@@ -128,98 +128,98 @@ public class VisSearchActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View widget) {
                     //count += 1;
-                    Toast.makeText(VisSearchActivity.this, "test1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "test1", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize1, Integer.parseInt(stringLoc[0]), Integer.parseInt(stringLoc[1]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan2 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize2, Integer.parseInt(stringLoc[2]), Integer.parseInt(stringLoc[3]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan3 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize3, Integer.parseInt(stringLoc[4]), Integer.parseInt(stringLoc[5]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan4 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize4, Integer.parseInt(stringLoc[6]), Integer.parseInt(stringLoc[7]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan5 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize5, Integer.parseInt(stringLoc[8]), Integer.parseInt(stringLoc[9]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan6 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize6, Integer.parseInt(stringLoc[10]), Integer.parseInt(stringLoc[11]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };
             ClickableSpan clickableSpan7 = new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(VisSearchActivity.this, "Two", Toast.LENGTH_SHORT).show();
                     ss.setSpan(maize7, Integer.parseInt(stringLoc[12]), Integer.parseInt(stringLoc[13]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     passage.setText(ss);
                 }
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.umblue));
+                    ds.setColor(getResources().getColor(R.color.black));
                     ds.setUnderlineText(false);
                 }
             };

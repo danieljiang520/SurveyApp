@@ -112,14 +112,14 @@ public class ShortMemActivity extends AppCompatActivity {
         if(question.getQuestionCode().equals("string")){
             imgPath = false;
             stringTask.setText(question.getImgPath());
-            Toast.makeText(ShortMemActivity.this, "string", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ShortMemActivity.this, "string", Toast.LENGTH_SHORT).show();
         }
         else{
             imgPath = true;
             // sets up image
             int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
             imgTask.setImageResource(imageResource);
-            Toast.makeText(ShortMemActivity.this, "image", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ShortMemActivity.this, "image", Toast.LENGTH_SHORT).show();
         }
 
         // Grabs output name from FirstPageActivity for CSVWriting
