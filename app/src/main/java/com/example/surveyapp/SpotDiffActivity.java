@@ -78,6 +78,8 @@ public class SpotDiffActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        TextView title = findViewById(R.id.textTitleSpotdiff);
+        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
         // matches buttons with xml id and prompts
         spotDiffNext = findViewById(R.id.spotDiffNext);
         prePrompt = findViewById(R.id.spotDiffPrePrompt);

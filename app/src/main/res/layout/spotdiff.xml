@@ -24,15 +24,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:gravity="center"
         android:padding="5dp"
         android:text="SpotDiff PrePrompt"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/spotDiffImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_max="wrap"
-        android:gravity="center" />
+        app:layout_constraintTop_toBottomOf="@+id/textTitleSpotdiff"
+        app:layout_constraintWidth_max="wrap" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -132,4 +132,15 @@
         app:layout_constraintTop_toBottomOf="@+id/spotDiffImg"
         app:layout_constraintWidth_max="wrap"
         android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textTitleSpotdiff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,6 +84,8 @@ public class PatternActivity extends AppCompatActivity {
         int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
         imageView.setImageResource(imageResource);
 
+        TextView title = findViewById(R.id.textTitlePattern);
+        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
         // sets up prompt
         TextView prompt = findViewById(R.id.patternPrompt);
         prompt.setText(question.getQuestion());

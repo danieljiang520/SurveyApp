@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@+id/mapPrompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleMap"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
@@ -117,4 +117,17 @@
             android:textColor="@android:color/white"
             android:textSize="25sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textTitleMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textSize="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/mapImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
