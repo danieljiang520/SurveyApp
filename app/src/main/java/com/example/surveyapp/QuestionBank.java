@@ -35,6 +35,10 @@ public class QuestionBank implements Serializable {
         readData(is);
     }
 
+    public int getSetChoice() {
+        return setChoice;
+    }
+
     public Question getCurrentQuestion() {
         int ind = indexQuestion;
         if (ind > 0){
@@ -130,7 +134,7 @@ public class QuestionBank implements Serializable {
 
 
                 if(typeActivity != null) {
-                    Question question = new Question(id,typeActivity,classification,answerType,correctAnswer,questionNumber, instruction,
+                    Question question = new Question(id,type,typeActivity,classification,answerType,correctAnswer,questionNumber, instruction,
                             imgPath,surveyQuestion,answerOptions,questionCode);
                     question.printQuestionAttributes();
 //                    questions.add(question);

@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class Question implements Serializable {
     private int id;
+    private String type;
     private String typeActivity;
     private String classification;
     private String answerType;
@@ -19,10 +20,11 @@ public class Question implements Serializable {
     private String questionCode;
 
 
-    Question(int id, String typeActivity, String classification, String answerType, String correctAnswer, String questionNumber,
+    Question(int id, String type, String typeActivity, String classification, String answerType, String correctAnswer, String questionNumber,
              String instruction,String imgPath, String question, String[] answerOptions,
              String questionCode){
         this.id = id;
+        this.type = type;
         this.typeActivity = typeActivity;
         this.classification = classification;
         this.answerType = answerType;
@@ -37,6 +39,7 @@ public class Question implements Serializable {
 
     public void printQuestionAttributes(){
         Log.d("Question", "id: " + id );
+        Log.d("Question", "type: " + type );
         Log.d("Question", "typeActivity: " + typeActivity);
         Log.d("Question", "classification: " + classification );
         Log.d("Question", "answerType: " + answerType );
@@ -51,6 +54,10 @@ public class Question implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getTypeActivity() { return typeActivity; }
