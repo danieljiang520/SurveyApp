@@ -130,6 +130,8 @@ public class QuestionBank implements Serializable {
                     typeActivity = "SpotDiffActivity";
                 }else if(type.contains("Reaction Time")) {
                     typeActivity = "ReactTimeActivity";
+                }else if(type.contains("Video")) {
+                    typeActivity = "VideoActivity";
                 }
 
 

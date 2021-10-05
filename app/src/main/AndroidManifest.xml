@@ -26,6 +26,7 @@
         <activity android:name=".SpotDiffActivity"></activity>
         <activity android:name=".FinalPageActivity"></activity>
         <activity android:name=".ReactTimeActivity"></activity>
+        <activity android:name=".VideoActivity"></activity>
         <activity
             android:name=".FirstPageActivity"
             android:exported="true" >
