@@ -16,7 +16,7 @@ public class GetTimeStamp extends AppCompatActivity {
 
     // updates first click, last click, page submit, click count
     public void updateTimeStamp(){
-        String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+        String currentTime = new SimpleDateFormat("HH:mm:ss:SS", Locale.getDefault()).format(new Date());
         lastClick = pageSubmit;
         pageSubmit = currentTime;
         if(firstClick.equals("N/A")){

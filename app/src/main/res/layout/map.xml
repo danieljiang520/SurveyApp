@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:maxHeight="250px"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/mapPrompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
