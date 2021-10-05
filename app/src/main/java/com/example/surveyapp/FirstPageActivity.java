@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -109,6 +110,7 @@ public class FirstPageActivity extends AppCompatActivity {
         // actions when button is clicked
         // assigns text responses to variable
 
+        Switch switchAutoResume = findViewById(R.id.switchAutoResume);
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner);
         //create a list of items for the spinner.
@@ -124,7 +126,9 @@ public class FirstPageActivity extends AppCompatActivity {
             public void onClick(View view){
                 // SAMPLE SET CHOICE MECHANISM
                 int setChoice = Integer.parseInt(dropdown.getSelectedItem().toString());
+                boolean autoResume = switchAutoResume.isChecked();
                 questionBank.setSetChoice(setChoice);
+                questionBank.setAutoResume(autoResume);
 
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';

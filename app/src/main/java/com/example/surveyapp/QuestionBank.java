@@ -23,6 +23,7 @@ public class QuestionBank implements Serializable {
     private int indexQuestion;
     private List<List<Question>> questionSets = new ArrayList<>();
     private int setChoice;
+    private boolean autoResume;
 
     public void setSetChoice(int setChoice) {
         this.setChoice = setChoice - 1;
@@ -33,6 +34,14 @@ public class QuestionBank implements Serializable {
         this.indexQuestion = 0;
         this.questions = new ArrayList<>();
         readData(is);
+    }
+
+    public boolean isAutoResume() {
+        return autoResume;
+    }
+
+    public void setAutoResume(boolean autoResume) {
+        this.autoResume = autoResume;
     }
 
     public int getSetChoice() {
@@ -54,6 +63,10 @@ public class QuestionBank implements Serializable {
             Question q = questions.get(indexQuestion);
             indexQuestion++;
             return q;
+        }else if(autoResume && setChoice < questionSets.size()){
+            ++setChoice;
+            indexQuestion = 1;
+            return questions.get(0);
         }
         return null;
     }
