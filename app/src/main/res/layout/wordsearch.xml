@@ -11,13 +11,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
-        android:maxHeight="250px"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/wordSearchNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wordSearchPrompt"
-        app:srcCompat="@drawable/questions_bank_31262_image075" />
+        app:srcCompat="@drawable/questions_bank_31262_image065" />
 
     <TextView
         android:id="@+id/wordSearchPrompt"
@@ -51,42 +50,42 @@
 
     <Button
         android:id="@+id/wordSearchWord1"
-        android:layout_width="378dp"
-        android:layout_height="56dp"
+        android:layout_width="471dp"
+        android:layout_height="60dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.839" />
 
     <Button
         android:id="@+id/wordSearchWord2"
-        android:layout_width="430dp"
-        android:layout_height="54dp"
+        android:layout_width="52dp"
+        android:layout_height="206dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintHorizontal_bias=".65"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.591" />
+        app:layout_constraintVertical_bias=".5"/>
 
     <Button
         android:id="@+id/wordSearchWord3"
-        android:layout_width="318dp"
-        android:layout_height="61dp"
+        android:layout_width="61dp"
+        android:layout_height="366dp"
         android:stateListAnimator="@null"
         android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/wordSearchImg"
         app:layout_constraintEnd_toEndOf="@+id/wordSearchImg"
-        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/wordSearchImg"
         app:layout_constraintTop_toTopOf="@+id/wordSearchImg"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintVertical_bias="0.467" />
 
     <TextView
         android:id="@+id/textTitleWordsearch"

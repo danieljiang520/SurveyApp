@@ -26,12 +26,11 @@
     <EditText
         android:id="@+id/typingEntry"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="396dp"
-        android:ems="10"
+        android:layout_height="wrap_content"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/typingNext"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typingPrompt"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
