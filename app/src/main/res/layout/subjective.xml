@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/shortMem">
@@ -24,12 +28,12 @@
     <LinearLayout
         android:id="@+id/linearLayoutMain"
         android:layout_width="match_parent"
-        android:layout_height="288dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/subNext"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +67,8 @@
                 app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.41" />
+                app:layout_constraintVertical_bias="0.41"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice7"
@@ -79,7 +84,8 @@
                 app:layout_constraintHorizontal_bias="0.649"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.41" />
+                app:layout_constraintVertical_bias="0.41"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -110,7 +116,8 @@
                 app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.489" />
+                app:layout_constraintVertical_bias="0.489"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice8"
@@ -126,7 +133,8 @@
                 app:layout_constraintHorizontal_bias="0.649"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.489" />
+                app:layout_constraintVertical_bias="0.489"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -157,7 +165,8 @@
                 app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.572" />
+                app:layout_constraintVertical_bias="0.572"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice9"
@@ -173,7 +182,8 @@
                 app:layout_constraintHorizontal_bias="0.651"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.572" />
+                app:layout_constraintVertical_bias="0.572"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -204,7 +214,8 @@
                 app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.66" />
+                app:layout_constraintVertical_bias="0.66"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice10"
@@ -220,7 +231,8 @@
                 app:layout_constraintHorizontal_bias="0.651"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.659" />
+                app:layout_constraintVertical_bias="0.659"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -251,7 +263,8 @@
                 app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.736" />
+                app:layout_constraintVertical_bias="0.736"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice11"
@@ -267,7 +280,8 @@
                 app:layout_constraintHorizontal_bias="0.649"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.735" />
+                app:layout_constraintVertical_bias="0.735"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -298,7 +312,8 @@
                 app:layout_constraintHorizontal_bias="0.346"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.82" />
+                app:layout_constraintVertical_bias="0.82"
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/subChoice12"
@@ -314,7 +329,8 @@
                 app:layout_constraintHorizontal_bias="0.651"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.819" />
+                app:layout_constraintVertical_bias="0.819"
+                android:textSize="25sp"/>
 
         </LinearLayout>
 
@@ -325,14 +341,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="@color/button_background_color"
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutMain"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textTitleSubjective"
@@ -345,3 +364,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

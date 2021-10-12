@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -79,6 +80,14 @@ public class ReadCompActivity extends AppCompatActivity {
 
         // splitting instruction string
 //        prePrompts = question.getInstruction().split("(?m)^\\s*$");
+        ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
+        if(question.getQuestionCode()!="null") {
+            int imageResource = getResources().getIdentifier("@drawable/" + question.getQuestionCode(), null, this.getPackageName());
+            imageView.setImageResource(imageResource);
+        }
+        else{
+            imageView.setVisibility(View.GONE);
+        }
 
         // matches textviews with id
         TextView prePrompt = findViewById(R.id.readCompPrePrompt);
