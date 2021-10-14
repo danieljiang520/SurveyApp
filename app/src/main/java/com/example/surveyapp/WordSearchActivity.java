@@ -8,9 +8,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,15 +91,16 @@ public class WordSearchActivity extends AppCompatActivity {
         title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
         // read values for pos and size
         String[] posSize = question.getQuestionCode().split("-");
+        //.167-.833-.677-.167-.167-.833-.833-.167-.167-.5-.333-.167
 
         word1 = findViewById(R.id.wordSearchWord1);
         word2 = findViewById(R.id.wordSearchWord2);
         word3 = findViewById(R.id.wordSearchWord3);
         prompt = findViewById(R.id.wordSearchPrompt);
         next = findViewById(R.id.wordSearchNext);
-        word1.setBackgroundColor(Color.TRANSPARENT);
-        word2.setBackgroundColor(Color.TRANSPARENT);
-        word3.setBackgroundColor(Color.TRANSPARENT);
+        //word1.setBackgroundColor(Color.TRANSPARENT);
+        //word2.setBackgroundColor(Color.TRANSPARENT);
+        //word3.setBackgroundColor(Color.TRANSPARENT);
         prompt.setText(question.getInstruction());
 
         ImageView imageView = (ImageView) findViewById(R.id.wordSearchImg);
@@ -107,27 +111,85 @@ public class WordSearchActivity extends AppCompatActivity {
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
 
-        //button1
-        constraint.constrainPercentHeight(R.id.wordSearchWord1,Float.parseFloat(posSize[1]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord1,Float.parseFloat(posSize[0]));
-        constraint.setVerticalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[3]));
-        constraint.setHorizontalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[2]));
+         imageView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                float imageHeight = imageView.getHeight();
+                float imageWidth = imageView.getWidth();
+                //button1
+                constraint.constrainHeight(R.id.wordSearchWord1,(int) (imageHeight*(Float.parseFloat(posSize[1]))));
+                constraint.constrainWidth(R.id.wordSearchWord1,(int) (imageWidth*(Float.parseFloat(posSize[0]))));
+                constraint.setVerticalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[3]));
+                constraint.setHorizontalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[2]));
 
-        //button 2
-        constraint.constrainPercentHeight(R.id.wordSearchWord2,Float.parseFloat(posSize[5]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord2,Float.parseFloat(posSize[4]));
-        constraint.setVerticalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[7]));
-        constraint.setHorizontalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[6]));
+                //button 2
+                constraint.constrainPercentHeight(R.id.wordSearchWord2,(int) (imageHeight*(Float.parseFloat(posSize[5]))));
+                constraint.constrainPercentWidth(R.id.wordSearchWord2,(int) (imageWidth*(Float.parseFloat(posSize[4]))));
+                constraint.setVerticalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[7]));
+                constraint.setHorizontalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[6]));
 
-        //button 3
-        constraint.constrainPercentHeight(R.id.wordSearchWord3,Float.parseFloat(posSize[9]));
-        constraint.constrainPercentWidth(R.id.wordSearchWord3,Float.parseFloat(posSize[8]));
-        constraint.setVerticalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[11]));
-        constraint.setHorizontalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[10]));
+                //button 3
+                constraint.constrainPercentHeight(R.id.wordSearchWord3,(int) (imageHeight*(Float.parseFloat(posSize[9]))));
+                constraint.constrainPercentWidth(R.id.wordSearchWord3,(int) (imageWidth*(Float.parseFloat(posSize[8]))));
+                constraint.setVerticalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[11]));
+                constraint.setHorizontalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[10]));
 
-        constraint.applyTo(constraintLayout);
+                constraint.applyTo(constraintLayout);
+
+            }
+        });
+
         // figure out how to show when selected
+        /*ConstraintLayout.LayoutParams params1 = (ConstraintLayout.LayoutParams) word1.getLayoutParams();
+        ConstraintLayout.LayoutParams params2 = (ConstraintLayout.LayoutParams) word2.getLayoutParams();
+        ConstraintLayout.LayoutParams params3 = (ConstraintLayout.LayoutParams) word3.getLayoutParams();
 
+        params1.matchConstraintPercentHeight = Float.parseFloat(posSize[1]);
+        params1.matchConstraintPercentWidth = Float.parseFloat(posSize[0]);
+        params1.verticalBias = Float.parseFloat(posSize[3]);
+        params1.horizontalBias = Float.parseFloat(posSize[2]);
+
+        params2.matchConstraintPercentHeight = Float.parseFloat(posSize[5]);
+        params2.matchConstraintPercentWidth = Float.parseFloat(posSize[4]);
+        params2.verticalBias = Float.parseFloat(posSize[7]);
+        params2.horizontalBias = Float.parseFloat(posSize[6]);
+
+        params3.matchConstraintPercentHeight = Float.parseFloat(posSize[9]);
+        params3.matchConstraintPercentWidth = Float.parseFloat(posSize[8]);
+        params3.verticalBias = Float.parseFloat(posSize[11]);
+        params3.horizontalBias = Float.parseFloat(posSize[10]);
+
+        word1.setLayoutParams(params1);
+        word2.setLayoutParams(params2);
+        word3.setLayoutParams(params3);*/
+
+        /*imageView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                ViewGroup.LayoutParams layoutParams1 = word1.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = word2.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams3 = word3.getLayoutParams();
+
+                layoutParams1.width = (int) (imageView.getWidth()*Float.parseFloat(posSize[0]));
+                layoutParams1.height = (int) (imageView.getWidth()*Float.parseFloat(posSize[1]));
+
+                layoutParams2.width = (int) (imageView.getWidth()*Float.parseFloat(posSize[4]));
+                layoutParams2.height = (int) (imageView.getWidth()*Float.parseFloat(posSize[5]));
+
+                layoutParams3.width = (int) (imageView.getWidth()*Float.parseFloat(posSize[8]));
+                layoutParams3.height = (int) (imageView.getWidth()*Float.parseFloat(posSize[9]));
+
+                word1.setLayoutParams(layoutParams1);
+                word2.setLayoutParams(layoutParams2);
+                word3.setLayoutParams(layoutParams3);
+
+                Toast.makeText(WordSearchActivity.this, String.valueOf(imageView.getHeight()), Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
 
         // detects tap on screen, records timestamp
         constraintLayout.setOnClickListener(new View.OnClickListener() {
