@@ -119,7 +119,7 @@ public class QuestionBank implements Serializable {
                     List<Question> e = new ArrayList<>();
                     questionSets.add(e);
                     numQuestionSet++;
-                /*}else if(type.contains("Short Term Memory")) {
+                }else if(type.contains("Short Term Memory")) {
                     typeActivity = "ShortMemActivity";
                 }else if(type.contains("Spatial Reasoning")) {
                     typeActivity = "SpatReasonActivity";
@@ -132,17 +132,17 @@ public class QuestionBank implements Serializable {
                 }else if(type.contains("Typing")) {
                     typeActivity = "TypingActivity";
                 }else if(type.contains("Visual Search - IMAGE")) {
-                    typeActivity = "VisSearchImgActivity";*/
+                    typeActivity = "VisSearchImgActivity";
                 }else if(type.contains("Word Search")) {
                     typeActivity = "WordSearchActivity";
-               /* }else if(type.contains("Subjective")) {
+                }else if(type.contains("Subjective")) {
                     typeActivity = "SubjectiveActivity";
                 }else if(type.contains("Surrogate Reference Task")) {
                     typeActivity = "SurRefActivity";
                 }else if(type.contains("Spot the Difference")) {
                     typeActivity = "SpotDiffActivity";
                 }else if(type.contains("Reaction Time")) {
-                    typeActivity = "ReactTimeActivity";*/
+                    typeActivity = "ReactTimeActivity";
                 }else if(type.contains("Video")) {
                     typeActivity = "VideoActivity";
                 }
