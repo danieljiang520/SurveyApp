@@ -117,6 +117,8 @@ public class WordSearchActivity extends AppCompatActivity {
                 imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 float imageHeight = imageView.getHeight();
                 float imageWidth = imageView.getWidth();
+                //float test = imageView.get
+                //float ah = constraint.set
                 //button1
                 constraint.constrainHeight(R.id.wordSearchWord1,(int) (imageHeight*(Float.parseFloat(posSize[1]))));
                 constraint.constrainWidth(R.id.wordSearchWord1,(int) (imageWidth*(Float.parseFloat(posSize[0]))));
@@ -124,14 +126,14 @@ public class WordSearchActivity extends AppCompatActivity {
                 constraint.setHorizontalBias(R.id.wordSearchWord1,Float.parseFloat(posSize[2]));
 
                 //button 2
-                constraint.constrainPercentHeight(R.id.wordSearchWord2,(int) (imageHeight*(Float.parseFloat(posSize[5]))));
-                constraint.constrainPercentWidth(R.id.wordSearchWord2,(int) (imageWidth*(Float.parseFloat(posSize[4]))));
+                constraint.constrainHeight(R.id.wordSearchWord2,(int) (imageHeight*(Float.parseFloat(posSize[5]))));
+                constraint.constrainWidth(R.id.wordSearchWord2,(int) (imageWidth*(Float.parseFloat(posSize[4]))));
                 constraint.setVerticalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[7]));
                 constraint.setHorizontalBias(R.id.wordSearchWord2,Float.parseFloat(posSize[6]));
 
                 //button 3
-                constraint.constrainPercentHeight(R.id.wordSearchWord3,(int) (imageHeight*(Float.parseFloat(posSize[9]))));
-                constraint.constrainPercentWidth(R.id.wordSearchWord3,(int) (imageWidth*(Float.parseFloat(posSize[8]))));
+                constraint.constrainHeight(R.id.wordSearchWord3,(int) (imageHeight*(Float.parseFloat(posSize[9]))));
+                constraint.constrainWidth(R.id.wordSearchWord3,(int) (imageWidth*(Float.parseFloat(posSize[8]))));
                 constraint.setVerticalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[11]));
                 constraint.setHorizontalBias(R.id.wordSearchWord3,Float.parseFloat(posSize[10]));
 
@@ -205,6 +207,7 @@ public class WordSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word1.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word1.getBackground().setAlpha(70);
                 word1.setSelected(true);
             }
         });
@@ -213,6 +216,7 @@ public class WordSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word2.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word2.getBackground().setAlpha(70);
                 word2.setSelected(true);
             }
         });
@@ -221,6 +225,7 @@ public class WordSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word3.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word3.getBackground().setAlpha(70);
                 word3.setSelected(true);
             }
         });
