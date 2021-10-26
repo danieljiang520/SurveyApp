@@ -2,6 +2,7 @@ package com.example.surveyapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -120,6 +121,7 @@ public class ReactTimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
+                image1.setColorFilter(getResources().getColor(R.color.ummaize), PorterDuff.Mode.DARKEN);
                 image1.setSelected(true);
             }
         });
@@ -127,6 +129,7 @@ public class ReactTimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
+                image2.setColorFilter(getResources().getColor(R.color.ummaize), PorterDuff.Mode.DARKEN);
                 image2.setSelected(true);
             }
         });
@@ -134,6 +137,7 @@ public class ReactTimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 timeStamps.updateTimeStamp();
+                image3.setColorFilter(getResources().getColor(R.color.ummaize), PorterDuff.Mode.DARKEN);
                 image3.setSelected(true);
             }
         });

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -93,9 +94,9 @@ public class VisSearchImgActivity extends AppCompatActivity {
         word3 = findViewById(R.id.visSearchImgWord3);
         next = findViewById(R.id.visSearchImgNext);
         prompt = findViewById(R.id.visSearchImgPrompt);
-        word1.setBackgroundColor(Color.TRANSPARENT);
+        /*word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
-        word3.setBackgroundColor(Color.TRANSPARENT);
+        word3.setBackgroundColor(Color.TRANSPARENT);*/
         prompt.setText(question.getInstruction());
 
         ImageView imageView = (ImageView) findViewById(R.id.visSearchImgImg);
@@ -106,27 +107,34 @@ public class VisSearchImgActivity extends AppCompatActivity {
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
 
+        imageView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                float imageHeight = imageView.getHeight();
+                float imageWidth = imageView.getWidth();
+                //button1
+                constraint.constrainHeight(R.id.visSearchImgWord1, (int) (imageHeight*(Float.parseFloat(posSize[1]))));
+                constraint.constrainWidth(R.id.visSearchImgWord1, (int) (imageWidth*(Float.parseFloat(posSize[0]))));
+                constraint.setVerticalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[3]));
+                constraint.setHorizontalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[2]));
 
-        //button1
-        constraint.constrainHeight(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[1]));
-        constraint.constrainWidth(R.id.visSearchImgWord1, (int) Float.parseFloat(posSize[0]));
-        constraint.setVerticalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[3]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord1,Float.parseFloat(posSize[2]));
+                //button 2
+                constraint.constrainHeight(R.id.visSearchImgWord2, (int) (imageHeight*(Float.parseFloat(posSize[5]))));
+                constraint.constrainWidth(R.id.visSearchImgWord2, (int) (imageWidth*(Float.parseFloat(posSize[4]))));
+                constraint.setVerticalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[7]));
+                constraint.setHorizontalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[6]));
 
-        //button 2
-        constraint.constrainHeight(R.id.visSearchImgWord2, (int) Float.parseFloat(posSize[5]));
-        constraint.constrainWidth(R.id.visSearchImgWord2, (int) Float.parseFloat(posSize[4]));
-        constraint.setVerticalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[7]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord2,Float.parseFloat(posSize[6]));
+                //button 3
+                constraint.constrainHeight(R.id.visSearchImgWord3, (int) (imageHeight*(Float.parseFloat(posSize[9]))));
+                constraint.constrainWidth(R.id.visSearchImgWord3, (int) (imageWidth*(Float.parseFloat(posSize[8]))));
+                constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
+                constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
 
-        //button 3
-        constraint.constrainHeight(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[9]));
-        constraint.constrainWidth(R.id.visSearchImgWord3, (int) Float.parseFloat(posSize[8]));
-        constraint.setVerticalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[11]));
-        constraint.setHorizontalBias(R.id.visSearchImgWord3,Float.parseFloat(posSize[10]));
+                constraint.applyTo(constraintLayout);
 
-        constraint.applyTo(constraintLayout);
-        // figure out how to show when selected
+            }
+        });
 
 
         // detects tap on screen, records timestamp
@@ -143,6 +151,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word1.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word1.getBackground().setAlpha(70);
                 word1.setSelected(true);
             }
         });
@@ -151,6 +160,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word2.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word2.getBackground().setAlpha(70);
                 word2.setSelected(true);
             }
         });
@@ -159,6 +169,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 word3.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                word3.getBackground().setAlpha(70);
                 word3.setSelected(true);
             }
         });

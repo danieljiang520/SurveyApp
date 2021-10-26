@@ -95,29 +95,29 @@ Question Type Index,Question Type,Classification,Answer Type,Answer,Question Num
 10,Typing,Motor Cognitive,Timing,type 3 terms,Q820,"Suppose you were looking at a local soft-serve frozen yogurt shop. Please enter 3 toppings you would choose: Example: strawberries, chocolate chips, coconut",,,,
 11,Typing,Motor Cognitive,Timing,one two three four five six seven eight nine ten,Q954,"Type, in words, the numbers from 1 - 10 separated by spaces. Example: one two three …",,,,
 ,,,,,,,,,,
-1,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Snake,Q50,"In the available space below, please type what is hidden in the following photo?",questions_bank_31262_image054,What is hidden? (type your answer below),,138-86-.385-.497-1-1-0-0-1-1-0-0
-2,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Owl,Q136,"In the available space below, please type what is hidden in the following photo",questions_bank_31262_image055,What is hidden? (type your answer below),,227-475-.453-.498-1-1-0-0-1-1-0-0
-3,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q237,Please tap on the hidden animal in the image below.,questions_bank_31262_image056,,,88-395-.785-.498-1-1-0-0-1-1-0-0
-4,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q274,Find the hidden animal in the image below and tap on it.,questions_bank_31262_image057,,,160-93-.295-.357-1-1-0-0-1-1-0-0
-5,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q386,Find Waldo in the image below and tap on him.,questions_bank_31262_image058,,,78-106-.706-.537-1-1-0-0-1-1-0-0
-6,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q464,Find Waldo in the image below and tap on him.,questions_bank_31262_image059,,,70-92-.454-.658-1-1-0-0-1-1-0-0
-7,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q553,"Find and tap on the following objects: umbrella, squirrel, horse",questions_bank_31262_image060,,,72-90-.653-.239-97-120-.036-.146-98-171-.253-.313
-8,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q597,"Find and tap on the following objects: Ronald McDonald, Mr Potato Head, and a pink car",questions_bank_31262_image061,,,72-162-1-.563-90-97-0-.718-200-93-.658-.725
-9,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q692,Find the bird in the image below and tap on it.,questions_bank_31262_image062,,,157-192-.573-.458-1-1-0-0-1-1-0-0
-10,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q797,"Find and tap on the following objects: tomato, onion, and a cabbage",questions_bank_31262_image063,,,84-73-.874-.258-90-97-.104-.451-95-105-.658-.569
-11,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q897,"Find and tap on the following objects: tiger, robot, and an alligator",questions_bank_31262_image064,,,56-81-.787-.613-93-79-.125-.464-109-51-.748-.676
+1,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Snake,Q50,"In the available space below, please type what is hidden in the following photo?",questions_bank_31262_image054,What is hidden? (type your answer below),,.2-.4-.385-.497-.01-.01-0-0-.01-.01-0-0
+2,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Owl,Q136,"In the available space below, please type what is hidden in the following photo",questions_bank_31262_image055,What is hidden? (type your answer below),,.3-.8-.453-.498-.01-.01-0-0-.01-.01-0-0
+3,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q237,Please tap on the hidden animal in the image below.,questions_bank_31262_image056,,,.1-.8-.785-.498-.01-.01-0-0-.01-.01-0-0
+4,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q274,Find the hidden animal in the image below and tap on it.,questions_bank_31262_image057,,,.175-.15-.325-.2-.01-.01-0-0-.01-.01-0-0
+5,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q386,Find Waldo in the image below and tap on him.,questions_bank_31262_image058,,,.075-.15-.72-.57-.01-.01-0-0-.01-.01-0-0
+6,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q464,Find Waldo in the image below and tap on him.,questions_bank_31262_image059,,,.075-.23-.44-1-.01-.01-0-0-.01-.01-0-0
+7,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q553,"Find and tap on the following objects: umbrella, squirrel, horse",questions_bank_31262_image060,,,.1-.2-.25-.22-.1-.1-.675-.15-.1-.1-.05-.05
+8,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q597,"Find and tap on the following objects: Ronald McDonald, Mr Potato Head, and a pink car",questions_bank_31262_image061,,,.08-.2-0-1-.1-.25-1-.68-.22-.2-.65-1
+9,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q692,Find the bird in the image below and tap on it.,questions_bank_31262_image062,,,.22-.4-.573-.38-.01-.01-0-0-.01-.01-0-0
+10,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like (x3),Q797,"Find and tap on the following objects: tomato, onion, and a cabbage",questions_bank_31262_image063,,,.1-.1-.874-.13-.11-.1-.104-.44-.12-.13-.658-.6
+11,Visual Search - IMAGE,Visual Search,Accuracy/Timing,Like,Q897,"Find and tap on the following objects: tiger, robot, and an alligator",questions_bank_31262_image064,,,.1-.22-.8-.83-.1-.2-.125-.4-.1-.15-.74-1
 ,,,,,,,,,,
 1,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q13,"Tap on the words: BLESSINGS, SHARING, WOLF",questions_bank_31262_image065,,,.8-.1-.2-.95-.1-.4-.65-.5-.1-.65-.95-.1
-2,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q150,"Tap on the words: BEACH, TOWEL, SUN",questions_bank_31262_image066,,,.167-.6-.833-.65-.167-.6-1-.65-.167-.375-.4-.4
-3,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q205,"Tap on the words: NINE, EIGHT, FOUR",questions_bank_31262_image067,,,.45-.1-.48-.45-.55-.1-.6-.54-.1-.4-1-.5
-4,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q293,"Tap on the words: PUPPY, FLOWER, SUGAR ",questions_bank_31262_image068,,,.1-.6-.46-.487-.1-.6-.98-.75-.86-.1-.8-.9
+2,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q150,"Tap on the words: BEACH, TOWEL, SUN",questions_bank_31262_image066,,,.167-.83-.833-1-.167-.83-1-1-.167-.5-.4-.35
+3,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q205,"Tap on the words: NINE, EIGHT, FOUR",questions_bank_31262_image067,,,.45-.15-.48-.45-.55-.15-.6-.54-.15-.45-1-.5
+4,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q293,"Tap on the words: PUPPY, FLOWER, SUGAR ",questions_bank_31262_image068,,,.1-.71-.46-.487-.1-.71-.98-1-.86-.14-.8-1
 5,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q354,"Tap on the words: FINDING, CLOWNFISH, DORY",questions_bank_31262_image069,,,.267-.1-.8-.3-.6-.1-.4-.75-.48-.1-.02-1
 6,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q460,"Tap on the words: PINEAPPLE, STARFISH, PLANKTON",questions_bank_31262_image070,,,.6-.1-.05-1-.533-.1-.05-0-.533-.1-.65-.15
 7,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q536,"Tap on the words: SUMMER, CAMP, WATER",questions_bank_31262_image071,,,.72-.1-.175-.575-.4-.1-.5-.05-.62-.1-.046-.975
 8,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q589,"Tap on the words: TRUFFLE, MARZIPAN, LEMON",questions_bank_31262_image072,,,.1-.54-1-1-.56-.1-.75-0-.1-.4-.016-1
-9,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q696,"Tap on the words: SONG, DANCE, MUSIC ",questions_bank_31262_image074,,,.1-.3-.884-.498-.1-.42-.35-.15-.1-.42-.554-.15
-10,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q854,"Tap on the words: BASK, POND, TURTLE",questions_bank_31262_image073,,,.05-.3-0-.7-.25-.1-.448-.75-.4-.1-1-.75
-11,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q958,"Tap on the words: WHALE, DOLPHIN, SHRIMP",questions_bank_31262_image075,,,.425-.1-.025-.15-.525-.1-.6-.625-.45-.1-.825-.85
+9,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q696,"Tap on the words: SONG, DANCE, MUSIC ",questions_bank_31262_image074,,,.1-.4-.884-.498-.1-.5-.35-.0-.1-.5-.554-.0
+10,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q854,"Tap on the words: BASK, POND, TURTLE",questions_bank_31262_image073,,,.05-.4-0-.8-.25-.1-.448-.9-.4-.1-1-.9
+11,Word Search,Visual Search,Accuracy/Timing,Like (x3),Q958,"Tap on the words: WHALE, DOLPHIN, SHRIMP",questions_bank_31262_image075,,,.425-.13-.025-.0-.525-.13-.6-.7-.45-.13-.825-1
 ,,,,,,,,,,
 1,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q09,Look for differences between the two images below,questions_bank_31262_image076,How many differences can you spot?,"2, 3, 4, 5, 6",
 2,Spot the Difference,Visual Cognitive,Accuracy/Timing,5,Q126,Look for differences between the two images below,questions_bank_31262_image077,How many differences can you spot?,"2, 3, 4, 5, 6",
@@ -143,15 +143,15 @@ Question Type Index,Question Type,Classification,Answer Type,Answer,Question Num
 10,Subjective,Motor Cognitive,Timing,Select one answer,Q824,What was your favorite subject in school? (choose 1),,,"Math,Geography,Science,English,Gym,History",6
 11,Subjective,Motor Cognitive,Timing,Select one answer,Q912,What is your favorite summer activity?,,,"Reading a book by the pool,Waterskiing on a lake,Cooking out with some friends,Going to a summer fair and eating cotton candy",4
 ,,,,,,,,,,
-1,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q79,Click on the largest circle in the image below,questions_bank_31262_image087,,,84-70-.532-.342
-2,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q130,Click on the largest circle in the image below,questions_bank_31262_image088,,,86-87-.302-.323
-3,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q196,Click on the largest circle in the image below,questions_bank_31262_image089,,,87-87-.691-.398
-4,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q270,Click on the smallest circle in the image below,questions_bank_31262_image090,,,47-48-.633-.551
-5,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q326,Click on the largest circle in the image below,questions_bank_31262_image091,,,56-55-.547-.565
-6,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q443,Click on the smallest circle in the image below,questions_bank_31262_image092,,,56-55-.106-.487
-7,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q513,Click on the largest circle in the image below,questions_bank_31262_image093,,,56-55-.361-.414
-8,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q614,Click on the largest circle in the image below,questions_bank_31262_image094,,,83-88-.305-.314
-9,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q688,Click on the largest circle in the image below,questions_bank_31262_image095,,,64-66-.567-.809
-10,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q828,Click on the largest circle in the image below,questions_bank_31262_image096,,,93-94-.951-.636
-11,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q962,Click on the smallest circle in the image below,questions_bank_31262_image097,,,84-75-.813-.477
+1,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q79,Click on the largest circle in the image below,questions_bank_31262_image087,,,.08-.1-.54-.2
+2,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q130,Click on the largest circle in the image below,questions_bank_31262_image088,,,.1-.15-.302-.1
+3,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q196,Click on the largest circle in the image below,questions_bank_31262_image089,,,.1-.2-.68-.22
+4,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q270,Click on the smallest circle in the image below,questions_bank_31262_image090,,,.05-.1-.64-.6
+5,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q326,Click on the largest circle in the image below,questions_bank_31262_image091,,,.08-.15-.54-.65
+6,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q443,Click on the smallest circle in the image below,questions_bank_31262_image092,,,.05-.1-.12-.46
+7,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q513,Click on the largest circle in the image below,questions_bank_31262_image093,,,.08-.15-.361-.25
+8,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q614,Click on the largest circle in the image below,questions_bank_31262_image094,,,.1-.15-.305-.12
+9,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q688,Click on the largest circle in the image below,questions_bank_31262_image095,,,.1-.1-.567-.98
+10,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q828,Click on the largest circle in the image below,questions_bank_31262_image096,,,.11-.15-.95-.72
+11,Surrogate Reference Task,Visual Cognitive,Timing,Like,Q962,Click on the smallest circle in the image below,questions_bank_31262_image097,,,.08-.1-.805-.465
 ,,,,,,,,,,
