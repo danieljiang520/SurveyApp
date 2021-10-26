@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -92,7 +93,7 @@ public class SurRefActivity extends AppCompatActivity {
         next = findViewById(R.id.surRefNext);
         prompt = findViewById(R.id.surRefPrompt);
         prompt.setText(question.getInstruction());
-        item.setBackgroundColor(Color.TRANSPARENT);
+        //item.setBackgroundColor(Color.TRANSPARENT);
 
         ImageView imageView = (ImageView) findViewById(R.id.surRefImg);
         int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());
@@ -101,12 +102,22 @@ public class SurRefActivity extends AppCompatActivity {
         ConstraintLayout constraintLayout = (ConstraintLayout)findViewById(R.id.surRefTask);
         ConstraintSet constraint = new ConstraintSet();
         constraint.clone(constraintLayout);
-        constraint.constrainHeight(R.id.surRefCircle, (int) Float.parseFloat(posSize[1]));
-        constraint.constrainWidth(R.id.surRefCircle, (int) Float.parseFloat(posSize[0]));
-        constraint.setVerticalBias(R.id.surRefCircle,Float.parseFloat(posSize[3]));
-        constraint.setHorizontalBias(R.id.surRefCircle,Float.parseFloat(posSize[2]));
-        constraint.applyTo(constraintLayout);
-        // figure out how to show when selected
+
+        imageView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                float imageHeight = imageView.getHeight();
+                float imageWidth = imageView.getWidth();
+
+                constraint.constrainHeight(R.id.surRefCircle, (int) (imageHeight*(Float.parseFloat(posSize[1]))));
+                constraint.constrainWidth(R.id.surRefCircle, (int) (imageWidth*(Float.parseFloat(posSize[0]))));
+                constraint.setVerticalBias(R.id.surRefCircle,Float.parseFloat(posSize[3]));
+                constraint.setHorizontalBias(R.id.surRefCircle,Float.parseFloat(posSize[2]));
+                constraint.applyTo(constraintLayout);
+
+            }
+        });
 
         // detects tap on screen, records timestamp
         constraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +133,7 @@ public class SurRefActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 item.setBackgroundColor(getResources().getColor(R.color.ummaize));
+                item.getBackground().setAlpha(70);
                 item.setSelected(true);
             }
         });

@@ -40,9 +40,8 @@
     <ImageView
         android:id="@+id/surRefImg"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:maxHeight="250px"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/surRefNext"
         app:layout_constraintEnd_toEndOf="parent"

@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/wordSearchImg"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/wordSearchNext"
