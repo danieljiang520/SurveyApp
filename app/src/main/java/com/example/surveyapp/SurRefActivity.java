@@ -93,7 +93,7 @@ public class SurRefActivity extends AppCompatActivity {
         next = findViewById(R.id.surRefNext);
         prompt = findViewById(R.id.surRefPrompt);
         prompt.setText(question.getInstruction());
-        //item.setBackgroundColor(Color.TRANSPARENT);
+        item.setBackgroundColor(Color.TRANSPARENT);
 
         ImageView imageView = (ImageView) findViewById(R.id.surRefImg);
         int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());

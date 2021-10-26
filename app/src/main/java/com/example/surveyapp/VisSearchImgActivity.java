@@ -94,9 +94,9 @@ public class VisSearchImgActivity extends AppCompatActivity {
         word3 = findViewById(R.id.visSearchImgWord3);
         next = findViewById(R.id.visSearchImgNext);
         prompt = findViewById(R.id.visSearchImgPrompt);
-        /*word1.setBackgroundColor(Color.TRANSPARENT);
+        word1.setBackgroundColor(Color.TRANSPARENT);
         word2.setBackgroundColor(Color.TRANSPARENT);
-        word3.setBackgroundColor(Color.TRANSPARENT);*/
+        word3.setBackgroundColor(Color.TRANSPARENT);
         prompt.setText(question.getInstruction());
 
         ImageView imageView = (ImageView) findViewById(R.id.visSearchImgImg);
