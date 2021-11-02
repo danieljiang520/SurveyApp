@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ public class ReadCompActivity extends AppCompatActivity {
 
     QuestionBank questionBank;
     Question question;
+
+    //20,Reading Comprehension,Visual Cognitive,Accuracy/Timing,CA,Q#,PRE,PASS,POST,OPS,
 
     // THIS IS MENU STUFF
     @Override
@@ -93,35 +96,73 @@ public class ReadCompActivity extends AppCompatActivity {
         TextView prePrompt = findViewById(R.id.readCompPrePrompt);
         TextView excerpt = findViewById(R.id.readCompExcerpt);
         TextView prompt = findViewById(R.id.readCompPrompt);
+        EditText edit = findViewById(R.id.readCompTextEntry);
 
         // setting text from library
         prePrompt.setText(question.getInstruction());
         excerpt.setText(question.getImgPath());
         prompt.setText(question.getQuestion());
 
+        // setting entry box visibility
+        edit.setVisibility(View.GONE);
+
         // matches buttons with xml id
         readCompNext = findViewById(R.id.readCompNext);
-        InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
 
-        // detects tap on screen, records timestamp
-        ConstraintLayout cLayout = findViewById(R.id.readComp);
-        cLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttons.getTimeStamps().updateTimeStamp();
-            }
-        });
+        if(question.getAnswerOptions()==null){
+            Button b1 = findViewById(R.id.readCompChoice1);
+            Button b2 = findViewById(R.id.readCompChoice2);
+            Button b3 = findViewById(R.id.readCompChoice3);
+            Button b4 = findViewById(R.id.readCompChoice4);
+            Button b5 = findViewById(R.id.readCompChoice5);
+            b1.setVisibility(View.GONE);
+            b2.setVisibility(View.GONE);
+            b3.setVisibility(View.GONE);
+            b4.setVisibility(View.GONE);
+            b5.setVisibility(View.GONE);
+            edit.setVisibility(View.VISIBLE);
+            GetTimeStamp timeStamp = new GetTimeStamp();
+            // detects tap on screen, records timestamp
+            ConstraintLayout cLayout = findViewById(R.id.readComp);
+            cLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
+            // "next" button
+            readCompNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    timeStamp.updateTimeStamp();
+                    String response = edit.getText().toString();
+                    csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), response, question.getCorrectAnswer());
+                    ActivitySwitch();
+                }
+            });
+        }
+        else{
+            InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
+            // detects tap on screen, records timestamp
+            ConstraintLayout cLayout = findViewById(R.id.readComp);
+            cLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            // "next" button
+            readCompNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                    Log.d("ReadCompActivity", "selected: " + buttons.getSelected() );
+                    csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                    ActivitySwitch();
+                }
+            });
+        }
 
-        // "next" button
-        readCompNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttons.getTimeStamps().updateTimeStamp();
-                Log.d("ReadCompActivity", "selected: " + buttons.getSelected() );
-                csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
-                ActivitySwitch();
-            }
-        });
     }
 
     public void ActivitySwitch() {
