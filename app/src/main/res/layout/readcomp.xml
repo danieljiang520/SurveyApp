@@ -75,6 +75,14 @@
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
+        <EditText
+            android:id="@+id/readCompTextEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="visible" />
+
     </LinearLayout>
 
     <Button
@@ -143,14 +151,12 @@
         android:id="@+id/readCompPrompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:gravity="center"
         android:padding="5dp"
         android:text="Prompt"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/readCompExcerpt"
         app:layout_constraintWidth_max="wrap" />
@@ -168,26 +174,16 @@
 
     <ImageView
         android:id="@+id/readCompImg"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="114dp"
         app:layout_constraintBottom_toTopOf="@id/readCompExcerpt"
         app:layout_constraintTop_toBottomOf="@id/readCompPrePrompt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scaleType="fitCenter"/>
-
-    <EditText
-        android:id="@+id/readCompTextEntry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@id/readCompPrompt"
-        app:layout_constraintBottom_toTopOf="@id/readCompNext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:scaleType="fitCenter"
+        app:layout_constraintHeight_max="wrap"
+        android:adjustViewBounds="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
