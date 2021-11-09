@@ -21,9 +21,10 @@ public class QuestionBank implements Serializable {
 
     private List<Question> questions;
     private int indexQuestion;
-    private List<List<Question>> questionSets = new ArrayList<>();
+    private List<List<Question>> questionSets;
     private int setChoice;
     private boolean autoResume;
+    private int numSets = 5;
 
     public void setSetChoice(int setChoice) {
         this.setChoice = setChoice - 1;
@@ -33,6 +34,7 @@ public class QuestionBank implements Serializable {
     public QuestionBank(InputStream is) {
         this.indexQuestion = 0;
         this.questions = new ArrayList<>();
+        this.questionSets = new ArrayList<>();
         readData(is);
     }
 
@@ -83,7 +85,7 @@ public class QuestionBank implements Serializable {
             // step over header
             reader.readLine();
             int numQuestionSet = 0;
-            int indQuestionSet = -1;
+            int indQuestionSet = 0;
             String prevType = "";
             while ((line = reader.readLine()) != null) {
                 //split string
@@ -114,54 +116,76 @@ public class QuestionBank implements Serializable {
 
 
                 String typeActivity = null;
-                if (type.contains("Map")) {
-                    typeActivity = "MapActivity";
-                    List<Question> e = new ArrayList<>();
-                    questionSets.add(e);
-                    numQuestionSet++;
-                }else if(type.contains("Short Term Memory")) {
-                    typeActivity = "ShortMemActivity";
-                }else if(type.contains("Spatial Reasoning")) {
-                    typeActivity = "SpatReasonActivity";
-                }else if(type.contains("Reading Comprehension")) {
+//                if (type.contains("Map")) {
+//                    typeActivity = "MapActivity";
+//                    List<Question> e = new ArrayList<>();
+//                    questionSets.add(e);
+//                    numQuestionSet++;
+//                }
+//                else if(type.contains("Short Term Memory")) {
+//                    typeActivity = "ShortMemActivity";
+//                }
+//                else if(type.contains("Spatial Reasoning")) {
+//                    typeActivity = "SpatReasonActivity";
+//                }
+                if(type.contains("Reading Comprehension")) {
                     typeActivity = "ReadCompActivity";
-                }else if(type.contains("Pattern")) {
-                    typeActivity = "PatternActivity";
-                }else if(type.contains("Visual Search - TEXT")) {
-                    typeActivity = "VisSearchActivity";
-                }else if(type.contains("Typing")) {
-                    typeActivity = "TypingActivity";
-                }else if(type.contains("Visual Search - IMAGE")) {
-                    typeActivity = "VisSearchImgActivity";
-                }else if(type.contains("Word Search")) {
-                    typeActivity = "WordSearchActivity";
-                }else if(type.contains("Subjective")) {
-                    typeActivity = "SubjectiveActivity";
-                }else if(type.contains("Surrogate Reference Task")) {
-                    typeActivity = "SurRefActivity";
-                }else if(type.contains("Spot the Difference")) {
-                    typeActivity = "SpotDiffActivity";
-                }else if(type.contains("Reaction Time")) {
-                    typeActivity = "ReactTimeActivity";
-                }else if(type.contains("Video")) {
-                    typeActivity = "VideoActivity";
                 }
+//                else if(type.contains("Pattern")) {
+//                    typeActivity = "PatternActivity";
+//                }
+//                else if(type.contains("Visual Search - TEXT")) {
+//                    typeActivity = "VisSearchActivity";
+//                }
+//                else if(type.contains("Typing")) {
+//                    typeActivity = "TypingActivity";
+//                }
+//                else if(type.contains("Visual Search - IMAGE")) {
+//                    typeActivity = "VisSearchImgActivity";
+//                }
+//                else if(type.contains("Word Search")) {
+//                    typeActivity = "WordSearchActivity";
+//                }
+//                else if(type.contains("Subjective")) {
+//                    typeActivity = "SubjectiveActivity";
+//                }
+//                else if(type.contains("Surrogate Reference Task")) {
+//                    typeActivity = "SurRefActivity";
+//                }
+//                else if(type.contains("Spot the Difference")) {
+//                    typeActivity = "SpotDiffActivity";
+//                }
+//                else if(type.contains("Reaction Time")) {
+//                    typeActivity = "ReactTimeActivity";
+//                }
+//                else if(type.contains("Video")) {
+//                    typeActivity = "VideoActivity";
+//                }
 
 
                 if(typeActivity != null) {
                     Question question = new Question(id,type,typeActivity,classification,answerType,correctAnswer,questionNumber, instruction,
                             imgPath,surveyQuestion,answerOptions,questionCode);
                     question.printQuestionAttributes();
-//                    questions.add(question);
+                    questions.add(question);
 
-                    if(prevType.equals(typeActivity)){
-                        indQuestionSet++;
-                    }else{
-                        indQuestionSet=0;
+//                    if(prevType.equals(typeActivity)){
+//                        indQuestionSet++;
+//                    }else{
+//                        indQuestionSet=0;
+//                    }
+                    indQuestionSet = Math.floorMod(indQuestionSet, numSets);
+                    Log.wtf("dj", "#questions " + questions.size());
+                    Log.wtf("dj", "#indset " + indQuestionSet);
+
+                    if(questions.size()<=numSets) {
+                        List<Question> e = new ArrayList<>();
+                        questionSets.add(e);
+                        numQuestionSet++;
                     }
                     questionSets.get(indQuestionSet).add(question);
-                    prevType = typeActivity;
-
+//                    prevType = typeActivity;
+                    indQuestionSet++;
 
                 } else{
                     Log.wtf("MyActivity", "No corresponding question type on line: " + line);

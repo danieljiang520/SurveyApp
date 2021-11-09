@@ -114,7 +114,7 @@ public class FirstPageActivity extends AppCompatActivity {
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner);
         //create a list of items for the spinner.
-        String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+        String[] items = new String[]{"1", "2", "3", "4", "5"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
