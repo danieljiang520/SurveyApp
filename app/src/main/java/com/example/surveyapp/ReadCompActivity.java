@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -103,13 +104,11 @@ public class ReadCompActivity extends AppCompatActivity {
         excerpt.setText(question.getImgPath());
         prompt.setText(question.getQuestion());
 
-        // setting entry box visibility
-        edit.setVisibility(View.GONE);
 
         // matches buttons with xml id
         readCompNext = findViewById(R.id.readCompNext);
 
-        if(question.getAnswerOptions()==null){
+        if(question.getAnswerOptions().length == 0){
             Button b1 = findViewById(R.id.readCompChoice1);
             Button b2 = findViewById(R.id.readCompChoice2);
             Button b3 = findViewById(R.id.readCompChoice3);
@@ -142,6 +141,7 @@ public class ReadCompActivity extends AppCompatActivity {
             });
         }
         else{
+            edit.setVisibility(View.GONE);
             InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
             // detects tap on screen, records timestamp
             ConstraintLayout cLayout = findViewById(R.id.readComp);
