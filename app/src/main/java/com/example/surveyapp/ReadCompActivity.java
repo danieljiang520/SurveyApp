@@ -28,6 +28,7 @@ public class ReadCompActivity extends AppCompatActivity {
 
     QuestionBank questionBank;
     Question question;
+    GetTimeStamp timeStamp = new GetTimeStamp();
 
     //20,Reading Comprehension,Visual Cognitive,Accuracy/Timing,CA,Q#,PRE,PASS,POST,OPS,
 
@@ -108,6 +109,28 @@ public class ReadCompActivity extends AppCompatActivity {
         // matches buttons with xml id
         readCompNext = findViewById(R.id.readCompNext);
 
+        //alert for next button
+        AlertDialog.Builder buildernull = new AlertDialog.Builder(ReadCompActivity.this);
+        buildernull.setMessage("There is an unanswered question on this page. Would you like to continue?");
+        buildernull.setCancelable(true);
+        buildernull.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        timeStamp.updateTimeStamp();
+                        String response = edit.getText().toString();
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), "N/A", question.getCorrectAnswer());
+                        ActivitySwitch();
+                    }
+                });
+        buildernull.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
         if(question.getAnswerOptions().length == 0){
             Button b1 = findViewById(R.id.readCompChoice1);
             Button b2 = findViewById(R.id.readCompChoice2);
@@ -120,7 +143,6 @@ public class ReadCompActivity extends AppCompatActivity {
             b4.setVisibility(View.GONE);
             b5.setVisibility(View.GONE);
             edit.setVisibility(View.VISIBLE);
-            GetTimeStamp timeStamp = new GetTimeStamp();
             // detects tap on screen, records timestamp
             ConstraintLayout cLayout = findViewById(R.id.readComp);
             cLayout.setOnClickListener(new View.OnClickListener() {
@@ -133,10 +155,16 @@ public class ReadCompActivity extends AppCompatActivity {
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    timeStamp.updateTimeStamp();
                     String response = edit.getText().toString();
-                    csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), response, question.getCorrectAnswer());
-                    ActivitySwitch();
+                    if(response.isEmpty()){
+                        AlertDialog alert1 = buildernull.create();
+                        alert1.show();
+                    }
+                    else {
+                        timeStamp.updateTimeStamp();
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), response, question.getCorrectAnswer());
+                        ActivitySwitch();
+                    }
                 }
             });
         }
@@ -144,21 +172,28 @@ public class ReadCompActivity extends AppCompatActivity {
             edit.setVisibility(View.GONE);
             InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
             // detects tap on screen, records timestamp
+
             ConstraintLayout cLayout = findViewById(R.id.readComp);
             cLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
+                    timeStamp.updateTimeStamp();
                 }
             });
             // "next" button
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                    Log.d("ReadCompActivity", "selected: " + buttons.getSelected() );
-                    csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
-                    ActivitySwitch();
+                    if(buttons.getSelected().equals("N/A")){
+                        AlertDialog alert2 = buildernull.create();
+                        alert2.show();
+                    }
+                    else {
+                        buttons.getTimeStamps().updateTimeStamp();
+                        Log.d("ReadCompActivity", "selected: " + buttons.getSelected());
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                        ActivitySwitch();
+                    }
                 }
             });
         }
