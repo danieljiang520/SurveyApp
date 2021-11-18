@@ -121,6 +121,11 @@ public class FirstPageActivity extends AppCompatActivity {
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
 
+        Spinner baseline = findViewById(R.id.spinnerbaseline);
+        String[] itemsbaseline = new String[]{"test1","test2"};
+        ArrayAdapter<String> adapterbaseline = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsbaseline);
+        baseline.setAdapter(adapterbaseline);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
