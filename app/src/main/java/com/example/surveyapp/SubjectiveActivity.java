@@ -9,13 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.util.List;
 import java.util.Vector;
 
 public class SubjectiveActivity extends AppCompatActivity{
@@ -85,7 +83,7 @@ public class SubjectiveActivity extends AppCompatActivity{
         setContentView(R.layout.subjective);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         TextView title = findViewById(R.id.textTitleSubjective);
         title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());

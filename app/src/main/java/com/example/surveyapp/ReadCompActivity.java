@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,10 +74,10 @@ public class ReadCompActivity extends AppCompatActivity {
         setContentView(R.layout.readcomp);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         TextView title = findViewById(R.id.textTitleReadcomp);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText(String.valueOf(questionBank.getSetChoice()) + ": "+ question.getType());
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);

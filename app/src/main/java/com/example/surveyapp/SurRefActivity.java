@@ -12,7 +12,6 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -78,7 +77,7 @@ public class SurRefActivity extends AppCompatActivity {
         setContentView(R.layout.surreftask);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();

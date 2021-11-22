@@ -78,7 +78,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vissearchimg);
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();

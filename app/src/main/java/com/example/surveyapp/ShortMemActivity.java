@@ -13,14 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ShortMemActivity extends AppCompatActivity {
 
@@ -88,7 +84,7 @@ public class ShortMemActivity extends AppCompatActivity {
         setContentView(R.layout.shortmem);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         // inits
         TextView title = findViewById(R.id.textTitleShortmem);

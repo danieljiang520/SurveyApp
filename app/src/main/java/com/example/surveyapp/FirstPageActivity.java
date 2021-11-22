@@ -110,19 +110,20 @@ public class FirstPageActivity extends AppCompatActivity {
         // actions when button is clicked
         // assigns text responses to variable
 
-        Switch switchAutoResume = findViewById(R.id.switchAutoResume);
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner);
+        Spinner dropdownBaseline = findViewById(R.id.spinnerbaseline);
         //create a list of items for the spinner.
-        String[] items = new String[]{"1", "2", "3", "4", "5"};
+        String[] items = new String[]{"Baseline Question Set", "Rest of the Questions"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
 
         Spinner baseline = findViewById(R.id.spinnerbaseline);
-        String[] itemsbaseline = new String[]{"test1","test2"};
+        String[] itemsbaseline = new String[]{"5","6","7","8","9","10"};
         ArrayAdapter<String> adapterbaseline = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsbaseline);
         baseline.setAdapter(adapterbaseline);
 
@@ -130,11 +131,10 @@ public class FirstPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 // SAMPLE SET CHOICE MECHANISM
-                int setChoice = Integer.parseInt(dropdown.getSelectedItem().toString());
-                boolean autoResume = switchAutoResume.isChecked();
-                questionBank.setSetChoice(setChoice);
-                questionBank.setAutoResume(autoResume);
-
+                questionBank.setSetChoice(dropdown.getSelectedItem().toString());
+                if(dropdown.getSelectedItemPosition()==0){
+                    questionBank.setNumBaseline(Integer.parseInt(dropdownBaseline.getSelectedItem().toString()));
+                }
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';
                 // this creates a new file output stream

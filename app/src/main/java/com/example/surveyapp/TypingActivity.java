@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,7 +74,7 @@ public class TypingActivity extends AppCompatActivity {
         setContentView(R.layout.typing);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         TextView title = findViewById(R.id.textTitleTyping);
         title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());

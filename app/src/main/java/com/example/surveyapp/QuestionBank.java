@@ -15,60 +15,52 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class QuestionBank implements Serializable {
 
     private List<Question> questions;
     private int indexQuestion;
-    private List<List<Question>> questionSets;
-    private int setChoice;
-    private boolean autoResume;
-    private int numSets = 5;
+    private String setChoice;
+//    private List<List<Question>> questionSets;
+    private int numBaseline = 0;
 
-    public void setSetChoice(int setChoice) {
-        this.setChoice = setChoice - 1;
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public QuestionBank(InputStream is) {
         this.indexQuestion = 0;
         this.questions = new ArrayList<>();
-        this.questionSets = new ArrayList<>();
+//        this.questionSets = new ArrayList<>();
         readData(is);
     }
-
-    public boolean isAutoResume() {
-        return autoResume;
+    public void setNumBaseline(int numBaseline) {
+        this.numBaseline = numBaseline;
     }
 
-    public void setAutoResume(boolean autoResume) {
-        this.autoResume = autoResume;
-    }
-
-    public int getSetChoice() {
+    public String getSetChoice() {
         return setChoice;
     }
 
-    public Question getCurrentQuestion() {
+    public void setSetChoice(String setChoice) {
+        this.setChoice = setChoice;
+    }
+
+    public Question getPrevQuestion() {
         int ind = indexQuestion;
         if (ind > 0){
             ind--;
         }
-        questions.get(ind).printQuestionAttributes();
-        return questions.get(ind);
+        Question q = questions.get(ind);
+        q.printQuestionAttributes();
+        return q;
     }
 
     public Question pop(){
-        questions = questionSets.get(setChoice);
-        if (indexQuestion < questions.size()){
+        if (indexQuestion < numBaseline){
             Question q = questions.get(indexQuestion);
             indexQuestion++;
             return q;
-        }else if(autoResume && setChoice < questionSets.size()){
-            ++setChoice;
-            indexQuestion = 1;
-            return questions.get(0);
         }
         return null;
     }
@@ -84,9 +76,7 @@ public class QuestionBank implements Serializable {
         try {
             // step over header
             reader.readLine();
-            int numQuestionSet = 0;
             int indQuestionSet = 0;
-            String prevType = "";
             while ((line = reader.readLine()) != null) {
                 //split string
                 String[] tokens = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
@@ -174,23 +164,30 @@ public class QuestionBank implements Serializable {
 //                    }else{
 //                        indQuestionSet=0;
 //                    }
-                    indQuestionSet = Math.floorMod(indQuestionSet, numSets);
+//                    indQuestionSet = Math.floorMod(indQuestionSet, numSets);
                     Log.wtf("dj", "#questions " + questions.size());
                     Log.wtf("dj", "#indset " + indQuestionSet);
 
-                    if(questions.size()<=numSets) {
-                        List<Question> e = new ArrayList<>();
-                        questionSets.add(e);
-                        numQuestionSet++;
-                    }
-                    questionSets.get(indQuestionSet).add(question);
-//                    prevType = typeActivity;
-                    indQuestionSet++;
+//                    if(questions.size()<=numSets) {
+//                        List<Question> e = new ArrayList<>();
+//                        questionSets.add(e);
+//                        numQuestionSet++;
+//                    }
+//                    if(questionSets.get(0).size()<numBaseline){
+//                        indQuestionSet=0;
+//                    }else{
+//                        indQuestionSet=1;
+//                    }
+//                    questionSets.get(indQuestionSet).add(question);
+////                    prevType = typeActivity;
+//                    indQuestionSet++;
 
                 } else{
                     Log.wtf("MyActivity", "No corresponding question type on line: " + line);
                 }
             }
+            numBaseline = questions.size();
+            Collections.shuffle(questions);
             is.close();
         }catch (Exception e){
             Log.wtf("MyActivity", "Error reading data file on line: " + line, e);

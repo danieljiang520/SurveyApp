@@ -70,7 +70,7 @@ public class SpatReasonActivity extends AppCompatActivity {
         setContentView(R.layout.spatreason);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();

@@ -72,7 +72,7 @@ public class SpotDiffActivity extends AppCompatActivity {
         setContentView(R.layout.spotdiff);
 
         questionBank = (QuestionBank) getIntent().getSerializableExtra("questionBank");
-        question = questionBank.getCurrentQuestion();
+        question = questionBank.getPrevQuestion();
 
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
