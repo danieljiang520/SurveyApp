@@ -123,7 +123,7 @@ public class FirstPageActivity extends AppCompatActivity {
         dropdown.setAdapter(adapter);
 
         Spinner baseline = findViewById(R.id.spinnerbaseline);
-        String[] itemsbaseline = new String[]{"5","6","7","8","9","10"};
+        String[] itemsbaseline = new String[]{"5","6","7","8","9","10","11","12","13","14","15"};
         ArrayAdapter<String> adapterbaseline = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsbaseline);
         baseline.setAdapter(adapterbaseline);
 
