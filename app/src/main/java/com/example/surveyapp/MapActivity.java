@@ -112,6 +112,12 @@ public class MapActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        // Disable back button
+    }
+
     public void ActivitySwitch() {
         Question nextQuestion = questionBank.pop();
         if(nextQuestion==null){

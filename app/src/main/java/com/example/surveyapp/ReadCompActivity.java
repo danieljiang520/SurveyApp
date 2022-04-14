@@ -67,7 +67,10 @@ public class ReadCompActivity extends AppCompatActivity {
                 .show();
     }
     // THIS IS MENU STUFF
+    @Override
+    public void onBackPressed() {
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

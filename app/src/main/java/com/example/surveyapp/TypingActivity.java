@@ -69,6 +69,11 @@ public class TypingActivity extends AppCompatActivity {
     // THIS IS MENU STUFF
 
     @Override
+    public void onBackPressed() {
+        // Disable back button
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.typing);

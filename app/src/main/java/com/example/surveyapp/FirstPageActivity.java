@@ -101,6 +101,10 @@ public class FirstPageActivity extends AppCompatActivity {
 
         setupStarButton();
     }
+    @Override
+    public void onBackPressed() {
+ 
+    }
 
     private void setupStarButton() {
         // assigns text entry boxes to relevant variables

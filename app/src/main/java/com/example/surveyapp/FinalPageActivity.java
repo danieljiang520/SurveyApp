@@ -55,4 +55,9 @@ public class FinalPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_page);
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

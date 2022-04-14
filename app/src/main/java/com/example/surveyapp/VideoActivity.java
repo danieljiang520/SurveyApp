@@ -68,4 +68,9 @@ public class VideoActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        // Disable back button
+    }
 }

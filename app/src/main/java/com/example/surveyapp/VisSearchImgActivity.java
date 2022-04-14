@@ -74,6 +74,11 @@ public class VisSearchImgActivity extends AppCompatActivity {
     }
     // THIS IS MENU STUFF
 
+    @Override
+    public void onBackPressed() {
+        // Disable back button
+    }
+
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vissearchimg);
