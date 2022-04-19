@@ -23,6 +23,7 @@ public class ReadCompActivity extends AppCompatActivity {
 
     String outputName;
     Button readCompNext;
+    Button readCompNextFake;
     CSVWriting csvWriter = new CSVWriting();
 
     QuestionBank questionBank;
@@ -109,7 +110,8 @@ public class ReadCompActivity extends AppCompatActivity {
 
 
         // matches buttons with xml id
-        readCompNext = findViewById(R.id.readCompNext);
+        readCompNext = findViewById(R.id.readCompNext); // HERE
+        readCompNextFake = findViewById(R.id.readCompNextFake);
 
         //alert for next button
         AlertDialog.Builder buildernull = new AlertDialog.Builder(ReadCompActivity.this);
