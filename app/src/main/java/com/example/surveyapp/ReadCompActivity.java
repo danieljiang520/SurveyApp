@@ -81,7 +81,7 @@ public class ReadCompActivity extends AppCompatActivity {
         question = questionBank.getPrevQuestion();
 
         TextView title = findViewById(R.id.textTitleReadcomp);
-        title.setText(String.valueOf(questionBank.getSetChoice()) + ": "+ question.getType());
+        title.setText(String.valueOf(questionBank.getSetChoiceString()) + ": "+ question.getType() + " #" + question.getId());
         // Grabs output name from FirstPageActivity for CSVWriting
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);

@@ -83,7 +83,7 @@ public class ReactTimeActivity extends AppCompatActivity {
         imgPaths = question.getImgPath().split("-");
 
         TextView title = findViewById(R.id.textTitleReacttime);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
 
         next = findViewById(R.id.reactTimeNext);
         prePrompt = findViewById(R.id.reactTimePrePrompt);

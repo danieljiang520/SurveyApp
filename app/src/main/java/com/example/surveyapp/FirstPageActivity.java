@@ -91,9 +91,6 @@ public class FirstPageActivity extends AppCompatActivity {
         setContentView(R.layout.first_page);
         Log.d(TAG, "onCreate: started");
 
-        InputStream is = getResources().openRawResource(R.raw.questions_bank_full);
-        questionBank = new QuestionBank(is);
-
         // attaches UM logo to imageview background
         ImageView imageView = (ImageView) findViewById(R.id.UMLogo);
         int imageResource = getResources().getIdentifier("@drawable/umlogo", null, this.getPackageName());
@@ -116,7 +113,7 @@ public class FirstPageActivity extends AppCompatActivity {
 
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner);
-        Spinner dropdownBaseline = findViewById(R.id.spinnerbaseline);
+//        Spinner dropdownBaseline = findViewById(R.id.spinnerbaseline);
         //create a list of items for the spinner.
         String[] items = new String[]{"Baseline Question Set", "Rest of the Questions"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -126,19 +123,24 @@ public class FirstPageActivity extends AppCompatActivity {
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
 
-        Spinner baseline = findViewById(R.id.spinnerbaseline);
-        String[] itemsbaseline = new String[]{"5","6","7","8","9","10","11","12","13","14","15"};
-        ArrayAdapter<String> adapterbaseline = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsbaseline);
-        baseline.setAdapter(adapterbaseline);
+        // Set number of questions for baseline
+//        Spinner baseline = findViewById(R.id.spinnerbaseline);
+//        String[] itemsbaseline = new String[]{"5","6","7","8","9","10","11","12","13","14","15"};
+//        ArrayAdapter<String> adapterbaseline = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsbaseline);
+//        baseline.setAdapter(adapterbaseline);
 
         start.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view){
                 // SAMPLE SET CHOICE MECHANISM
-                questionBank.setSetChoice(dropdown.getSelectedItem().toString());
-                if(dropdown.getSelectedItemPosition()==0){
-                    questionBank.setNumBaseline(Integer.parseInt(dropdownBaseline.getSelectedItem().toString()));
-                }
+                InputStream is = getResources().openRawResource(R.raw.questions_bank_full);
+                int setChoice = dropdown.getSelectedItemPosition();
+                String setChoiceString = dropdown.getSelectedItem().toString();
+                questionBank = new QuestionBank(is,setChoice,setChoiceString);
+//                if(dropdown.getSelectedItemPosition()==0){
+//                    questionBank.setNumBaseline(Integer.parseInt(dropdownBaseline.getSelectedItem().toString()));
+//                }
                 partNum = partNumEntry.getText().toString();
                 startTime = '"'+startTimeEntry.getText().toString()+'"';
                 // this creates a new file output stream

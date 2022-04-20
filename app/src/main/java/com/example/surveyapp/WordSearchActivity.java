@@ -91,7 +91,7 @@ public class WordSearchActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         TextView title = findViewById(R.id.textTitleWordsearch);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         // read values for pos and size
         String[] posSize = question.getQuestionCode().split("-");
         //.167-.833-.677-.167-.167-.833-.833-.167-.167-.5-.333-.167

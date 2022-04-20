@@ -89,7 +89,7 @@ public class SurRefActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         TextView title = findViewById(R.id.textTitleSurreftask);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         // read values for pos and size
         String[] posSize = question.getQuestionCode().split("-");
 

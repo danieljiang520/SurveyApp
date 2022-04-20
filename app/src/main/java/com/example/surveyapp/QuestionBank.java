@@ -22,28 +22,27 @@ public class QuestionBank implements Serializable {
 
     private List<Question> questions;
     private int indexQuestion;
-    private String setChoice;
+    private int setChoice; // 0 = baseline; 1 = rest of questions
+    private String setChoiceString;
 //    private List<List<Question>> questionSets;
-    private int numBaseline = 0;
-
+    private int numAvailableQuestions;
+    private int numSetQuestions;
+    private int startingIndex;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public QuestionBank(InputStream is) {
-        this.indexQuestion = 0;
+    public QuestionBank(InputStream is, int setChoice, String setChoiceString) {
+        this.indexQuestion = (setChoice==0) ? 0 : 5;
         this.questions = new ArrayList<>();
 //        this.questionSets = new ArrayList<>();
-        readData(is);
-    }
-    public void setNumBaseline(int numBaseline) {
-        this.numBaseline = numBaseline;
-    }
-
-    public String getSetChoice() {
-        return setChoice;
-    }
-
-    public void setSetChoice(String setChoice) {
         this.setChoice = setChoice;
+        this.setChoiceString = setChoiceString;
+        this.numAvailableQuestions = readData(is);
+        this.numSetQuestions = (setChoice==0) ? 5 : numAvailableQuestions - 5;
+        this.startingIndex = indexQuestion;
+    }
+
+    public String getSetChoiceString() {
+        return setChoiceString;
     }
 
     public Question getPrevQuestion() {
@@ -57,7 +56,7 @@ public class QuestionBank implements Serializable {
     }
 
     public Question pop(){
-        if (indexQuestion < numBaseline){
+        if (indexQuestion < startingIndex + numSetQuestions){
             Question q = questions.get(indexQuestion);
             indexQuestion++;
             return q;
@@ -66,7 +65,7 @@ public class QuestionBank implements Serializable {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void readData(InputStream is){
+    private int readData(InputStream is){
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, StandardCharsets.UTF_8)
@@ -186,12 +185,14 @@ public class QuestionBank implements Serializable {
                     Log.wtf("MyActivity", "No corresponding question type on line: " + line);
                 }
             }
-            numBaseline = questions.size();
-            Collections.shuffle(questions);
+
+            // Collections.shuffle(questions);
             is.close();
+            return questions.size();
         }catch (Exception e){
             Log.wtf("MyActivity", "Error reading data file on line: " + line, e);
             e.printStackTrace();
         }
+        return 0;
     }
 }

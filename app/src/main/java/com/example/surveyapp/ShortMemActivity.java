@@ -93,7 +93,7 @@ public class ShortMemActivity extends AppCompatActivity {
 
         // inits
         TextView title = findViewById(R.id.textTitleShortmem);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         next1 = findViewById(R.id.shortMemNext1);
         next2 = findViewById(R.id.shortMemNext2);
         prePrompt = findViewById(R.id.shortMemPrePrompt);

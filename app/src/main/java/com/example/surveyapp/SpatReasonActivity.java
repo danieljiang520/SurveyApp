@@ -82,7 +82,7 @@ public class SpatReasonActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         TextView title = findViewById(R.id.textTitleSpatreason);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         // sets up image
         ImageView imageView = (ImageView) findViewById(R.id.spatReasonImage);
         int imageResource = getResources().getIdentifier("@drawable/"+question.getImgPath(), null, this.getPackageName());

@@ -91,7 +91,7 @@ public class SubjectiveActivity extends AppCompatActivity{
         question = questionBank.getPrevQuestion();
 
         TextView title = findViewById(R.id.textTitleSubjective);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         int choiceAmt = Integer.parseInt(question.getQuestionCode());
 
         // Grabs output name from FirstPageActivity for CSVWriting

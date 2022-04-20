@@ -92,7 +92,7 @@ public class VisSearchActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         TextView title = findViewById(R.id.textTitleVissearch);
-        title.setText("Set " + String.valueOf(questionBank.getSetChoice()+1) + ": "+ question.getType());
+        title.setText("Set " + String.valueOf(questionBank.getSetChoiceString()+1) + ": "+ question.getType());
         String[] stringLoc = question.getQuestionCode().split("-");
 
         // textviews match
