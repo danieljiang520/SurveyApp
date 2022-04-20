@@ -113,6 +113,28 @@ public class ReadCompActivity extends AppCompatActivity {
         readCompNext = findViewById(R.id.readCompNext); // HERE
         readCompNextFake = findViewById(R.id.readCompNextFake);
 
+        readCompNextFake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initAnswerButtons();
+                readCompNextFake.setVisibility(View.GONE);
+                readCompNext.setVisibility(View.VISIBLE);
+                prompt.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+    }
+
+    private void initAnswerButtons() {
+        // Answer choices
+        Button b1 = findViewById(R.id.readCompChoice1);
+        Button b2 = findViewById(R.id.readCompChoice2);
+        Button b3 = findViewById(R.id.readCompChoice3);
+        Button b4 = findViewById(R.id.readCompChoice4);
+        Button b5 = findViewById(R.id.readCompChoice5);
+        EditText edit = findViewById(R.id.readCompTextEntry);
+
         //alert for next button
         AlertDialog.Builder buildernull = new AlertDialog.Builder(ReadCompActivity.this);
         buildernull.setMessage("There is an unanswered question on this page. Would you like to continue?");
@@ -135,12 +157,9 @@ public class ReadCompActivity extends AppCompatActivity {
                     }
                 });
 
+        TextView excerpt = findViewById(R.id.readCompExcerpt);
+        excerpt.setVisibility(View.GONE);
         if(question.getAnswerOptions().length == 0){
-            Button b1 = findViewById(R.id.readCompChoice1);
-            Button b2 = findViewById(R.id.readCompChoice2);
-            Button b3 = findViewById(R.id.readCompChoice3);
-            Button b4 = findViewById(R.id.readCompChoice4);
-            Button b5 = findViewById(R.id.readCompChoice5);
             b1.setVisibility(View.GONE);
             b2.setVisibility(View.GONE);
             b3.setVisibility(View.GONE);
@@ -201,7 +220,6 @@ public class ReadCompActivity extends AppCompatActivity {
                 }
             });
         }
-
     }
 
     public void ActivitySwitch() {
