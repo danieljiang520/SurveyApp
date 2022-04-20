@@ -31,13 +31,13 @@ public class QuestionBank implements Serializable {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public QuestionBank(InputStream is, int setChoice, String setChoiceString) {
-        this.indexQuestion = (setChoice==0) ? 0 : 5;
+        this.indexQuestion = (setChoice==0) ? 0 : 6;
         this.questions = new ArrayList<>();
 //        this.questionSets = new ArrayList<>();
         this.setChoice = setChoice;
         this.setChoiceString = setChoiceString;
         this.numAvailableQuestions = readData(is);
-        this.numSetQuestions = (setChoice==0) ? 5 : numAvailableQuestions - 5;
+        this.numSetQuestions = (setChoice==0) ? 6 : numAvailableQuestions - 6;
         this.startingIndex = indexQuestion;
     }
 
