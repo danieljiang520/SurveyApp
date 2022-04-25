@@ -153,7 +153,6 @@ public class ReadCompActivity extends AppCompatActivity {
                 "No",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        timeStamp.updateTimeStamp();
                         dialog.cancel();
                     }
                 });
