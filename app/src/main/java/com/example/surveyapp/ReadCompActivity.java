@@ -126,7 +126,37 @@ public class ReadCompActivity extends AppCompatActivity {
             }
         });
 
-
+        ConstraintLayout cLayout = findViewById(R.id.readComp);
+        cLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeStamp.updateTimeStamp();
+            }
+        });
+        prePrompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeStamp.updateTimeStamp();
+            }
+        });
+        excerpt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeStamp.updateTimeStamp();
+            }
+        });
+        prompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeStamp.updateTimeStamp();
+            }
+        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeStamp.updateTimeStamp();
+            }
+        });
     }
 
     private void initAnswerButtons() {
@@ -173,45 +203,6 @@ public class ReadCompActivity extends AppCompatActivity {
             b4.setVisibility(View.GONE);
             b5.setVisibility(View.GONE);
             edit.setVisibility(View.VISIBLE);
-            // detects tap on screen, records timestamp
-            ConstraintLayout cLayout = findViewById(R.id.readComp);
-            cLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            prePrompt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            excerpt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            prompt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            readCompNextFake.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
-                }
-            });
-            // "next" button
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -232,46 +223,7 @@ public class ReadCompActivity extends AppCompatActivity {
             edit.setVisibility(View.GONE);
             InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
             buttons.timeStamps = timeStamp;
-            // detects tap on screen, records timestamp
 
-            ConstraintLayout cLayout = findViewById(R.id.readComp);
-            cLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            prePrompt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            excerpt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            prompt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            readCompNextFake.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    buttons.getTimeStamps().updateTimeStamp();
-                }
-            });
-            // "next" button
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
