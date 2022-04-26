@@ -30,6 +30,13 @@ public class ReadCompActivity extends AppCompatActivity {
     Question question;
     GetTimeStamp timeStamp = new GetTimeStamp();
 
+    // matches textviews with id
+    TextView prePrompt = findViewById(R.id.readCompPrePrompt);
+    TextView excerpt = findViewById(R.id.readCompExcerpt);
+    TextView prompt = findViewById(R.id.readCompPrompt);
+    EditText edit = findViewById(R.id.readCompTextEntry);
+    ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
+
     //20,Reading Comprehension,Visual Cognitive,Accuracy/Timing,CA,Q#,PRE,PASS,POST,OPS,
 
     // THIS IS MENU STUFF
@@ -87,8 +94,7 @@ public class ReadCompActivity extends AppCompatActivity {
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
         // splitting instruction string
-//        prePrompts = question.getInstruction().split("(?m)^\\s*$");
-        ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
+//        prePrompts = question.getInstruction().split("(?m)^\\s*$")
         if(question.getQuestionCode()!="null") {
             int imageResource = getResources().getIdentifier("@drawable/" + question.getQuestionCode(), null, this.getPackageName());
             imageView.setImageResource(imageResource);
@@ -96,12 +102,6 @@ public class ReadCompActivity extends AppCompatActivity {
         else{
             imageView.setVisibility(View.GONE);
         }
-
-        // matches textviews with id
-        TextView prePrompt = findViewById(R.id.readCompPrePrompt);
-        TextView excerpt = findViewById(R.id.readCompExcerpt);
-        TextView prompt = findViewById(R.id.readCompPrompt);
-        EditText edit = findViewById(R.id.readCompTextEntry);
 
         // setting text from library
         prePrompt.setText(question.getInstruction());
@@ -175,6 +175,30 @@ public class ReadCompActivity extends AppCompatActivity {
                     timeStamp.updateTimeStamp();
                 }
             });
+            prePrompt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
+            excerpt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
+            prompt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
             // "next" button
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -200,6 +224,30 @@ public class ReadCompActivity extends AppCompatActivity {
 
             ConstraintLayout cLayout = findViewById(R.id.readComp);
             cLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            prePrompt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            excerpt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            prompt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     buttons.getTimeStamps().updateTimeStamp();
