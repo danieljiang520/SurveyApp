@@ -30,12 +30,7 @@ public class ReadCompActivity extends AppCompatActivity {
     Question question;
     GetTimeStamp timeStamp = new GetTimeStamp();
 
-    // matches textviews with id
-    TextView prePrompt = findViewById(R.id.readCompPrePrompt);
-    TextView excerpt = findViewById(R.id.readCompExcerpt);
-    TextView prompt = findViewById(R.id.readCompPrompt);
-    EditText edit = findViewById(R.id.readCompTextEntry);
-    ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
+
 
     //20,Reading Comprehension,Visual Cognitive,Accuracy/Timing,CA,Q#,PRE,PASS,POST,OPS,
 
@@ -93,6 +88,13 @@ public class ReadCompActivity extends AppCompatActivity {
         Intent intent = getIntent();
         outputName = intent.getStringExtra(FirstPageActivity.EXTRA_OUTPUT);
 
+        // matches textviews with id
+        TextView prePrompt = findViewById(R.id.readCompPrePrompt);
+        TextView excerpt = findViewById(R.id.readCompExcerpt);
+        TextView prompt = findViewById(R.id.readCompPrompt);
+        EditText edit = findViewById(R.id.readCompTextEntry);
+        ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
+
         // splitting instruction string
 //        prePrompts = question.getInstruction().split("(?m)^\\s*$")
         if(question.getQuestionCode()!="null") {
@@ -134,6 +136,11 @@ public class ReadCompActivity extends AppCompatActivity {
         Button b4 = findViewById(R.id.readCompChoice4);
         Button b5 = findViewById(R.id.readCompChoice5);
         EditText edit = findViewById(R.id.readCompTextEntry);
+        // matches textviews with id
+        TextView prePrompt = findViewById(R.id.readCompPrePrompt);
+        TextView excerpt = findViewById(R.id.readCompExcerpt);
+        TextView prompt = findViewById(R.id.readCompPrompt);
+        ImageView imageView = (ImageView) findViewById(R.id.readCompImg);
 
         //alert for next button
         AlertDialog.Builder buildernull = new AlertDialog.Builder(ReadCompActivity.this);
@@ -157,7 +164,6 @@ public class ReadCompActivity extends AppCompatActivity {
                     }
                 });
 
-        TextView excerpt = findViewById(R.id.readCompExcerpt);
         excerpt.setVisibility(View.GONE);
         if(question.getAnswerOptions().length == 0){
             b1.setVisibility(View.GONE);
