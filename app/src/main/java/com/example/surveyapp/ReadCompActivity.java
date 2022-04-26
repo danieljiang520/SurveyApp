@@ -204,6 +204,12 @@ public class ReadCompActivity extends AppCompatActivity {
                     timeStamp.updateTimeStamp();
                 }
             });
+            readCompNextFake.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timeStamp.updateTimeStamp();
+                }
+            });
             // "next" button
             readCompNext.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -253,6 +259,12 @@ public class ReadCompActivity extends AppCompatActivity {
                 }
             });
             imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttons.getTimeStamps().updateTimeStamp();
+                }
+            });
+            readCompNextFake.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     buttons.getTimeStamps().updateTimeStamp();
