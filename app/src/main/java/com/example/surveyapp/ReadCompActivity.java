@@ -118,6 +118,7 @@ public class ReadCompActivity extends AppCompatActivity {
         readCompNextFake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                timeStamp.updateTimeStamp();
                 initAnswerButtons();
                 readCompNextFake.setVisibility(View.GONE);
                 readCompNext.setVisibility(View.VISIBLE);
