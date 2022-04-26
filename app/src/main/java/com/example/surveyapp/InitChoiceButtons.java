@@ -13,7 +13,7 @@ import java.util.List;
 public class InitChoiceButtons  extends AppCompatActivity {
     private List<Button> choiceList = new ArrayList<Button>();
     private String selected = "N/A";
-    private GetTimeStamp timeStamps = new GetTimeStamp();
+    public GetTimeStamp timeStamps = new GetTimeStamp();
 
     InitChoiceButtons(Activity activity, String activityName, String[] answerOptions){
         for(int i = 1; i <= 5; ++i){
