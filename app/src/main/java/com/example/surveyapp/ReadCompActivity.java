@@ -194,13 +194,14 @@ public class ReadCompActivity extends AppCompatActivity {
         else{
             edit.setVisibility(View.GONE);
             InitChoiceButtons buttons = new InitChoiceButtons(this,"readCompChoice",question.getAnswerOptions());
+            buttons.timeStamps = timeStamp;
             // detects tap on screen, records timestamp
 
             ConstraintLayout cLayout = findViewById(R.id.readComp);
             cLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    timeStamp.updateTimeStamp();
+                    buttons.getTimeStamps().updateTimeStamp();
                 }
             });
             // "next" button
@@ -214,7 +215,7 @@ public class ReadCompActivity extends AppCompatActivity {
                     else {
                         buttons.getTimeStamps().updateTimeStamp();
                         Log.d("ReadCompActivity", "selected: " + buttons.getSelected());
-                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
                         ActivitySwitch();
                     }
                 }
