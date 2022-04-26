@@ -154,7 +154,7 @@ public class SubjectiveActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
-                csvWriter.WriteAnswers(outputName, SubjectiveActivity.this, timeStamps, question.getTypeActivity(), selectedAnswers(choices), question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, SubjectiveActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),selectedAnswers(choices), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

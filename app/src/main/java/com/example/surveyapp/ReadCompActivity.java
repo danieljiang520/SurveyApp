@@ -183,7 +183,7 @@ public class ReadCompActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         timeStamp.updateTimeStamp();
                         String response = edit.getText().toString();
-                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), "N/A", question.getCorrectAnswer());
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), question.getQuestion(), "N/A", question.getCorrectAnswer());
                         ActivitySwitch();
                     }
                 });
@@ -213,7 +213,7 @@ public class ReadCompActivity extends AppCompatActivity {
                     }
                     else {
                         timeStamp.updateTimeStamp();
-                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), response, question.getCorrectAnswer());
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, timeStamp, question.getTypeActivity(), question.getQuestion(), response, question.getCorrectAnswer());
                         ActivitySwitch();
                     }
                 }
@@ -234,7 +234,7 @@ public class ReadCompActivity extends AppCompatActivity {
                     else {
                         buttons.getTimeStamps().updateTimeStamp();
                         Log.d("ReadCompActivity", "selected: " + buttons.getSelected());
-                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                        csvWriter.WriteAnswers(outputName, ReadCompActivity.this, buttons.getTimeStamps(), question.getTypeActivity(),question.getQuestion(), buttons.getSelected(), question.getCorrectAnswer());
                         ActivitySwitch();
                     }
                 }

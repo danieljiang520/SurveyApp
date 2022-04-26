@@ -108,7 +108,7 @@ public class PatternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 buttons.getTimeStamps().updateTimeStamp();
                 Log.d("PatternActivity", "selected: " + buttons.getSelected() );
-                csvWriter.WriteAnswers(outputName, PatternActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, PatternActivity.this, buttons.getTimeStamps(), question.getTypeActivity(),question.getQuestion(), buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

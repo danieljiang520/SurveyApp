@@ -108,7 +108,7 @@ public class TypingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 typed = "\""+typedEntry.getText().toString()+"\"";
-                csvWriter.WriteAnswers(outputName, TypingActivity.this, timeStamps, question.getTypeActivity(), typed, question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, TypingActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),typed, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

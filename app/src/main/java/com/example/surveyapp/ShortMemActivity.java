@@ -183,7 +183,7 @@ public class ShortMemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timeStamps.updateTimeStamp();
                 response = responseEntry.getText().toString();
-                csvWriter.WriteAnswers(outputName, ShortMemActivity.this, timeStamps, question.getTypeActivity(), response, question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, ShortMemActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),response, question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

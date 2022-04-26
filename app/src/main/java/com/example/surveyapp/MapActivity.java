@@ -107,7 +107,7 @@ public class MapActivity extends AppCompatActivity {
             public void onClick(View view) {
                 buttons.getTimeStamps().updateTimeStamp();
                 Log.d("MapActivity", "selected: " + buttons.getSelected() );
-                csvWriter.WriteAnswers(outputName, MapActivity.this, buttons.getTimeStamps(), question.getAnswerType(), buttons.getSelected(), question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, MapActivity.this, buttons.getTimeStamps(), question.getAnswerType(), question.getQuestion(),buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

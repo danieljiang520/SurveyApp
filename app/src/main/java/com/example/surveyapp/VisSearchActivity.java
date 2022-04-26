@@ -253,7 +253,7 @@ public class VisSearchActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     timeStamps.updateTimeStamp();
-                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, question.getTypeActivity(), "Found: "+Integer.toString(count), question.getCorrectAnswer());
+                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),"Found: "+Integer.toString(count), question.getCorrectAnswer());
                     ActivitySwitch();
                 }
             });
@@ -286,7 +286,7 @@ public class VisSearchActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     buttons.getTimeStamps().updateTimeStamp();
-                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                    csvWriter.WriteAnswers(outputName, VisSearchActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), question.getQuestion(),buttons.getSelected(), question.getCorrectAnswer());
                     ActivitySwitch();
                 }
             });

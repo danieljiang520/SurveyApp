@@ -16,7 +16,7 @@ public class CSVWriting extends AppCompatActivity {
     // creates csv for writing
     public void CreateCSV(String partNum, String startTime, Context context){
 
-        String labels = ",first click,last click,page submit,click count,type,answer,correct answer,correctness";
+        String labels = ",first click,last click,page submit,click count,type,prompt,answer,correct answer";
 
         // this creates a new file and corresponding output stream
         File myExternalFile = new File(context.getExternalFilesDir("CsvFileDir"), partNum + ".csv");
@@ -41,7 +41,7 @@ public class CSVWriting extends AppCompatActivity {
 
     // writes out answer format
     public void WriteAnswers(String outputName, Context context, GetTimeStamp timeStamps,
-                             String type, String answer, String correctAnswer){
+                             String type, String prompt, String answer, String correctAnswer){
         File myExternalFile = new File(context.getExternalFilesDir("CsvFileDir"), outputName + ".csv");
         FileOutputStream fos;
         try{
@@ -57,6 +57,8 @@ public class CSVWriting extends AppCompatActivity {
             fos.write(String.valueOf(timeStamps.clickCount).getBytes());
             fos.write(",".getBytes());
             fos.write(type.getBytes());
+            fos.write(",".getBytes());
+            fos.write(prompt.getBytes());
             fos.write(",".getBytes());
             fos.write(answer.getBytes());
             fos.write(",".getBytes());

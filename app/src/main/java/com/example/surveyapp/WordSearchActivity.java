@@ -194,7 +194,7 @@ public class WordSearchActivity extends AppCompatActivity {
 //                if(word3.isSelected()){
 //                    answer += question.getAnswerOptions()[2];
 //                }
-                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, question.getTypeActivity(), "wordSearch answer", "wordSearch correct answer");
+                csvWriter.WriteAnswers(outputName, WordSearchActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),"wordSearch answer", "wordSearch correct answer");
                 ActivitySwitch();
             }
         });

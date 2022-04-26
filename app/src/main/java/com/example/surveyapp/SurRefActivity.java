@@ -153,7 +153,7 @@ public class SurRefActivity extends AppCompatActivity {
                 else{
                     answer = "not found";
                 }
-                csvWriter.WriteAnswers(outputName, SurRefActivity.this, timeStamps, question.getTypeActivity(), answer, "found");
+                csvWriter.WriteAnswers(outputName, SurRefActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),answer, "found");
                 ActivitySwitch();
             }
         });

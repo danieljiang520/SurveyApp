@@ -110,7 +110,7 @@ public class SpatReasonActivity extends AppCompatActivity {
             public void onClick(View view) {
                 buttons.getTimeStamps().updateTimeStamp();
                 Log.d("MapActivity", "selected: " + buttons.getSelected() );
-                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, SpatReasonActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), question.getQuestion(),buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

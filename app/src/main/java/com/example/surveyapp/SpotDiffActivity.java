@@ -117,7 +117,7 @@ public class SpotDiffActivity extends AppCompatActivity {
             public void onClick(View view) {
                 buttons.getTimeStamps().updateTimeStamp();
                 Log.d("SpotDiffActivity", "selected: " + buttons.getSelected() );
-                csvWriter.WriteAnswers(outputName, SpotDiffActivity.this, buttons.getTimeStamps(), question.getTypeActivity(), buttons.getSelected(), question.getCorrectAnswer());
+                csvWriter.WriteAnswers(outputName, SpotDiffActivity.this, buttons.getTimeStamps(), question.getTypeActivity(),question.getQuestion(), buttons.getSelected(), question.getCorrectAnswer());
                 ActivitySwitch();
             }
         });

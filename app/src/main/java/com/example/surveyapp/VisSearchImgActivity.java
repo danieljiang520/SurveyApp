@@ -193,7 +193,7 @@ public class VisSearchImgActivity extends AppCompatActivity {
 //                if(word3.isSelected()){
 //                    answer += question.getAnswerOptions()[2];
 //                }
-                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, question.getTypeActivity(), "visSearchImg answer", "visSearchImg correct answer");
+                csvWriter.WriteAnswers(outputName, VisSearchImgActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),"visSearchImg answer", "visSearchImg correct answer");
                 ActivitySwitch();
             }
         });

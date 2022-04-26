@@ -174,7 +174,7 @@ public class ReactTimeActivity extends AppCompatActivity {
                                     public void run() {
                                         // completing the module
                                         String response = image1.isSelected()+" "+image2.isSelected()+" "+image3.isSelected();
-                                        csvWriter.WriteAnswers(outputName, ReactTimeActivity.this, timeStamps, question.getTypeActivity(), response, question.getCorrectAnswer());
+                                        csvWriter.WriteAnswers(outputName, ReactTimeActivity.this, timeStamps, question.getTypeActivity(), question.getQuestion(),response, question.getCorrectAnswer());
                                         ActivitySwitch();
                                     }
                                 }, 3000);
